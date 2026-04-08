@@ -32,7 +32,7 @@
 html,
 body,
 #__nuxt {
-  @apply bg-gray-950 m-0 p-0 font-display text-white;
+  @apply font-display m-0 bg-gray-950 p-0 text-white;
 }
 
 .prose-sm {
@@ -51,7 +51,7 @@ body,
 
   ul {
     li {
-      @apply list-disc list-outside marker:text-slate-300;
+      @apply list-outside list-disc marker:text-slate-300;
     }
   }
 }
