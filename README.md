@@ -14,28 +14,28 @@ npm install
 
 ## Scripts
 
-| Command            | Description                                      |
-| ------------------ | ------------------------------------------------ |
-| `npm run dev`      | Dev server (default: http://localhost:3000)      |
-| `npm run build`    | Production build                                 |
-| `npm run preview`  | Preview production build locally                 |
-| `npm run generate` | Static generation (`nuxt generate`)              |
-| `npm run lint`     | ESLint                                           |
-| `npm run lint:fix` | ESLint with `--fix`                              |
-| `npm run format`   | Prettier check                                   |
-| `npm run format:fix` | Prettier write                                   |
-| `npm run typecheck` | Vue / TS check (`vue-tsc --noEmit`)           |
+| Command              | Description                                 |
+| -------------------- | ------------------------------------------- |
+| `npm run dev`        | Dev server (default: http://localhost:3000) |
+| `npm run build`      | Production build                            |
+| `npm run preview`    | Preview production build locally            |
+| `npm run generate`   | Static generation (`nuxt generate`)         |
+| `npm run lint`       | ESLint                                      |
+| `npm run lint:fix`   | ESLint with `--fix`                         |
+| `npm run format`     | Prettier check                              |
+| `npm run format:fix` | Prettier write                              |
+| `npm run typecheck`  | Vue / TS check (`vue-tsc --noEmit`)         |
 
 ## Stack
 
-| Area        | Notes |
-| ----------- | ----- |
-| **Framework** | Nuxt 4, Vue 3, TypeScript |
-| **Styling** | Tailwind CSS v4 via `@tailwindcss/vite`; global CSS in `app/assets/css/` (`@import "tailwindcss"`, `@theme`, `@plugin`) |
-| **Typography** | `@tailwindcss/typography` (used from CSS) |
-| **Content** | `@nuxtjs/mdc` (Markdown components) |
-| **i18n** | `@nuxtjs/i18n` (locales under `i18n/locales/`) |
-| **Images** | `@nuxt/image` |
+| Area           | Notes                                                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Framework**  | Nuxt 4, Vue 3, TypeScript                                                                                               |
+| **Styling**    | Tailwind CSS v4 via `@tailwindcss/vite`; global CSS in `app/assets/css/` (`@import "tailwindcss"`, `@theme`, `@plugin`) |
+| **Typography** | `@tailwindcss/typography` (used from CSS)                                                                               |
+| **Content**    | `@nuxtjs/mdc` (Markdown components)                                                                                     |
+| **i18n**       | `@nuxtjs/i18n` (locales under `i18n/locales/`)                                                                          |
+| **Images**     | `@nuxt/image`                                                                                                           |
 
 ## Development tooling
 
