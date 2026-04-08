@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-display: 'JetBrains Mono', sans-serif;
+
+  --color-primary-50: #eef4ff;
+  --color-primary-100: #d9e6ff;
+  --color-primary-200: #b3ccff;
+  --color-primary-300: #80a9ff;
+  --color-primary-400: #4d86ff;
+  --color-primary-500: #2a64f6;
+  --color-primary-600: #1f4ed1;
+  --color-primary-700: #183da6;
+  --color-primary-800: #122e7d;
+  --color-primary-900: #0b2057;
+  --color-primary-950: #051730;
+
+  --color-gray-50: #f4f6f8;
+  --color-gray-100: #e6eaee;
+  --color-gray-200: #cfd6dd;
+  --color-gray-300: #aab4bf;
+  --color-gray-400: #7f8c99;
+  --color-gray-500: #5f6b78;
+  --color-gray-600: #49525c;
+  --color-gray-700: #383f47;
+  --color-gray-800: #262b31;
+  --color-gray-900: #181c20;
+  --color-gray-950: #0f1215;
+}
+
+html,
+body,
+#__nuxt {
+  @apply bg-gray-950 m-0 p-0 font-display text-white;
+}
+
+.prose-sm {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700;
+  }
+
+  ul {
+    li {
+      @apply list-disc list-outside marker:text-slate-300;
+    }
+  }
+}
+
+.px-main {
+  @apply px-4 md:px-8;
+}

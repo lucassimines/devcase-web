@@ -1,0 +1,4 @@
+{
+  "tailwindCSS.classFunctions": ["tv", "cn"],
+  "tailwindCSS.experimental.classRegex": [[":ui=\\\"([^\\\"]*)\\\"", "[\"'`]([^\"'`]*)[\"'`]"]]
+}
