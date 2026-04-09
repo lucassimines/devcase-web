@@ -5,9 +5,9 @@
     </figure>
 
     <div class="space-y-2">
-      <h3 class="text-lg" v-text="name" />
+      <h3 class="text-xl uppercase" v-text="name" />
 
-      <h4 class="text-gray-elevated font-mono" v-text="description" />
+      <h4 class="text-gray-elevated font-sans" v-text="description" />
     </div>
   </div>
 </template>

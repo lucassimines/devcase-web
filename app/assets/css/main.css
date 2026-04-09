@@ -36,7 +36,7 @@
 html,
 body,
 #__nuxt {
-  @apply bg-primary-950 m-0 p-0 font-sans text-gray-50;
+  @apply bg-primary-950 m-0 p-0 font-mono text-gray-50;
 }
 
 .prose {
