@@ -4,6 +4,6 @@
   "name": "Lucas Simines",
   "intro": "I specialize in frontend architecture using Nuxt, Vue, SSR, and Vercel, while also developing robust backend solutions with Laravel. I particularly enjoy building projects from scratch — taking ideas from concept to production with a strong emphasis on clean architecture and long-term scalability.",
   "projects": {
-    "featured": "featured_projects"
+    "featured": "Featured Projects"
   }
 }

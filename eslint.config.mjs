@@ -9,6 +9,7 @@ export default withNuxt([
       '@stylistic/semi': ['error', 'never'],
       semi: ['error', 'never'],
       'vue/no-multiple-template-root': 'off',
+      'vue/no-v-html': 'off',
       'vue/component-name-in-template-casing': [
         'error',
         'PascalCase',
