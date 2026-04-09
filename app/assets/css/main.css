@@ -4,6 +4,7 @@
 @theme {
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Lora', serif;
 
   --color-primary-50: oklch(0.958 0.019 279.58);
   --color-primary-100: oklch(0.906 0.043 278.28);
@@ -35,10 +36,12 @@
 html,
 body,
 #__nuxt {
-  @apply bg-primary-950 m-0 p-0 font-sans text-white;
+  @apply bg-primary-950 m-0 p-0 font-sans text-gray-50;
 }
 
-.prose-sm {
+.prose {
+  @apply max-w-4xl;
+
   h1,
   h2,
   h3,
@@ -46,6 +49,10 @@ body,
   h5,
   h6 {
     @apply font-semibold;
+  }
+
+  p {
+    @apply font-serif leading-[1.7];
   }
 
   a {

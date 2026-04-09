@@ -1,16 +1,12 @@
 <template>
-  <div class="divide-gray-elevated space-y-10 divide-y pb-30">
-    <Container :ui="{ inner: 'py-10 flex flex-col gap-10' }">
-      <div class="flex flex-col gap-4">
-        <h1 class="text-3xl" v-text="`${$t('greeting', { name: $t('name') })}.`" />
-
-        <div>
-          <p class="text-gray-elevated text-lg" v-text="$t('intro')" />
-        </div>
+  <div class="divide-y divide-gray-800">
+    <Container :ui="{ inner: 'py-14' }">
+      <div class="prose">
+        <p class="text-gray-elevated text-lg" v-text="$t('intro')" />
       </div>
     </Container>
 
-    <Container :ui="{ inner: 'space-y-10' }">
+    <Container :ui="{ inner: 'space-y-10 py-14' }">
       <PageTitle :title="$t('projects.featured')" />
 
       <div class="grid grid-cols-3 gap-8">
