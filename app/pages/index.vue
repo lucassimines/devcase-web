@@ -1,24 +1,46 @@
 <template>
-  <Container :ui="{ inner: 'py-10' }">
-    <h1 v-text="$t('greeting', { name: $t('name') })" />
-  </Container>
+  <div class="divide-gray-elevated space-y-10 divide-y pb-30">
+    <Container :ui="{ inner: 'py-10 flex flex-col gap-10' }">
+      <div class="flex flex-col gap-4">
+        <h1 class="text-3xl" v-text="`${$t('greeting', { name: $t('name') })}.`" />
+
+        <div>
+          <p class="text-gray-elevated text-lg" v-text="$t('intro')" />
+        </div>
+      </div>
+    </Container>
+
+    <Container :ui="{ inner: 'space-y-10' }">
+      <PageTitle :title="$t('projects.featured')" />
+
+      <div class="grid grid-cols-3 gap-8">
+        <ProjectCard v-for="project in projects" :key="project.id" v-bind="project" />
+      </div>
+    </Container>
+  </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Lucas Biondo Simines - Resume',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'I specialize in frontend architecture using Nuxt, Vue, SSR, and Vercel, while also developing robust backend solutions with Laravel. I particularly enjoy building projects from scratch — taking ideas from concept to production with a strong emphasis on clean architecture and long-term scalability.'
-    }
-  ],
-  link: [
-    {
-      rel: 'apple-touch-icon',
-      href: '/images/og-image.png'
-    }
-  ]
-})
+import type { Project } from '~/types/project'
+
+const projects: Project[] = [
+  {
+    id: 1,
+    name: 'PPA',
+    description: 'Latin America’s most prominent gate, door, and barrier operator industry',
+    image: '/images/dummy.jpeg'
+  },
+  {
+    id: 2,
+    name: 'Project 2',
+    description: 'Description 2',
+    image: '/images/dummy.jpeg'
+  },
+  {
+    id: 3,
+    name: 'Project 3',
+    description: 'Description 3',
+    image: '/images/dummy.jpeg'
+  }
+]
 </script>

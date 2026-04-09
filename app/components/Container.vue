@@ -16,7 +16,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  tag: 'div'
+  tag: 'section'
 })
 
 const container = tv({
