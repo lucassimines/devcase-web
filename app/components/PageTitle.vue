@@ -1,5 +1,7 @@
 <template>
-  <h2 class="font-mono text-3xl" v-html="formattedTitle" />
+  <h2 class="flex items-center gap-2 font-mono text-3xl">
+    <span v-html="formattedTitle" />
+  </h2>
 </template>
 
 <script setup lang="ts">
@@ -12,6 +14,6 @@ function toSnakeCase(title: string) {
 }
 
 const formattedTitle = computed(() => {
-  return `<i class="text-primary-600">/</i>${toSnakeCase(props.title)}`
+  return toSnakeCase(props.title)
 })
 </script>

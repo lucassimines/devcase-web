@@ -2,7 +2,7 @@
   <div class="divide-y divide-gray-800">
     <Container :ui="{ inner: 'py-14' }">
       <div class="prose">
-        <p class="text-gray-elevated text-lg" v-text="$t('intro')" />
+        <p class="text-xl" v-text="$t('intro')" />
       </div>
     </Container>
 
@@ -24,19 +24,24 @@ const projects: Project[] = [
     id: 1,
     name: 'PPA',
     description: 'Latin America’s most prominent gate, door, and barrier operator industry',
-    image: '/images/dummy.jpeg'
+    image: '/images/dummy.jpeg',
+    slug: 'ppa'
   },
   {
     id: 2,
-    name: 'Project 2',
-    description: 'Description 2',
-    image: '/images/dummy.jpeg'
+    name: 'Warner Bros Brasil',
+    description:
+      'Warner Bros Brasil is a subsidiary of Warner Bros. that produces and distributes movies and TV shows in Brazil.',
+    image: '/images/dummy.jpeg',
+    slug: 'warner-bros-brasil'
   },
   {
     id: 3,
-    name: 'Project 3',
-    description: 'Description 3',
-    image: '/images/dummy.jpeg'
+    name: 'Andy’s Bet Club',
+    description:
+      'Andy’s Bet Club is a sports betting platform that allows users to bet on sports events.',
+    image: '/images/dummy.jpeg',
+    slug: 'andy-s-bet-club'
   }
 ]
 </script>

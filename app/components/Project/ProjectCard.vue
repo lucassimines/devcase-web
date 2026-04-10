@@ -4,11 +4,11 @@
       <NuxtImg :src="image" alt="Project" class="size-full object-cover" />
     </figure>
 
-    <div class="space-y-2">
+    <NuxtLink :to="{ name: 'project-slug', params: { slug } }" class="space-y-2">
       <h3 class="text-xl uppercase" v-text="name" />
 
       <h4 class="text-gray-elevated font-sans" v-text="description" />
-    </div>
+    </NuxtLink>
   </div>
 </template>
 

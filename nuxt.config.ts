@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxtjs/mdc', '@nuxtjs/i18n'],
+  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxtjs/mdc', '@nuxtjs/i18n', '@nuxt/icon'],
 
   devtools: { enabled: true },
 
