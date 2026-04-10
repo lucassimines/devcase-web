@@ -1,6 +1,8 @@
 <template>
   <NuxtLink :to="{ name: 'project-slug', params: { slug } }" class="group block space-y-4">
-    <figure class="aspect-8/11 overflow-hidden rounded-sm bg-gray-800">
+    <figure
+      class="aspect-8/11 overflow-hidden rounded-sm bg-gray-800 transition-all group-hover:skew-1"
+    >
       <NuxtImg :src="image" alt="Project" class="size-full object-cover" />
     </figure>
 
