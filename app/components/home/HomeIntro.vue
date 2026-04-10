@@ -8,7 +8,7 @@
 
         <div class="space-y-0.5">
           <h2 class="text-xl leading-tight" v-text="$t('name')" />
-          <h3 class="text-gray-elevated font-sans" v-text="$t('position')" />
+          <h3 class="text-elevated font-sans" v-text="$t('position')" />
         </div>
       </div>
 

@@ -9,25 +9,30 @@
   --color-brand: #0c2dff;
   --color-brand-alt: #7c3aed;
 
-  --color-gray-elevated: #aab4bf;
+  --color-gray-50: #f3f4f5;
+  --color-gray-100: #e4e5e8;
+  --color-gray-200: #cccfd5;
+  --color-gray-300: #b1b6c0;
+  --color-gray-400: #9aa1ad;
+  --color-gray-500: #828995;
+  --color-gray-600: #6f757f;
+  --color-gray-700: #5a5f67;
+  --color-gray-800: #474b52;
+  --color-gray-900: #26282c;
+  --color-gray-950: #16181b;
 
-  --color-gray-50: #f4f6f8;
-  --color-gray-100: #e6eaee;
-  --color-gray-200: #cfd6dd;
-  --color-gray-300: var(--color-gray-elevated);
-  --color-gray-400: #7f8c99;
-  --color-gray-500: #5f6b78;
-  --color-gray-600: #49525c;
-  --color-gray-700: #383f47;
-  --color-gray-800: #262b31;
-  --color-gray-900: #181c20;
-  --color-gray-950: #0f1215;
+  --color-elevated: var(--color-gray-300);
+
+  --color-muted: var(--color-gray-900);
+
+  /* Font sizes */
+  --text-2.5xl: 1.625rem;
 }
 
 html,
 body,
 #__nuxt {
-  @apply m-0 bg-black p-0 font-mono text-gray-50;
+  @apply m-0 bg-black p-0 font-sans text-gray-50;
 }
 
 .prose {
@@ -43,7 +48,7 @@ body,
   }
 
   p {
-    @apply text-gray-elevated font-sans leading-[1.75] font-light;
+    @apply text-elevated font-sans leading-[1.75] font-light;
   }
 
   a {

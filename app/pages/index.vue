@@ -1,5 +1,5 @@
 <template>
-  <div class="divide-y divide-gray-800">
+  <div class="divide-muted divide-y">
     <HomeIntro />
 
     <Container :ui="{ inner: 'space-y-10 py-14' }">
