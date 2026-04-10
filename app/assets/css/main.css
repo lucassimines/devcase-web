@@ -6,19 +6,8 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-serif: 'Lora', serif;
 
-  --color-brand-50: #e8f2ff;
-  --color-brand-100: #d5e7ff;
-  --color-brand-200: #b3d1ff;
-  --color-brand-300: #85b1ff;
-  --color-brand-400: #5686ff;
-  --color-brand-500: #2f5bff;
-  --color-brand-600: #0c2dff;
-  --color-brand-700: #0421ff;
-  --color-brand-800: #0620cd;
-  --color-brand-900: #10269f;
-  --color-brand-950: #0a155c;
-
-  --color-brand: var(--color-brand-600);
+  --color-brand: #0c2dff;
+  --color-brand-alt: #7c3aed;
 
   --color-gray-elevated: #aab4bf;
 
@@ -58,7 +47,7 @@ body,
   }
 
   a {
-    @apply hover:text-brand-700 text-gray-50;
+    @apply hover:text-brand text-gray-50;
   }
 
   ul {

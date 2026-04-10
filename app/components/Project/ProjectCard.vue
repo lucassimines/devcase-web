@@ -8,7 +8,7 @@
       <div class="flex items-center justify-between gap-2">
         <h3 class="text-xl uppercase" v-text="name" />
         <Icon
-          class="group-hover:text-brand transition-colors"
+          class="group-hover:text-brand-alt transition-colors"
           name="lucide:arrow-right"
           size="22"
         />
