@@ -1,4 +1,9 @@
 {
+  "app": {
+    "by": "Designed and developed by me",
+    "copyright": "© {year} All rights reserved.",
+    "poweredBy": "Powered by Vue, Nuxt and Node.js"
+  },
   "greeting": "Welcome!",
   "position": "Software Engineer",
   "name": "Lucas Simines",
