@@ -1,15 +1,22 @@
 <template>
-  <div class="space-y-4">
-    <figure class="aspect-8/12 overflow-hidden rounded-md bg-gray-800">
+  <NuxtLink :to="{ name: 'project-slug', params: { slug } }" class="group block space-y-4">
+    <figure class="aspect-8/11 overflow-hidden rounded-sm bg-gray-800">
       <NuxtImg :src="image" alt="Project" class="size-full object-cover" />
     </figure>
 
-    <NuxtLink :to="{ name: 'project-slug', params: { slug } }" class="space-y-2">
-      <h3 class="text-xl uppercase" v-text="name" />
+    <div class="space-y-2">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-xl uppercase" v-text="name" />
+        <Icon
+          class="group-hover:text-brand transition-colors"
+          name="lucide:arrow-right"
+          size="22"
+        />
+      </div>
 
       <h4 class="text-gray-elevated font-sans" v-text="description" />
-    </NuxtLink>
-  </div>
+    </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

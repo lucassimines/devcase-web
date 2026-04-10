@@ -18,6 +18,8 @@
   --color-brand-900: #10269f;
   --color-brand-950: #0a155c;
 
+  --color-brand: var(--color-brand-600);
+
   --color-gray-elevated: #aab4bf;
 
   --color-gray-50: #f4f6f8;

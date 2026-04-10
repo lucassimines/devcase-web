@@ -1,10 +1,6 @@
 <template>
   <div class="divide-y divide-gray-800">
-    <Container :ui="{ inner: 'py-14' }">
-      <div class="prose">
-        <p class="text-xl" v-text="$t('intro')" />
-      </div>
-    </Container>
+    <HomeIntro />
 
     <Container :ui="{ inner: 'space-y-10 py-14' }">
       <PageTitle :title="$t('projects.featured')" />
@@ -29,6 +25,13 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    name: 'Kaaza',
+    description: 'Kaaza is a 3D and architecture studio focused on creating immersive experiences.',
+    image: '/images/dummy2.jpg',
+    slug: 'kaaza'
+  },
+  {
+    id: 3,
     name: 'Warner Bros Brasil',
     description:
       'Warner Bros Brasil is a subsidiary of Warner Bros. that produces and distributes movies and TV shows in Brazil.',
@@ -36,7 +39,7 @@ const projects: Project[] = [
     slug: 'warner-bros-brasil'
   },
   {
-    id: 3,
+    id: 4,
     name: 'Andy’s Bet Club',
     description:
       'Andy’s Bet Club is a sports betting platform that allows users to bet on sports events.',
