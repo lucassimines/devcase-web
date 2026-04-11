@@ -23,6 +23,8 @@
 
   --color-elevated: var(--color-gray-300);
 
+  --color-default: var(--color-gray-500);
+
   --color-muted: var(--color-gray-900);
 
   /* Font sizes */

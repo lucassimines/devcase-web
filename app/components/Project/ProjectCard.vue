@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Project } from '~/types/project'
+import type { Project } from '#shared/types/project'
 
 defineProps<Project>()
 </script>

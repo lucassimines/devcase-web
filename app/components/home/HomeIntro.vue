@@ -6,9 +6,12 @@
           <NuxtImg src="/images/avatar.jpg" alt="Lucas Simines" class="size-full object-cover" />
         </figure>
 
-        <div class="space-y-0.5">
-          <h2 class="text-xl leading-tight" v-text="$t('name')" />
-          <h3 class="text-elevated font-sans" v-text="$t('position')" />
+        <div class="space-y-1">
+          <h2 class="font-mono text-xl leading-tight" v-text="$t('name')" />
+          <h3
+            class="text-default"
+            v-text="`${$t('position')} ${$t('basedIn')} ${$t('location')}`"
+          />
         </div>
       </div>
 
