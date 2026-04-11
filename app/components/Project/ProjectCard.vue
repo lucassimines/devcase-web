@@ -1,7 +1,10 @@
 <template>
-  <NuxtLink :to="{ name: 'project-slug', params: { slug } }" class="group block space-y-4">
+  <NuxtLink
+    :to="{ name: 'project-slug', params: { slug: project.slug } }"
+    class="group block space-y-4"
+  >
     <div class="group bg-muted relative aspect-8/11 overflow-hidden rounded-sm">
-      <NuxtImg :src="image" alt="Project" class="size-full object-cover" />
+      <NuxtImg :src="project.image" alt="Project" class="size-full object-cover" />
 
       <div
         class="absolute inset-0 flex size-full items-end bg-transparent transition-[background-color] duration-300 group-hover:bg-black/40"
@@ -21,15 +24,15 @@
     </div>
 
     <div class="space-y-2 transition-opacity duration-300 group-hover:opacity-80">
-      <h3 class="text-xl uppercase" v-text="name" />
+      <h3 class="text-xl uppercase" v-text="project.name" />
 
-      <h4 class="text-elevated font-sans" v-text="description" />
+      <h4 class="text-elevated font-sans" v-text="project.description" />
     </div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-import type { Project } from '#shared/types/project'
-
-defineProps<Project>()
+defineProps<{
+  project: Project
+}>()
 </script>

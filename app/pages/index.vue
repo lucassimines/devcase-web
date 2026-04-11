@@ -6,12 +6,12 @@
       <PageTitle :title="$t('projects.featured')" />
 
       <div class="grid grid-cols-3 gap-8">
-        <ProjectCard v-for="project in projects" :key="project.id" v-bind="project" />
+        <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
       </div>
     </Container>
   </div>
 </template>
 
 <script setup lang="ts">
-const { data: projects } = await useApi<Project[]>('/api/page/home-projects')
+const { data: projects } = await useApi<Project[]>('/api/projects')
 </script>
