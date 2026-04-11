@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <ProjectHero :image="project.image" :name="project.name" />
+    <ProjectHero :name="project.name" :url="project.url" />
   </div>
 </template>
 

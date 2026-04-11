@@ -4,6 +4,7 @@
     "copyright": "© {year} All rights reserved.",
     "builtWith": "Built with Vue, Nuxt and Node.js"
   },
+  "stack": "Stack",
   "greeting": "Welcome!",
   "position": "Software Engineer",
   "basedIn": "based in",

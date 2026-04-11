@@ -37,6 +37,10 @@ body,
   @apply m-0 bg-black p-0 font-sans text-gray-50;
 }
 
+a {
+  @apply transition-colors;
+}
+
 .prose {
   @apply max-w-4xl;
 
