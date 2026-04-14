@@ -1,6 +1,10 @@
 <template>
   <div v-if="project">
-    <ProjectHero :name="project.name" :url="project.url" />
+    <ProjectHero :name="project.name" :url="project.url" :description="project.description" />
+
+    <section class="pb-20">
+      <BlockResolver v-for="block in project.blocks" :key="block.id" :block="block" />
+    </section>
   </div>
 </template>
 

@@ -1,31 +1,39 @@
 <template>
-  <Container :ui="{ inner: 'relative py-10 min-h-100 flex items-center justify-between gap-6' }">
+  <Container :ui="{ inner: 'relative py-10' }">
     <div class="flex flex-col gap-14">
-      <div>
+      <div class="space-y-4">
         <h1 class="text-5xl" v-text="name" />
+
+        <div>
+          <p
+            v-if="description"
+            class="text-default font-serif text-lg leading-[1.75] text-pretty"
+            v-text="description"
+          />
+        </div>
       </div>
 
-      <div class="space-y-3">
-        <h2 class="text-elevated flex items-center gap-2 text-xl">
-          <Icon name="lucide:layers" size="22" />
-          <span v-text="$t('stack')" />
-        </h2>
+      <div class="flex items-center justify-between gap-6">
+        <div class="space-y-3">
+          <h2 class="text-elevated flex items-center gap-2 text-xl">
+            <Icon name="lucide:layers" size="22" />
+            <span v-text="$t('stack')" />
+          </h2>
 
-        <ul class="flex gap-2">
-          <li v-for="technology in technologies" :key="technology.id">
-            <Pill :label="technology.name" :to="technology.url" />
-          </li>
-        </ul>
+          <ul class="flex gap-2">
+            <li v-for="technology in technologies" :key="technology.id">
+              <Pill :label="technology.name" :to="technology.url" />
+            </li>
+          </ul>
+        </div>
+
+        <NuxtLink
+          :to="url"
+          target="_blank"
+          class="text-elevated flex items-center gap-2 font-mono text-xl hover:text-gray-50"
+          ><Icon name="lucide:external-link" size="22" /> {{ prettyUrl }}</NuxtLink
+        >
       </div>
-    </div>
-
-    <div class="space-y-2">
-      <NuxtLink
-        :to="url"
-        target="_blank"
-        class="text-elevated flex items-center gap-2 font-mono text-xl hover:text-gray-50"
-        ><Icon name="lucide:external-link" size="22" /> {{ prettyUrl }}</NuxtLink
-      >
     </div>
   </Container>
 </template>
@@ -34,6 +42,7 @@
 const props = defineProps<{
   name: string
   url: string
+  description?: string
 }>()
 
 const prettyUrl = computed(() => {

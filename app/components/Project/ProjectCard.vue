@@ -3,7 +3,7 @@
     :to="{ name: 'project-slug', params: { slug: project.slug } }"
     class="group block space-y-4"
   >
-    <div class="group bg-muted relative aspect-9/16 overflow-hidden rounded-sm">
+    <div class="group bg-muted relative aspect-8/11 overflow-hidden rounded-sm">
       <NuxtImg
         :src="$imageUrl(project.image)"
         alt="Project"
