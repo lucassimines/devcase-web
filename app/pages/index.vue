@@ -3,7 +3,7 @@
     <HomeIntro />
 
     <Container :ui="{ inner: 'space-y-10 py-14' }">
-      <PageTitle :title="$t('projects.featured')" />
+      <PageTitle :title="$t('projects.featured')" icon="lucide:layers" />
 
       <div class="grid grid-cols-3 gap-8">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project" />

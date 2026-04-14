@@ -3,11 +3,15 @@
     :to="{ name: 'project-slug', params: { slug: project.slug } }"
     class="group block space-y-4"
   >
-    <div class="group bg-muted relative aspect-8/11 overflow-hidden rounded-sm">
-      <NuxtImg :src="$imageUrl(project.image)" alt="Project" class="size-full object-cover" />
+    <div class="group bg-muted relative aspect-9/16 overflow-hidden rounded-sm">
+      <NuxtImg
+        :src="$imageUrl(project.image)"
+        alt="Project"
+        class="size-full object-cover object-top"
+      />
 
       <div
-        class="absolute inset-0 flex size-full items-end bg-transparent transition-[background-color] duration-300 group-hover:bg-black/40"
+        class="absolute inset-0 flex size-full items-end bg-transparent transition-[background-color] duration-300 group-hover:bg-black/50"
       >
         <div
           class="flex grow translate-y-full items-center p-4 transition-transform duration-300 group-hover:translate-y-0"
