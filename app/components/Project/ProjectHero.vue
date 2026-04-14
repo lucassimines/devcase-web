@@ -1,15 +1,11 @@
 <template>
-  <Container :ui="{ inner: 'relative py-10' }">
+  <Container :ui="{ inner: 'relative py-16' }">
     <div class="flex flex-col gap-14">
       <div class="space-y-4">
         <h1 class="text-5xl" v-text="name" />
 
-        <div>
-          <p
-            v-if="description"
-            class="text-default font-serif text-lg leading-[1.75] text-pretty"
-            v-text="description"
-          />
+        <div class="prose">
+          <p v-if="description" class="text-xl" v-text="description" />
         </div>
       </div>
 
@@ -39,6 +35,8 @@
 </template>
 
 <script setup lang="ts">
+import type { Technology } from '~/types/technology'
+
 const props = defineProps<{
   name: string
   url: string
