@@ -4,7 +4,7 @@
     class="group block space-y-4"
   >
     <div class="group bg-muted relative aspect-8/11 overflow-hidden rounded-sm">
-      <NuxtImg :src="project.image" alt="Project" class="size-full object-cover" />
+      <NuxtImg :src="$imageUrl(project.image)" alt="Project" class="size-full object-cover" />
 
       <div
         class="absolute inset-0 flex size-full items-end bg-transparent transition-[background-color] duration-300 group-hover:bg-black/40"

@@ -7,5 +7,5 @@
 <script setup lang="ts">
 const { slug } = useRoute().params
 
-const { data: project } = await useApi<Project>(`/api/project/${slug}`)
+const { data: project } = await useApi<Project>(`/projects/${slug}`)
 </script>

@@ -13,5 +13,5 @@
 </template>
 
 <script setup lang="ts">
-const { data: projects } = await useApi<Project[]>('/api/projects')
+const { data: projects } = await useApi<Project[]>('/projects/featured')
 </script>

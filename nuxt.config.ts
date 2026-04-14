@@ -21,9 +21,10 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    apiUrl: import.meta.env.API_URL,
     public: {
-      appUrl: import.meta.env.APP_URL
+      apiUrl: import.meta.env.API_URL,
+      appUrl: import.meta.env.APP_URL,
+      imagesUrl: import.meta.env.NUXT_PUBLIC_IMAGES_URL
     }
   },
 
