@@ -1,5 +1,14 @@
 <template>
-  <div v-if="project">
+  <Container v-if="status === 'pending'" :ui="{ base: 'py-20 flex-1', inner: 'space-y-16' }">
+    <div class="space-y-4">
+      <Skeleton class="h-10 w-1/2" />
+      <Skeleton class="h-40 w-full" />
+    </div>
+
+    <Skeleton class="h-120 w-full" />
+  </Container>
+
+  <div v-else-if="project" class="flex-1">
     <ProjectHero :name="project.name" :url="project.url" :description="project.description" />
 
     <section class="pb-20">
@@ -17,5 +26,5 @@ import type { Project } from '~/types/project'
 
 const { slug } = useRoute().params
 
-const { data: project } = await useApi<Project>(`/projects/${slug}`)
+const { data: project, status } = await useApi<Project>(`/projects/${slug}`)
 </script>

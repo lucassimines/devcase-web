@@ -1,5 +1,9 @@
 <template>
-  <div :class="cn(ui?.base, 'relative overflow-hidden rounded-xl border border-gray-900')">
+  <div
+    :class="
+      cn('relative min-h-140 w-full overflow-hidden rounded-xl border border-gray-900', ui?.base)
+    "
+  >
     <div class="flex items-center justify-between border-b border-gray-900 bg-gray-950 px-4 py-2.5">
       <div class="flex grow items-center gap-2 [&>div]:size-3 [&>div]:rounded-full">
         <div class="bg-red-500" />
@@ -21,7 +25,7 @@ defineProps<{
   image: string
   title?: string
   ui?: {
-    base?: string
+    base: string
   }
 }>()
 </script>

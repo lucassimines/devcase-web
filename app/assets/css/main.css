@@ -33,7 +33,7 @@
 html,
 body,
 #__nuxt {
-  @apply m-0 bg-black p-0 font-sans text-gray-50;
+  @apply m-0 min-h-screen bg-black p-0 font-sans text-gray-50;
 }
 
 a {
@@ -69,4 +69,8 @@ a {
 
 .px-main {
   @apply px-4 md:px-8;
+}
+
+.py-main {
+  @apply py-4 md:py-8;
 }

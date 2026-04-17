@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <AppHeader />
+  <AppHeader />
 
+  <div class="flex min-h-screen flex-col">
     <slot />
-
-    <AppFooter />
   </div>
+
+  <AppFooter />
 </template>
 
 <script setup lang="ts">
