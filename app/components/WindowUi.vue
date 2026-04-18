@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <NuxtImg :src="image" alt="Image" />
+    <NuxtImg :src="image" alt="Image" class="h-auto w-full" />
   </div>
 </template>
 

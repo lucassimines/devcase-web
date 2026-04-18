@@ -34,6 +34,10 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()]
   },
 
+  typescript: {
+    typeCheck: true
+  },
+
   eslint: {
     config: {
       stylistic: {
@@ -55,6 +59,13 @@ export default defineNuxtConfig({
         file: 'en-us.json'
       }
     ]
+  },
+
+  icon: {
+    provider: 'server',
+    clientBundle: {
+      scan: true
+    }
   },
 
   image: {

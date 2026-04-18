@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "typecheck": "vue-tsc --noEmit",
+    "typecheck": "npx nuxi typecheck",
     "prepare": "husky"
   },
   "dependencies": {
@@ -24,9 +24,7 @@
     "nuxt": "^4.4.2",
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.2.2",
-    "tailwindcss": "^4.2.2",
-    "vue": "^3.5.31",
-    "vue-router": "^5.0.4"
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.101",
