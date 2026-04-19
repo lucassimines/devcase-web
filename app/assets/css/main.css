@@ -28,6 +28,9 @@
 
   /* Font sizes */
   --text-2.5xl: 1.625rem;
+
+  /* Screen sizes */
+  --main-max-width: 1640px;
 }
 
 html,
@@ -49,7 +52,11 @@ a {
   h4,
   h5,
   h6 {
-    @apply font-semibold;
+    @apply text-elevated font-semibold;
+  }
+
+  strong {
+    @apply text-elevated;
   }
 
   p {
@@ -73,4 +80,8 @@ a {
 
 .py-main {
   @apply py-4 md:py-8;
+}
+
+.max-w-main {
+  @apply mx-auto w-full max-w-(--main-max-width);
 }

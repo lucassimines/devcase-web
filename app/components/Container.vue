@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), {
 const container = tv({
   base: 'px-main',
   slots: {
-    inner: 'max-w-8xl mx-auto w-full'
+    inner: 'mx-auto w-full max-w-(--main-max-width)'
   }
 })
 </script>
