@@ -16,9 +16,9 @@
             <span v-text="$t('stack')" />
           </h2>
 
-          <ul class="flex gap-2">
+          <ul class="flex flex-wrap gap-2">
             <li v-for="technology in technologies" :key="technology.id">
-              <Pill :label="technology.name" :to="technology.url" />
+              <Pill :label="technology.name" :to="technology.url ?? undefined" />
             </li>
           </ul>
         </div>
@@ -41,24 +41,10 @@ const props = defineProps<{
   name: string
   url: string
   description?: string
+  technologies: Technology[]
 }>()
 
 const prettyUrl = computed(() => {
   return new URL(props.url).hostname
 })
-
-const technologies: Technology[] = [
-  {
-    id: 1,
-    name: 'Vue.js',
-    url: 'https://vuejs.org',
-    image: '/images/technologies/vue.svg'
-  },
-  {
-    id: 2,
-    name: 'Nuxt.js',
-    url: 'https://nuxt.com',
-    image: '/images/technologies/nuxt.svg'
-  }
-]
 </script>

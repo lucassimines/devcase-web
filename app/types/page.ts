@@ -1,5 +1,5 @@
 export interface Page {
-  id: number
+  id: string
   name: string
   description: string
   slug: string

@@ -9,7 +9,12 @@
   </Container>
 
   <div v-else-if="project" class="flex-1">
-    <ProjectHero :name="project.name" :url="project.url" :description="project.description" />
+    <ProjectHero
+      :name="project.name"
+      :url="project.url"
+      :description="project.description"
+      :technologies="project.technologies"
+    />
 
     <section class="pb-20">
       <BlockResolver
