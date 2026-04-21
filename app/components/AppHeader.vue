@@ -2,7 +2,7 @@
   <Container
     tag="header"
     :ui="{
-      base: 'sticky top-0 left-0 z-99 h-16 w-full border-b border-white/10 bg-black/50 backdrop-blur-3xl',
+      base: 'sticky top-0 left-0 z-99 h-16 w-full border-b border-white/10 bg-gray-950/5 backdrop-blur-3xl',
       inner: 'flex items-center h-full'
     }"
   >

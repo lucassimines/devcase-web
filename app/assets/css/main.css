@@ -5,38 +5,38 @@
   --font-sans: 'IBM Plex Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-brand: #0c2dff;
+  --color-brand: #0055ff;
   --color-brand-alt: #7c3aed;
 
-  --color-gray-50: #f3f4f5;
-  --color-gray-100: #e4e5e8;
-  --color-gray-200: #cccfd5;
-  --color-gray-300: #b1b6c0;
-  --color-gray-400: #9aa1ad;
-  --color-gray-500: #828995;
-  --color-gray-600: #6f757f;
-  --color-gray-700: #5a5f67;
-  --color-gray-800: #474b52;
-  --color-gray-900: #26282c;
-  --color-gray-950: #16181b;
+  --color-gray-50: #eef1f6;
+  --color-gray-100: #dce3ed;
+  --color-gray-200: #bac8db;
+  --color-gray-300: #97adca;
+  --color-gray-400: #7990ad;
+  --color-gray-500: #62768f;
+  --color-gray-600: #4d5d71;
+  --color-gray-700: #394555;
+  --color-gray-800: #262f3a;
+  --color-gray-900: #141a21;
+  --color-gray-950: #090d12;
 
-  --color-elevated: var(--color-gray-300);
+  --color-elevated: var(--color-gray-200);
 
-  --color-default: var(--color-gray-500);
+  --color-default: var(--color-gray-300);
 
-  --color-muted: var(--color-gray-900);
+  --color-muted: var(--color-gray-800);
 
   /* Font sizes */
   --text-2.5xl: 1.625rem;
 
   /* Screen sizes */
-  --main-max-width: 1640px;
+  --main-max-width: 1280px;
 }
 
 html,
 body,
 #__nuxt {
-  @apply m-0 min-h-screen bg-black p-0 font-sans text-gray-50;
+  @apply m-0 min-h-screen bg-gray-950 p-0 font-sans text-gray-50;
 }
 
 a {
@@ -52,15 +52,15 @@ a {
   h4,
   h5,
   h6 {
-    @apply text-elevated font-semibold;
+    @apply text-default font-semibold;
   }
 
   strong {
-    @apply text-elevated;
+    @apply text-default;
   }
 
   p {
-    @apply text-elevated font-sans leading-[1.75] font-light;
+    @apply text-default font-sans leading-[1.75] font-light;
   }
 
   a {
@@ -75,11 +75,11 @@ a {
 }
 
 .px-main {
-  @apply px-4 md:px-8;
+  @apply px-4 sm:px-8 xl:px-12;
 }
 
 .py-main {
-  @apply py-4 md:py-8;
+  @apply py-4 sm:py-8 xl:py-12;
 }
 
 .max-w-main {

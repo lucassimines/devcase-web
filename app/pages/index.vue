@@ -1,9 +1,9 @@
 <template>
-  <div v-if="projects?.length" class="divide-muted divide-y">
+  <div v-if="projects?.length" class="divide-y divide-white/10">
     <HomeIntro />
 
-    <Container :ui="{ inner: 'space-y-10 py-14' }">
-      <PageTitle :title="$t('projects.featured')" icon="lucide:layers" />
+    <Container :ui="{ inner: 'space-y-14 py-20' }">
+      <PageTitle :title="$t('projects.featured')" />
 
       <div class="grid grid-cols-4 gap-8">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
