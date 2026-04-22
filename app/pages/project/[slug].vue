@@ -8,7 +8,7 @@
     <Skeleton class="h-120 w-full" />
   </Container>
 
-  <div v-else-if="project" class="flex-1">
+  <div v-else-if="project" class="flex-1 divide-y divide-white/10">
     <ProjectHero
       :name="project.name"
       :url="project.url"

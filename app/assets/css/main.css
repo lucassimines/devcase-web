@@ -2,7 +2,7 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-brand: #0055ff;
@@ -36,7 +36,7 @@
 html,
 body,
 #__nuxt {
-  @apply m-0 min-h-screen bg-gray-950 p-0 font-sans text-gray-50;
+  @apply m-0 min-h-screen bg-gray-950 p-0 font-sans text-gray-50 antialiased;
 }
 
 a {
@@ -60,7 +60,7 @@ a {
   }
 
   p {
-    @apply text-default font-sans leading-[1.75] font-light;
+    @apply text-default font-sans leading-[1.75];
   }
 
   a {

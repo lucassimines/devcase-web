@@ -7,7 +7,7 @@
     class="flex h-7 items-center justify-center rounded-full px-2.5"
     :class="pill({ color })"
   >
-    <span class="block font-mono text-sm" v-text="label" />
+    <span class="block text-sm font-semibold" v-text="label" />
   </component>
 </template>
 
@@ -29,8 +29,8 @@ const pill = tv({
   base: props.to ? 'cursor-pointer' : 'pointer-events-none',
   variants: {
     color: {
-      green: 'bg-emerald-500/20 text-emerald-500 hover:bg-emerald-500/30',
-      gray: 'text-default bg-gray-800 hover:bg-gray-700'
+      green: 'bg-emerald-950 text-emerald-400 hover:bg-emerald-500/30',
+      gray: 'bg-gray-800 text-gray-300 hover:bg-gray-700'
     }
   }
 })

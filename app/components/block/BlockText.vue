@@ -1,6 +1,6 @@
 <template>
-  <Container :ui="{ inner: 'py-12' }">
-    <div class="prose" v-html="block.text" />
+  <Container :ui="{ inner: 'py-26' }">
+    <div class="prose-lg max-w-4xl" v-html="block.text" />
   </Container>
 </template>
 
