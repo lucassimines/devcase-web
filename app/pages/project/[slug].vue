@@ -14,6 +14,7 @@
       :url="project.url"
       :description="project.description"
       :technologies="project.technologies"
+      :solutions="project.solutions"
     />
 
     <section class="pb-20">

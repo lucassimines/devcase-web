@@ -20,9 +20,9 @@
     </div>
 
     <div class="space-y-10">
-      <ProjectFeatures :title="$t('developedSolutions')" icon="lucide:layers" :items="technologies">
-        <template #default="{ item }: { item: Technology }">
-          <Pill :label="item.name" :to="item.url" />
+      <ProjectFeatures :title="$t('developedSolutions')" icon="lucide:layers" :items="solutions">
+        <template #default="{ item }: { item: Solution }">
+          <Pill :label="item.name" />
         </template>
       </ProjectFeatures>
 
@@ -36,6 +36,7 @@
 </template>
 
 <script setup lang="ts">
+import type { Solution } from '~/types/solution'
 import type { Technology } from '~/types/technology'
 
 const props = defineProps<{
@@ -43,6 +44,7 @@ const props = defineProps<{
   url: string
   description?: string
   technologies: Technology[]
+  solutions: Solution[]
 }>()
 
 const prettyUrl = computed(() => {
