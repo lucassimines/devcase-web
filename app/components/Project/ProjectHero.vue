@@ -1,35 +1,36 @@
 <template>
-  <Container :ui="{ inner: 'relative py-16' }">
+  <Container :ui="{ inner: 'relative py-28 flex gap-24' }">
     <div class="flex flex-col gap-14">
-      <div class="space-y-4">
+      <div class="space-y-8">
         <h1 class="text-5xl" v-text="name" />
 
         <div class="prose">
-          <p v-if="description" class="text-xl" v-text="description" />
+          <p v-if="description" class="text-lg text-pretty" v-text="description" />
         </div>
       </div>
 
-      <div class="flex items-center justify-between gap-6">
-        <div class="space-y-3">
-          <h2 class="text-elevated flex items-center gap-2 text-xl">
-            <Icon name="lucide:layers" size="22" />
-            <span v-text="$t('stack')" />
-          </h2>
-
-          <ul class="flex flex-wrap gap-2">
-            <li v-for="technology in technologies" :key="technology.id">
-              <Pill :label="technology.name" :to="technology.url ?? undefined" />
-            </li>
-          </ul>
-        </div>
-
+      <div class="flex justify-start">
         <NuxtLink
           :to="url"
           target="_blank"
-          class="text-elevated flex items-center gap-2 font-mono text-xl hover:text-gray-50"
-          ><Icon name="lucide:external-link" size="22" /> {{ prettyUrl }}</NuxtLink
+          class="text-elevated flex items-center gap-2 font-mono text-lg hover:text-gray-50"
+          ><Icon class="text-brand-alt" name="lucide:external-link" /> {{ prettyUrl }}</NuxtLink
         >
       </div>
+    </div>
+
+    <div class="space-y-10">
+      <ProjectFeatures :title="$t('developedSolutions')" icon="lucide:layers" :items="technologies">
+        <template #default="{ item }: { item: Technology }">
+          <Pill :label="item.name" :to="item.url" />
+        </template>
+      </ProjectFeatures>
+
+      <ProjectFeatures :title="$t('stack')" icon="lucide:layers" :items="technologies">
+        <template #default="{ item }: { item: Technology }">
+          <Pill :label="item.name" :to="item.url" color="green" />
+        </template>
+      </ProjectFeatures>
     </div>
   </Container>
 </template>

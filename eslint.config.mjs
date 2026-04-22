@@ -10,6 +10,7 @@ export default withNuxt([
       semi: ['error', 'never'],
       'vue/no-multiple-template-root': 'off',
       'vue/no-v-html': 'off',
+      'vue/require-v-for-key': 'off',
       'vue/component-name-in-template-casing': [
         'error',
         'PascalCase',
