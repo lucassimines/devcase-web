@@ -4,8 +4,8 @@
       <div class="space-y-8">
         <h1 class="text-6xl font-medium tracking-wide" v-text="name" />
 
-        <div class="prose">
-          <p v-if="description" class="text-lg text-pretty" v-text="description" />
+        <div class="prose-lg text-elevated">
+          <p v-if="description" v-text="description" />
         </div>
       </div>
 
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div v-if="solutions.length || technologies.length" class="space-y-10">
+    <div v-if="solutions.length || technologies.length" class="w-120 flex-none space-y-10">
       <ProjectFeatures
         v-if="solutions.length"
         :title="$t('developedSolutions')"

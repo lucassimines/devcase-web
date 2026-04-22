@@ -22,8 +22,8 @@
           <span v-text="$t('greeting')" />
         </div>
 
-        <div class="prose">
-          <p class="text-xl" v-text="$t('intro')" />
+        <div class="prose-xl">
+          <p v-text="$t('intro')" />
         </div>
       </div>
     </div>
