@@ -7,7 +7,7 @@
         </figure>
 
         <div class="space-y-1.5">
-          <h2 class="text-3xl leading-tight" v-text="$t('name')" />
+          <h2 class="text-3xl leading-tight font-medium" v-text="$t('name')" />
 
           <h3
             class="text-elevated italic"

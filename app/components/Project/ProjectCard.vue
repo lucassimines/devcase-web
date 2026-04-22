@@ -16,7 +16,7 @@
         <div
           class="flex grow translate-y-full items-center p-4 transition-transform duration-300 group-hover:translate-y-0"
         >
-          <span class="font-mono uppercase" v-text="$t('view')" />
+          <span class="font-mono font-semibold uppercase" v-text="$t('view')" />
         </div>
 
         <div
@@ -28,7 +28,7 @@
     </div>
 
     <div class="space-y-2 transition-opacity duration-300 group-hover:opacity-80">
-      <h3 class="text-xl uppercase" v-text="project.name" />
+      <h3 class="text-xl font-medium" v-text="project.name" />
 
       <h4 class="text-elevated font-sans" v-text="project.description" />
     </div>
