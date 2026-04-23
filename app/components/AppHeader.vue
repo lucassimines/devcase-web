@@ -6,10 +6,27 @@
       inner: 'flex items-center h-full'
     }"
   >
-    <NuxtLink to="/" class="flex items-center gap-4">
-      <Logo />
+    <div class="flex items-center gap-4">
+      <NuxtLink to="/">
+        <Logo />
+      </NuxtLink>
 
-      <span class="font-mono text-sm tracking-wider text-white/80 uppercase" v-text="$t('name')" />
-    </NuxtLink>
+      <div class="flex items-center gap-1">
+        <Icon name="lucide:dollar-sign" class="text-sm text-white/30" />
+
+        <span
+          class="font-mono text-sm tracking-wider text-white/80 lowercase"
+          v-text="currentPage"
+        />
+      </div>
+    </div>
   </Container>
 </template>
+
+<script setup lang="ts">
+const route = useRoute()
+
+const currentPage = computed(() => {
+  return route.name?.toString().toLowerCase().replaceAll(' ', '_')
+})
+</script>
