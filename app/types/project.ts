@@ -7,6 +7,7 @@ export interface Project {
   name: string
   url: string
   description: string
+  background: string
   image: string
   slug: string
   blocks: Block[]
