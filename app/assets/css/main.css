@@ -45,6 +45,7 @@ a {
 }
 
 .prose,
+.prose-lg,
 .prose-xl {
   @apply max-w-4xl;
 }

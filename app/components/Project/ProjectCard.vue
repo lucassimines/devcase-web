@@ -27,10 +27,8 @@
       </div>
     </div>
 
-    <div class="space-y-2 transition-opacity duration-300 group-hover:opacity-80">
+    <div class="transition-opacity duration-300 group-hover:opacity-80">
       <h3 class="text-xl font-medium" v-text="project.name" />
-
-      <h4 class="text-elevated font-sans" v-text="project.description" />
     </div>
   </NuxtLink>
 </template>

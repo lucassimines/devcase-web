@@ -17,13 +17,7 @@
       :solutions="project.solutions"
     />
 
-    <section class="pb-20">
-      <BlockResolver
-        v-for="(block, index) in project.blocks"
-        :key="`${block.type}-${index}`"
-        :block="block"
-      />
-    </section>
+    <Blocks :blocks="project?.blocks" :ui="{ base: 'pb-20' }" />
   </div>
 </template>
 
