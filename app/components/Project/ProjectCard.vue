@@ -25,13 +25,11 @@
       </figure>
     </div>
 
-    <div
-      class="flex items-center justify-between gap-4 transition-opacity duration-300 group-hover:opacity-80"
-    >
+    <div class="flex items-center justify-between gap-4 transition-opacity duration-300">
       <h3 class="text-4xl font-medium" v-text="project.name" />
 
       <div
-        class="relative h-px w-10 bg-gray-600 after:absolute after:-top-0.75 after:right-0 after:size-2 after:rotate-45 after:border-t after:border-r after:border-gray-600 after:content-['']"
+        class="size-2 rounded-full bg-gray-800 transition-all duration-300 group-hover:bg-gray-100"
       />
     </div>
   </NuxtLink>
