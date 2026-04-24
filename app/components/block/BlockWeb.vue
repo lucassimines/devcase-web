@@ -1,12 +1,15 @@
 <template>
   <Container :ui="{ inner: 'flex items-start gap-16' }">
-    <WindowUi v-if="block.image.desktop" :image="$imageUrl(block.image.desktop)" title="Desktop" />
+    <WindowUi
+      v-if="block.image.desktop"
+      :image="$imageUrl(block.image.desktop)"
+      :ui="{ base: 'max-sm:hidden' }"
+    />
 
     <WindowUi
       v-if="block.image.mobile"
       :image="$imageUrl(block.image.mobile)"
-      title="Mobile"
-      :ui="{ base: 'max-w-sm' }"
+      :ui="{ base: 'max-w-sm sm:hidden' }"
     />
   </Container>
 </template>

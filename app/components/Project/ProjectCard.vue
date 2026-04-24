@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="{ name: 'project-slug', params: { slug: project.slug } }"
+    :to="{ name: 'projects-slug', params: { slug: project.slug } }"
     class="group @container block space-y-4"
   >
     <div

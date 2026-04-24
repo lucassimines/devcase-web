@@ -1,5 +1,5 @@
 <template>
-  <Container :ui="{ inner: 'py-26' }">
+  <Container>
     <div class="prose-lg" v-html="block.text" />
   </Container>
 </template>

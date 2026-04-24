@@ -42,7 +42,7 @@ const button = tv({
     },
     color: {
       white: {
-        base: 'bg-white hover:bg-white/90',
+        base: 'bg-white hover:bg-gray-100',
         text: 'text-gray-900'
       },
       neutral: {

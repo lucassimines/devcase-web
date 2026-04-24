@@ -18,6 +18,9 @@
           <li v-for="item in bootstrap.menu" :key="item.id" class="-mb-px h-full">
             <NuxtLink
               :to="`/${item.slug}`"
+              :class="{
+                'router-link-active': item.slug && route.path.startsWith(`/${item.slug}`)
+              }"
               class="flex h-full items-center border-b border-transparent transition-colors hover:border-white/20"
             >
               {{ item.name }}
@@ -43,6 +46,8 @@
 <script setup lang="ts">
 const { bootstrap } = useBootstrap()
 
+const route = useRoute()
+
 interface SocialMedia {
   name: string
   url: string
@@ -59,7 +64,7 @@ const socialMedias: SocialMedia[] = [
 </script>
 
 <style>
-.router-link-exact-active {
+.router-link-active {
   border-bottom-color: var(--color-brand);
 }
 </style>

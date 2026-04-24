@@ -17,7 +17,7 @@
       :solutions="project.solutions"
     />
 
-    <Blocks :blocks="project?.blocks" :ui="{ base: 'pb-20' }" />
+    <Blocks :blocks="project?.blocks" />
   </div>
 </template>
 
