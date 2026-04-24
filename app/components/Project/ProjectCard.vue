@@ -10,7 +10,7 @@
         <NuxtImg
           :src="$imageUrl(project.background)"
           alt="Background"
-          class="size-full object-cover object-top opacity-20"
+          class="size-full object-cover object-top opacity-20 transition-opacity duration-300 group-hover:opacity-50"
         />
       </figure>
 
