@@ -12,9 +12,9 @@
       </NuxtLink>
     </div>
 
-    <div class="flex h-full grow justify-end">
+    <div class="flex h-full grow justify-end gap-8">
       <nav v-if="bootstrap?.menu?.length" class="h-full">
-        <ul class="flex h-full items-center gap-6">
+        <ul class="flex h-full items-center gap-8">
           <li v-for="item in bootstrap.menu" :key="item.id" class="-mb-px h-full">
             <NuxtLink
               :to="`/${item.slug}`"
@@ -25,12 +25,37 @@
           </li>
         </ul>
       </nav>
+
+      <div class="flex items-center gap-6">
+        <NuxtLink
+          v-for="socialMedia in socialMedias"
+          :key="socialMedia.name"
+          :to="socialMedia.url"
+          target="_blank"
+          class="hover:text-brand - flex items-center justify-center text-2xl"
+          ><Icon :name="socialMedia.icon"
+        /></NuxtLink>
+      </div>
     </div>
   </Container>
 </template>
 
 <script setup lang="ts">
 const { bootstrap } = useBootstrap()
+
+interface SocialMedia {
+  name: string
+  url: string
+  icon: string
+}
+
+const socialMedias: SocialMedia[] = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/lucassimines',
+    icon: 'uil:github'
+  }
+]
 </script>
 
 <style>
