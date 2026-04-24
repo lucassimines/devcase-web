@@ -15,7 +15,7 @@
       </figure>
 
       <figure class="absolute top-1/6 left-0 z-2 flex size-full justify-center">
-        <div class="rounded-4xl border border-white/20 p-6 backdrop-blur-lg">
+        <div class="rounded-3xl border border-white/20 p-4 backdrop-blur-lg">
           <NuxtImg
             class="w-90 overflow-hidden rounded-xl object-contain shadow-lg"
             alt="Image"
@@ -25,12 +25,8 @@
       </figure>
     </div>
 
-    <div class="flex items-center justify-between gap-4 transition-opacity duration-300">
-      <h3 class="text-4xl font-medium" v-text="project.name" />
-
-      <div
-        class="size-2 rounded-full bg-gray-800 transition-all duration-300 group-hover:bg-gray-100"
-      />
+    <div>
+      <h3 class="text-2.5xl font-medium @2xl:text-4xl" v-text="project.name" />
     </div>
   </NuxtLink>
 </template>
