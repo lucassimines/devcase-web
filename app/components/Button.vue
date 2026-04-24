@@ -7,7 +7,16 @@
   >
     <span :class="styles.text()" v-text="text" />
 
-    <Icon v-if="icon" :name="icon" :class="styles.text()" />
+    <Icon
+      v-if="icon"
+      :name="icon"
+      :class="[
+        styles.text(),
+        {
+          'transition-transform group-hover:translate-x-1': icon === DEFAULT_ICON
+        }
+      ]"
+    />
   </component>
 </template>
 
@@ -23,14 +32,17 @@ interface Props {
   color?: 'white' | 'neutral' | 'brand'
 }
 
+const DEFAULT_ICON = 'lucide:arrow-right'
+
 const props = withDefaults(defineProps<Props>(), {
   size: 'lg',
-  color: 'neutral'
+  color: 'neutral',
+  icon: DEFAULT_ICON
 })
 
 const button = tv({
   slots: {
-    base: 'flex items-center justify-center gap-4 rounded-md',
+    base: 'group flex items-center justify-center gap-4 rounded-md',
     text: 'block font-medium'
   },
   variants: {
@@ -42,7 +54,7 @@ const button = tv({
     },
     color: {
       white: {
-        base: 'bg-white hover:bg-gray-100',
+        base: 'bg-white hover:bg-white/90',
         text: 'text-gray-900'
       },
       neutral: {

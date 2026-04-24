@@ -7,12 +7,7 @@
     <div class="relative z-2 flex flex-col items-start gap-10 p-14">
       <h1 class="text-4xl leading-tight" v-text="$t('projects.viewMore.title')" />
 
-      <Button
-        :to="{ name: 'projects' }"
-        :text="$t('projects.cta')"
-        icon="lucide:arrow-right"
-        color="white"
-      />
+      <Button :to="{ name: 'projects' }" :text="$t('projects.cta')" color="white" />
     </div>
   </div>
 </template>
