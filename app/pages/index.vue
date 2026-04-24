@@ -9,7 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import type { Page } from '~/types/page'
-
-const { data: page } = await useApi<Page>('/pages/home')
+const { data: page } = usePageFetch('home')
 </script>

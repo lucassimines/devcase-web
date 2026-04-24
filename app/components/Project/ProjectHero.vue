@@ -13,8 +13,8 @@
         <NuxtLink
           :to="url"
           target="_blank"
-          class="text-elevated flex items-center gap-2 font-mono text-lg hover:text-gray-50"
-          ><Icon class="text-brand-alt" name="lucide:external-link" /> {{ prettyUrl }}</NuxtLink
+          class="text-elevated flex items-center gap-2 font-mono text-xl leading-tight hover:text-gray-50"
+          ><Icon class="text-emerald-500" name="lucide:external-link" /> {{ prettyUrl }}</NuxtLink
         >
       </div>
     </div>

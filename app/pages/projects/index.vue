@@ -23,10 +23,9 @@
 
 <script setup lang="ts">
 import type { PaginatedResponse } from '~/types/api'
-import type { Page } from '~/types/page'
 import type { Project } from '~/types/project'
 
-const { data: page } = await useApi<Page>('/pages/projects')
+const { data: page } = usePageFetch('projects')
 
 const { data: projects } = await useApi<PaginatedResponse<Project>>('/projects/list')
 
