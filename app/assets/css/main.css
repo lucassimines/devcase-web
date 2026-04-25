@@ -100,3 +100,7 @@ button {
 .max-w-main {
   @apply mx-auto w-full max-w-(--main-max-width);
 }
+
+@utility h-menu {
+  @apply h-12 sm:h-16;
+}

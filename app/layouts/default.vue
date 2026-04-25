@@ -1,4 +1,8 @@
 <template>
+  <ButtonMenu />
+
+  <MobileNavigation />
+
   <AppHeader />
 
   <div class="flex min-h-screen flex-col">

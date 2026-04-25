@@ -1,29 +1,32 @@
 <template>
+  <!-- Menu height placeholder -->
+  <div class="h-menu" />
+
   <Container
     tag="header"
     :ui="{
-      base: 'sticky top-0 left-0 z-99 h-16 w-full border-b border-white/10 bg-gray-950/80 backdrop-blur-3xl',
+      base: 'fixed top-0 left-0 z-99 h-menu w-full border-b border-white/10 bg-gray-950/80 backdrop-blur-3xl',
       inner: 'flex items-center h-full gap-6'
     }"
   >
-    <div class="flex-none">
+    <div class="grow">
       <NuxtLink to="/">
         <Logo />
       </NuxtLink>
     </div>
 
-    <div class="flex h-full grow justify-end gap-8">
-      <nav v-if="bootstrap?.menu?.length" class="h-full">
+    <div class="flex h-full justify-end gap-8 max-sm:hidden">
+      <nav v-if="bootstrap?.menu?.links?.length">
         <ul class="flex h-full items-center gap-8">
-          <li v-for="item in bootstrap.menu" :key="item.id" class="-mb-px h-full">
+          <li v-for="link in bootstrap.menu.links" :key="link.id" class="-mb-px h-full">
             <NuxtLink
-              :to="`/${item.slug}`"
+              :to="`/${link.slug}`"
               :class="{
-                'router-link-active': item.slug && route.path.startsWith(`/${item.slug}`)
+                'router-link-active': link.slug && route.path.startsWith(`/${link.slug}`)
               }"
               class="flex h-full items-center border-b border-transparent transition-colors hover:border-white/20"
             >
-              {{ item.name }}
+              {{ link.name }}
             </NuxtLink>
           </li>
         </ul>
@@ -35,7 +38,7 @@
           :key="socialMedia.name"
           :to="socialMedia.url"
           target="_blank"
-          class="hover:text-brand - flex items-center justify-center text-2xl"
+          class="hover:text-brand flex items-center justify-center text-2xl"
           ><Icon :name="socialMedia.icon"
         /></NuxtLink>
       </div>
@@ -44,23 +47,9 @@
 </template>
 
 <script setup lang="ts">
-const { bootstrap } = useBootstrap()
+const { bootstrap, socialMedias } = useBootstrap()
 
 const route = useRoute()
-
-interface SocialMedia {
-  name: string
-  url: string
-  icon: string
-}
-
-const socialMedias: SocialMedia[] = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/lucassimines',
-    icon: 'uil:github'
-  }
-]
 </script>
 
 <style>
