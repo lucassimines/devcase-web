@@ -12,8 +12,8 @@
           <li
             v-for="(link, index) in bootstrap.menu.links"
             :key="link.id"
-            class="text-center text-3xl transition-opacity duration-300"
-            :class="{ 'opacity-0': !navigationState }"
+            class="text-center text-3xl transition-all duration-300"
+            :class="{ '-translate-y-2 opacity-0': !navigationState }"
             :style="{
               transitionDelay: navigationState
                 ? `${navigationState ? 300 + 50 * (index + 1) : 0}ms`
@@ -35,8 +35,8 @@
           </li>
 
           <li
-            class="text-center text-3xl transition-opacity duration-300"
-            :class="{ 'opacity-0': !navigationState }"
+            class="text-center text-3xl transition-all duration-300"
+            :class="{ '-translate-y-2 opacity-0': !navigationState }"
             :style="{
               transitionDelay: navigationState
                 ? `${navigationState ? 300 + 50 * (bootstrap.menu.links.length + 1) : 0}ms`
