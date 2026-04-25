@@ -9,9 +9,12 @@
           </div>
 
           <div class="flex flex-col">
-            <h1 class="text-default text-4xl xl:text-5xl" v-text="`I'm ${$t('name')},`" />
+            <h1
+              class="text-default text-3xl lg:text-4xl xl:text-5xl"
+              v-text="$t('greetingName', { name: $t('name') })"
+            />
             <h2
-              class="text-6xl leading-tight font-medium xl:text-7xl"
+              class="text-5xl leading-tight font-medium lg:text-6xl xl:text-7xl"
               v-text="`${$t('position')}.`"
             />
           </div>

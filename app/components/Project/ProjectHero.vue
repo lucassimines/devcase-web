@@ -1,10 +1,10 @@
 <template>
-  <Container :ui="{ inner: 'relative py-28 flex flex-col 2lg:flex-row gap-24' }">
+  <Container :ui="{ inner: 'relative flex flex-col 2lg:flex-row gap-24 py-section' }">
     <div class="flex flex-col gap-14">
       <div class="space-y-8">
         <h1 class="text-6xl font-medium tracking-wide" v-text="name" />
 
-        <div class="max-2lg:max-w-2xl" v-if="description">
+        <div v-if="description" class="max-2lg:max-w-2xl">
           <div class="prose-lg text-elevated">
             <p v-text="description" />
           </div>

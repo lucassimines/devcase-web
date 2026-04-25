@@ -6,7 +6,7 @@
       <div class="flex flex-col gap-20">
         <ProjectCard v-if="firstProject" :project="firstProject" />
 
-        <div class="grid grid-cols-2 gap-8">
+        <div class="grid gap-8 lg:grid-cols-2">
           <ProjectCard v-if="secondProject" :project="secondProject" />
 
           <ProjectViewMoreCard />

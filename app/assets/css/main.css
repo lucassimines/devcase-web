@@ -93,6 +93,10 @@ button {
   @apply py-4 sm:py-8 xl:py-12;
 }
 
+.py-section {
+  @apply py-26;
+}
+
 .max-w-main {
   @apply mx-auto w-full max-w-(--main-max-width);
 }

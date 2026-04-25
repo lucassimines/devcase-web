@@ -1,5 +1,5 @@
 <template>
-  <section v-if="blocks?.length" :class="cn('flex flex-col gap-26 py-26', ui?.base)">
+  <section v-if="blocks?.length" :class="cn('py-section flex flex-col gap-26', ui?.base)">
     <BlockResolver
       v-for="(block, index) in blocks"
       :key="`${block.type}-${index}`"
