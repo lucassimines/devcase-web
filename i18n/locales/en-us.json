@@ -14,7 +14,8 @@
   "view": "View",
   "intro": "I am a full stack developer specializing in architecture using Nuxt and Vue, while also building robust backend solutions with Laravel and Node.js. I particularly enjoy creating projects from scratch — taking ideas from concept to production with a strong emphasis on clean architecture and long-term scalability.",
   "projects": {
-    "cta": "View projects",
+    "viewAll": "View Projects",
+    "view": "View Live Site",
     "featured": "Featured Projects",
     "viewMore": {
       "title": "View more of these and other projects I’ve worked on throughout my career."

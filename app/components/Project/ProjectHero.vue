@@ -10,12 +10,14 @@
       </div>
 
       <div v-if="url" class="flex justify-start">
-        <NuxtLink
+        <Button
           :to="url"
+          :text="$t('projects.view')"
+          icon="lucide:arrow-up-right"
           target="_blank"
-          class="text-elevated flex items-center gap-2 font-mono text-xl leading-tight hover:text-gray-50"
-          ><Icon class="text-emerald-500" name="lucide:external-link" /> {{ prettyUrl }}</NuxtLink
-        >
+          color="white"
+          size="sm"
+        />
       </div>
     </div>
 
@@ -23,7 +25,7 @@
       <ProjectFeatures
         v-if="solutions.length"
         :title="$t('developedSolutions')"
-        icon="lucide:layers"
+        icon="lucide:puzzle"
         :items="solutions"
       >
         <template #default="{ item }: { item: Solution }">
@@ -49,15 +51,11 @@
 import type { Solution } from '~/types/solution'
 import type { Technology } from '~/types/technology'
 
-const props = defineProps<{
+defineProps<{
   name: string
   url: string
   description?: string
   technologies: Technology[]
   solutions: Solution[]
 }>()
-
-const prettyUrl = computed(() => {
-  return new URL(props.url).hostname
-})
 </script>

@@ -27,7 +27,7 @@ import type { RouteLocationRaw } from 'vue-router'
 interface Props {
   to?: RouteLocationRaw
   text: string
-  size?: 'lg'
+  size?: 'sm' | 'md' | 'lg'
   icon?: string
   color?: 'white' | 'neutral' | 'brand'
 }
@@ -42,13 +42,21 @@ const props = withDefaults(defineProps<Props>(), {
 
 const button = tv({
   slots: {
-    base: 'group flex items-center justify-center gap-4 rounded-md',
+    base: 'group flex items-center justify-center',
     text: 'block font-medium'
   },
   variants: {
     size: {
+      sm: {
+        base: 'h-8.5 gap-1.5 rounded-md px-3',
+        text: 'text-sm'
+      },
+      md: {
+        base: 'h-10 gap-2 rounded-md px-4',
+        text: 'text-base'
+      },
       lg: {
-        base: 'h-12 px-6',
+        base: 'h-12 gap-4 rounded-md px-6',
         text: 'text-lg'
       }
     },
