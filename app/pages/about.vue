@@ -1,7 +1,7 @@
 <template>
-  <div class="pt-26">
+  <div class="py-section">
     <Container>
-      <figure class="size-40 flex-none overflow-hidden rounded-full">
+      <figure class="size-28 flex-none overflow-hidden rounded-full sm:size-40">
         <NuxtImg src="/images/avatar.jpg" alt="Lucas Simines" class="size-full object-cover" />
       </figure>
     </Container>

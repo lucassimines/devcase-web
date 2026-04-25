@@ -3,7 +3,7 @@
     :is="to ? NuxtLink : 'button'"
     :type="to ? undefined : 'button'"
     :to="to"
-    :class="styles.base()"
+    :class="cn(styles.base(), ui?.base)"
   >
     <span :class="styles.text()" v-text="text" />
 
@@ -30,6 +30,9 @@ interface Props {
   size?: 'sm' | 'md' | 'lg'
   icon?: string
   color?: 'white' | 'neutral' | 'brand'
+  ui?: {
+    base?: string
+  }
 }
 
 const DEFAULT_ICON = 'lucide:arrow-right'

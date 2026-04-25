@@ -4,10 +4,18 @@
   >
     <Pattern />
 
-    <div class="2lg:p-14 relative z-2 flex flex-col items-start gap-10 p-12 lg:p-10">
-      <h1 class="2lg:text-4xl text-3xl leading-tight" v-text="$t('projects.viewMore.title')" />
+    <div class="2lg:p-14 relative z-2 flex flex-col items-start gap-10 p-8 sm:p-12 lg:p-10">
+      <h1
+        class="2lg:text-4xl text-2xl leading-tight sm:text-3xl"
+        v-text="$t('projects.viewMore.title')"
+      />
 
-      <Button :to="{ name: 'projects' }" :text="$t('projects.viewAll')" color="white" />
+      <Button
+        :to="{ name: 'projects' }"
+        :text="$t('projects.viewAll')"
+        :ui="{ base: 'max-sm:w-full' }"
+        color="white"
+      />
     </div>
   </div>
 </template>

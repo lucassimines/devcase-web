@@ -56,35 +56,6 @@ button {
   @apply max-w-4xl;
 }
 
-.prose {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply text-default font-semibold;
-  }
-
-  strong {
-    @apply text-default;
-  }
-
-  p {
-    @apply font-sans leading-[1.75];
-  }
-
-  a {
-    @apply hover:text-brand text-gray-50;
-  }
-
-  ul {
-    li {
-      @apply list-outside list-disc marker:text-slate-300;
-    }
-  }
-}
-
 .px-main {
   @apply px-4 sm:px-8 xl:px-12;
 }
@@ -93,14 +64,14 @@ button {
   @apply py-4 sm:py-8 xl:py-12;
 }
 
-.py-section {
-  @apply py-26;
-}
-
 .max-w-main {
   @apply mx-auto w-full max-w-(--main-max-width);
 }
 
 @utility h-menu {
   @apply h-12 sm:h-16;
+}
+
+@utility py-section {
+  @apply py-16 sm:py-26;
 }

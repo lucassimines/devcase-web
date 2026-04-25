@@ -17,8 +17,8 @@ withDefaults(defineProps<Props>(), {
 const pageTitle = tv({
   variants: {
     size: {
-      md: 'text-4xl',
-      lg: 'text-5xl'
+      md: 'text-2xl sm:text-4xl',
+      lg: 'text-3xl sm:text-5xl'
     }
   }
 })

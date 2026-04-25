@@ -1,10 +1,10 @@
 <template>
   <div v-if="page" class="divide-y divide-white/10">
     <Container v-if="projects?.data?.length" :ui="{ inner: 'relative' }">
-      <div class="space-y-14 pt-20 pb-32">
+      <div class="space-y-14 pt-12 pb-20 sm:pt-20 sm:pb-32">
         <PageTitle :title="page.name" size="lg" />
 
-        <div class="flex flex-col gap-20">
+        <div class="flex flex-col gap-12 sm:gap-20">
           <ProjectCard v-if="featuredProject" :project="featuredProject" />
 
           <div

@@ -1,9 +1,9 @@
 <template>
   <Container :ui="{ inner: 'relative' }">
-    <div class="space-y-14 py-20">
+    <div class="space-y-10 py-12 sm:space-y-14 sm:py-20">
       <PageTitle :title="$t('projects.featured')" />
 
-      <div class="flex flex-col gap-20">
+      <div class="flex flex-col gap-12 sm:gap-20">
         <ProjectCard v-if="firstProject" :project="firstProject" />
 
         <div class="grid gap-8 lg:grid-cols-2">
