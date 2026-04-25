@@ -34,6 +34,9 @@
 
   /* Screen sizes */
   --main-max-width: 1280px;
+
+  /* Breakpoints */
+  --breakpoint-2lg: 1152px;
 }
 
 html,

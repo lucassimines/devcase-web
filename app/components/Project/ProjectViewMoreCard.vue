@@ -4,8 +4,8 @@
   >
     <Pattern />
 
-    <div class="relative z-2 flex flex-col items-start gap-10 p-14">
-      <h1 class="text-4xl leading-tight" v-text="$t('projects.viewMore.title')" />
+    <div class="2lg:p-14 relative z-2 flex flex-col items-start gap-10 p-10">
+      <h1 class="2lg:text-4xl text-3xl leading-tight" v-text="$t('projects.viewMore.title')" />
 
       <Button :to="{ name: 'projects' }" :text="$t('projects.viewAll')" color="white" />
     </div>
