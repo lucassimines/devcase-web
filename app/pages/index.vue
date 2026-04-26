@@ -1,6 +1,6 @@
 <template>
-  <div class="divide-y divide-white/10">
-    <HomeIntro />
+  <div v-if="page" class="divide-y divide-white/10">
+    <HomeIntro :intro="page.content.intro" />
 
     <HomeProjects />
 
@@ -9,5 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const { data: page } = usePageFetch('home')
+import type { ContentHome } from '~/types/page'
+
+const { data: page } = usePageFetch<ContentHome>('home')
 </script>

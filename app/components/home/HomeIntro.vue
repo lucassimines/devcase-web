@@ -8,24 +8,33 @@
             <span v-text="$t('greeting')" />
           </div>
 
-          <div class="flex flex-col">
+          <div v-if="intro.title || intro.subtitle" class="flex flex-col">
             <h1
+              v-if="intro.title"
               class="text-default text-xl sm:text-3xl lg:text-4xl xl:text-5xl"
-              v-text="$t('greetingName', { name: $t('name') })"
+              v-text="intro.title"
             />
+
             <h2
+              v-if="intro.subtitle"
               class="text-3xl leading-tight font-medium sm:text-5xl lg:text-6xl xl:text-7xl"
-              v-text="`${$t('position')}.`"
+              v-text="intro.subtitle"
             />
           </div>
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div v-if="intro.description" class="space-y-4">
         <div class="prose-base sm:prose-lg xl:prose-xl">
-          <p v-text="$t('intro')" />
+          <p v-text="intro.description" />
         </div>
       </div>
     </div>
   </Container>
 </template>
+
+<script setup lang="ts">
+import type { ContentHome } from '~/types/page'
+
+defineProps<ContentHome>()
+</script>

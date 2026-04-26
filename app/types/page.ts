@@ -5,6 +5,14 @@ export interface Page<T = null> {
   name: string
   code: string
   slug: string
-  fields?: T // @TODO: implement
+  content: T
   blocks: Block[]
+}
+
+export type ContentHome = {
+  intro: {
+    title: string
+    subtitle: string
+    description: string
+  }
 }
