@@ -18,7 +18,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: $t('intro')
+      content: $t('meta.description')
     }
   ],
   link: [
