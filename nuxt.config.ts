@@ -22,9 +22,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiUrl: import.meta.env.API_URL,
-      appUrl: import.meta.env.APP_URL,
-      imagesUrl: import.meta.env.NUXT_PUBLIC_IMAGES_URL
+      apiUrl: process.env.API_URL,
+      appUrl: process.env.APP_URL,
+      imagesUrl: process.env.NUXT_PUBLIC_IMAGES_URL
     }
   },
 
@@ -69,10 +69,11 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [import.meta.env.NUXT_IMAGES_DOMAIN || ''],
+    domains: [process.env.NUXT_IMAGES_DOMAIN || ''],
     presets: {
       avatar: {
         modifiers: {
+          format: 'webp',
           width: 300
         }
       }
