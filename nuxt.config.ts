@@ -73,7 +73,6 @@ export default defineNuxtConfig({
     presets: {
       avatar: {
         modifiers: {
-          format: 'webp',
           width: 300
         }
       }

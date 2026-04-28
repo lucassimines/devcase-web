@@ -20,11 +20,11 @@
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/i18n": "^10.2.4",
     "@nuxtjs/mdc": "^0.21.1",
-    "@tailwindcss/vite": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.4",
     "nuxt": "^4.4.2",
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.2.2",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.101",
