@@ -69,6 +69,7 @@ export default defineNuxtConfig({
   },
 
   image: {
+    provider: 'ipx',
     domains: [process.env.NUXT_IMAGES_DOMAIN || ''],
     presets: {
       avatar: {
