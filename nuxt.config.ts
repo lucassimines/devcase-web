@@ -1,5 +1,10 @@
 import tailwindcss from '@tailwindcss/vite'
 
+const isVercel = process.env.VERCEL === '1'
+const imageDomains = [process.env.NUXT_IMAGES_DOMAIN].filter((domain): domain is string =>
+  Boolean(domain?.trim())
+)
+
 export default defineNuxtConfig({
   modules: ['@nuxt/image', '@nuxt/eslint', '@nuxtjs/mdc', '@nuxtjs/i18n', '@nuxt/icon'],
 
@@ -69,8 +74,10 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'ipx',
-    domains: [process.env.NUXT_IMAGES_DOMAIN || ''],
+    provider: isVercel ? 'vercel' : 'ipx',
+    domains: imageDomains,
+    // Explicitly point local file resolution to /public.
+    dir: 'public',
     presets: {
       avatar: {
         modifiers: {
