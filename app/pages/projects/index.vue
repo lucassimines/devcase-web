@@ -1,6 +1,13 @@
 <template>
-  <div v-if="page" class="divide-y divide-white/10">
-    <Container v-if="projects?.data?.length" :ui="{ inner: 'relative' }">
+  <Container v-if="status === 'pending'" :ui="{ base: 'py-20', inner: 'space-y-16' }">
+    <div class="col-span-full space-y-4">
+      <Skeleton class="h-10 w-1/2" />
+      <Skeleton class="h-180 w-full" />
+    </div>
+  </Container>
+
+  <div v-else-if="page && projects?.data.length" class="divide-y divide-white/10">
+    <Container :ui="{ inner: 'relative' }">
       <div class="col-span-full space-y-14 pt-12 pb-20 sm:pt-20 sm:pb-32">
         <PageTitle :title="page.name" size="lg" />
 
@@ -27,7 +34,7 @@ import type { Project } from '~/types/project'
 
 const { data: page } = usePageFetch('projects')
 
-const { data: projects } = await useApi<PaginatedResponse<Project>>('/projects/list')
+const { data: projects, status } = await useApi<PaginatedResponse<Project>>('/projects/list')
 
 const featuredProject = computed(() => projects.value?.data?.[0])
 
