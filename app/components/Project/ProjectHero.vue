@@ -1,6 +1,6 @@
 <template>
-  <Container :ui="{ inner: 'relative flex flex-col 2lg:flex-row gap-24 py-section' }">
-    <div class="flex flex-col gap-14">
+  <Container :ui="{ inner: 'relative py-section' }">
+    <div class="col-span-full space-y-8 lg:col-span-6">
       <div class="space-y-8">
         <h1 class="text-4xl font-medium tracking-wide sm:text-6xl" v-text="name" />
 
@@ -23,7 +23,10 @@
       </div>
     </div>
 
-    <div v-if="solutions.length || technologies.length" class="flex-none space-y-10 sm:w-120">
+    <div
+      v-if="solutions.length || technologies.length"
+      class="col-span-full space-y-10 lg:col-span-5 lg:col-start-8"
+    >
       <ProjectFeatures
         v-if="solutions.length"
         :title="$t('developedSolutions')"

@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="{ name: 'projects-slug', params: { slug: project.slug } }"
-    class="group @container block space-y-4"
+    :class="cn('group @container block space-y-4', ui?.base)"
   >
     <div
       class="group relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-black @2xl:aspect-10/7 @4xl:aspect-video @5xl:aspect-12/6"
@@ -36,5 +36,8 @@ import type { Project } from '~/types/project'
 
 defineProps<{
   project: Project
+  ui?: {
+    base?: string
+  }
 }>()
 </script>

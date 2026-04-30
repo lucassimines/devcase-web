@@ -1,14 +1,16 @@
 <template>
-  <Container v-if="status === 'pending'" :ui="{ base: 'py-20 flex-1', inner: 'space-y-16' }">
-    <div class="space-y-4">
+  <Container v-if="status === 'pending'" :ui="{ base: 'py-20', inner: 'space-y-16' }">
+    <div class="col-span-full space-y-4">
       <Skeleton class="h-10 w-1/2" />
       <Skeleton class="h-40 w-full" />
     </div>
 
-    <Skeleton class="h-120 w-full" />
+    <div class="col-span-full">
+      <Skeleton class="h-120 w-full" />
+    </div>
   </Container>
 
-  <div v-else-if="project" class="flex-1 divide-y divide-white/10">
+  <div v-else-if="project" class="col-span-full divide-y divide-white/10">
     <ProjectHero
       :name="project.name"
       :url="project.url"

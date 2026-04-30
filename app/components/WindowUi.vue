@@ -1,8 +1,6 @@
 <template>
   <div
-    :class="
-      cn('relative min-h-100 w-full overflow-hidden rounded-xl border border-white/10', ui?.base)
-    "
+    :class="cn('relative min-h-100 overflow-hidden rounded-xl border border-white/10', ui?.base)"
   >
     <div class="bg-white/10 px-4 py-2.5">
       <div class="flex grow items-center gap-2 [&>div]:size-3 [&>div]:rounded-full">
