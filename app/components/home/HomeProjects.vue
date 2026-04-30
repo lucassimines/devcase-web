@@ -1,5 +1,5 @@
 <template>
-  <Container :ui="{ inner: 'relative' }">
+  <ContainerGrid :ui="{ inner: 'relative' }">
     <div class="col-span-full space-y-10 py-12 sm:space-y-14 sm:py-20">
       <PageTitle :title="$t('projects.featured')" />
 
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-  </Container>
+  </ContainerGrid>
 </template>
 
 <script setup lang="ts">

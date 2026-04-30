@@ -1,13 +1,13 @@
 <template>
-  <Container v-if="status === 'pending'" :ui="{ base: 'py-20', inner: 'space-y-16' }">
+  <ContainerGrid v-if="status === 'pending'" :ui="{ base: 'py-20', inner: 'space-y-16' }">
     <div class="col-span-full space-y-4">
       <Skeleton class="h-10 w-1/2" />
       <Skeleton class="h-180 w-full" />
     </div>
-  </Container>
+  </ContainerGrid>
 
   <div v-else-if="page && projects?.data.length" class="divide-y divide-white/10">
-    <Container :ui="{ inner: 'relative' }">
+    <ContainerGrid :ui="{ inner: 'relative' }">
       <div class="col-span-full space-y-14 pt-12 pb-20 sm:pt-20 sm:pb-32">
         <PageTitle :title="page.name" size="lg" />
 
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-    </Container>
+    </ContainerGrid>
 
     <Blocks :blocks="page.blocks" />
   </div>

@@ -15,7 +15,7 @@
         />
       </figure>
 
-      <figure class="absolute top-1/6 left-0 z-2 flex size-full justify-center">
+      <figure class="absolute top-1/6 left-0 z-2 flex size-full justify-center px-6">
         <div class="rounded-3xl border border-white/20 p-4 backdrop-blur-lg">
           <NuxtImg
             class="w-90 overflow-hidden rounded-xl object-contain shadow-lg"

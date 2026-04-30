@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <ContainerGrid>
     <WindowUi
       v-if="block.image.desktop"
       :image="$imageUrl(block.image.desktop)"
@@ -11,7 +11,7 @@
       :image="$imageUrl(block.image.mobile)"
       :ui="{ base: 'sm:hidden col-span-full' }"
     />
-  </Container>
+  </ContainerGrid>
 </template>
 
 <script setup lang="ts">

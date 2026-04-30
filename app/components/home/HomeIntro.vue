@@ -1,5 +1,5 @@
 <template>
-  <Container :ui="{ inner: 'py-16 lg:min-h-[70vh] items-center' }">
+  <ContainerGrid :ui="{ inner: 'py-12 sm:py-16 lg:min-h-[70vh] max-sm:gap-8 items-center' }">
     <div class="col-span-full lg:col-span-7">
       <h1
         v-if="intro.title"
@@ -14,7 +14,7 @@
     >
       <p v-text="intro.description" />
     </div>
-  </Container>
+  </ContainerGrid>
 </template>
 
 <script setup lang="ts">

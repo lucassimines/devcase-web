@@ -1,6 +1,6 @@
 <template>
   <div class="py-section">
-    <Container>
+    <ContainerGrid>
       <figure class="size-28 flex-none overflow-hidden rounded-full sm:size-40">
         <NuxtImg
           src="/images/avatar.jpg"
@@ -9,7 +9,7 @@
           preset="avatar"
         />
       </figure>
-    </Container>
+    </ContainerGrid>
 
     <Blocks :blocks="page?.blocks" />
   </div>

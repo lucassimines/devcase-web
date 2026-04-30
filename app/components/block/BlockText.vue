@@ -1,7 +1,7 @@
 <template>
-  <Container>
+  <ContainerGrid>
     <div class="prose-base sm:prose-lg col-span-8" v-html="block.text" />
-  </Container>
+  </ContainerGrid>
 </template>
 
 <script setup lang="ts">

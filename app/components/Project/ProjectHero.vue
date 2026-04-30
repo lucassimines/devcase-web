@@ -1,5 +1,5 @@
 <template>
-  <Container :ui="{ inner: 'relative py-section' }">
+  <ContainerGrid :ui="{ inner: 'relative py-section' }">
     <div class="col-span-full space-y-8 lg:col-span-6">
       <div class="space-y-8">
         <h1 class="text-4xl font-medium tracking-wide sm:text-6xl" v-text="name" />
@@ -49,7 +49,7 @@
         </template>
       </ProjectFeatures>
     </div>
-  </Container>
+  </ContainerGrid>
 </template>
 
 <script setup lang="ts">
