@@ -1,19 +1,17 @@
 <template>
-  <ContainerGrid :ui="{ inner: 'relative' }">
-    <div class="col-span-full space-y-10 py-12 sm:space-y-14 sm:py-20">
-      <PageTitle :title="$t('projects.featured')" />
+  <Container :ui="{ inner: 'relative space-y-10 py-12 sm:space-y-14 sm:py-20' }">
+    <PageTitle :title="$t('projects.featured')" />
 
-      <div class="flex flex-col gap-12 sm:gap-20">
-        <ProjectCard v-if="featuredProject" :project="featuredProject" />
+    <div class="flex flex-col gap-12 sm:gap-20">
+      <ProjectCard v-if="featuredProject" :project="featuredProject" />
 
-        <div class="grid gap-12 lg:grid-cols-2">
-          <ProjectCard v-if="secondProject" :project="secondProject" />
+      <div class="grid gap-12 lg:grid-cols-2">
+        <ProjectCard v-if="secondProject" :project="secondProject" />
 
-          <ProjectViewMoreCard />
-        </div>
+        <ProjectViewMoreCard />
       </div>
     </div>
-  </ContainerGrid>
+  </Container>
 </template>
 
 <script setup lang="ts">

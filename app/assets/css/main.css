@@ -60,7 +60,7 @@ button {
 }
 
 .px-main {
-  @apply px-4 sm:px-8 xl:px-12;
+  @apply px-7 sm:px-8 xl:px-12;
 }
 
 .py-main {
