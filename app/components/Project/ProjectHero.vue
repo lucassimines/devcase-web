@@ -33,7 +33,7 @@
         icon="lucide:puzzle"
         :items="solutions"
       >
-        <template #default="{ item }: { item: Solution }">
+        <template #default="{ item }">
           <Pill :label="item.name" />
         </template>
       </ProjectFeatures>
@@ -44,7 +44,7 @@
         icon="lucide:layers"
         :items="technologies"
       >
-        <template #default="{ item }: { item: Technology }">
+        <template #default="{ item }">
           <Pill :label="item.name" :to="item.url" color="green" />
         </template>
       </ProjectFeatures>

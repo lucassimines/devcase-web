@@ -4,7 +4,7 @@
       <PageTitle :title="$t('projects.featured')" />
 
       <div class="flex flex-col gap-12 sm:gap-20">
-        <ProjectCard v-if="firstProject" :project="firstProject" />
+        <ProjectCard v-if="featuredProject" :project="featuredProject" />
 
         <div class="grid gap-12 lg:grid-cols-2">
           <ProjectCard v-if="secondProject" :project="secondProject" />
@@ -21,6 +21,6 @@ import type { Project } from '~/types/project'
 
 const { data: projects } = await useApi<Project[]>('/projects/featured')
 
-const firstProject = computed(() => projects.value?.[0])
+const featuredProject = computed(() => projects.value?.[0])
 const secondProject = computed(() => projects.value?.[1])
 </script>
