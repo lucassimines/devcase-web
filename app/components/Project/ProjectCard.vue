@@ -10,6 +10,7 @@
         <NuxtImg
           :src="$imageUrl(project.background)"
           alt="Background"
+          preset="lg"
           class="size-full object-cover object-top opacity-20 transition-opacity duration-300 group-hover:opacity-50"
         />
       </figure>
@@ -19,6 +20,7 @@
           <NuxtImg
             class="w-90 overflow-hidden rounded-xl object-contain shadow-lg"
             alt="Image"
+            preset="md"
             :src="$imageUrl(project.image)"
           />
         </div>

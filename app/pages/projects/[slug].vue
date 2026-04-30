@@ -1,5 +1,5 @@
 <template>
-  <Container v-if="status === 'pending'" :ui="{ base: 'py-20', inner: 'space-y-16' }">
+  <Container v-if="status === 'pending'" :ui="{ base: 'py-20' }">
     <div class="col-span-full space-y-4">
       <Skeleton class="h-10 w-1/2" />
       <Skeleton class="h-40 w-full" />

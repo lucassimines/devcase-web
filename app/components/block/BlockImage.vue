@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtImg :src="$imageUrl(block.image)" alt="Image" />
+    <NuxtImg :src="$imageUrl(block.image)" alt="Image" preset="lg" />
   </div>
 </template>
 

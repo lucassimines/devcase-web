@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <NuxtImg :src="image" alt="Image" class="h-auto w-full" />
+    <NuxtImg :src="image" alt="Image" class="h-auto w-full" preset="lg" />
   </div>
 </template>
 

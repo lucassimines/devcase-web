@@ -71,6 +71,21 @@ export default defineNuxtConfig({
   image: {
     domains: [import.meta.env.NUXT_IMAGES_DOMAIN || ''],
     presets: {
+      md: {
+        modifiers: {
+          width: 800
+        }
+      },
+      lg: {
+        modifiers: {
+          width: 1200
+        }
+      },
+      xl: {
+        modifiers: {
+          width: 1920
+        }
+      },
       avatar: {
         modifiers: {
           width: 300

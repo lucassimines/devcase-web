@@ -2,7 +2,12 @@
   <div class="py-section">
     <Container>
       <figure class="size-28 flex-none overflow-hidden rounded-full sm:size-40">
-        <NuxtImg src="/images/avatar.jpg" alt="Lucas Simines" class="size-full object-cover" />
+        <NuxtImg
+          src="/images/avatar.jpg"
+          alt="Lucas Simines"
+          class="size-full object-cover"
+          preset="avatar"
+        />
       </figure>
     </Container>
 
