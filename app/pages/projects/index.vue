@@ -8,7 +8,7 @@
 
   <div v-else-if="page && projects?.data.length" class="divide-y divide-white/10">
     <ContainerGrid :ui="{ inner: 'relative' }">
-      <div class="col-span-full space-y-14 pt-12 pb-20 sm:pt-20 sm:pb-32">
+      <div class="col-span-full space-y-8 pt-12 pb-20 sm:space-y-14 sm:pt-20 sm:pb-32">
         <PageTitle :title="page.name" size="lg" />
 
         <div class="flex flex-col gap-12 sm:gap-20">
