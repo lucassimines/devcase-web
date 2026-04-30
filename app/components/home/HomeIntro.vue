@@ -3,14 +3,8 @@
     <div class="col-span-full lg:col-span-7">
       <h1
         v-if="intro.title"
-        class="text-default text-xl sm:text-3xl lg:text-4xl xl:text-5xl"
-        v-text="intro.title"
-      />
-
-      <p
-        v-if="intro.subtitle"
         class="text-3xl leading-tight font-medium sm:text-5xl lg:text-6xl xl:text-7xl"
-        v-text="intro.subtitle"
+        v-text="intro.title"
       />
     </div>
 

@@ -12,7 +12,6 @@ export interface Page<T = null> {
 export type ContentHome = {
   intro: {
     title: string
-    subtitle: string
     description: string
   }
 }
