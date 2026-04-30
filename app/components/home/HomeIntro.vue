@@ -1,13 +1,8 @@
 <template>
-  <Container :ui="{ inner: 'py-14 min-h-[70vh] flex items-center' }">
-    <div class="space-y-12">
+  <Container :ui="{ inner: 'py-14 min-h-[70vh]' }">
+    <div class="col-span-8 space-y-12">
       <div class="flex items-center gap-6">
         <div class="flex flex-col gap-6">
-          <div class="flex items-center gap-2 sm:text-lg">
-            <Icon name="lucide:hand" class="-rotate-30" />
-            <span v-text="$t('greeting')" />
-          </div>
-
           <div v-if="intro.title || intro.subtitle" class="flex flex-col">
             <h1
               v-if="intro.title"

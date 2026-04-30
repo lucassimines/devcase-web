@@ -1,16 +1,14 @@
 <template>
   <Container :ui="{ inner: 'relative' }">
-    <div class="space-y-10 py-12 sm:space-y-14 sm:py-20">
+    <div class="col-span-full space-y-10 py-12 sm:space-y-14 sm:py-20">
       <PageTitle :title="$t('projects.featured')" />
 
-      <div class="flex flex-col gap-12 sm:gap-20">
-        <ProjectCard v-if="firstProject" :project="firstProject" />
+      <div class="gap-main grid grid-cols-2 sm:gap-20">
+        <ProjectCard v-if="firstProject" :project="firstProject" :ui="{ base: 'col-span-full' }" />
 
-        <div class="grid gap-8 lg:grid-cols-2">
-          <ProjectCard v-if="secondProject" :project="secondProject" />
+        <ProjectCard v-if="secondProject" :project="secondProject" />
 
-          <ProjectViewMoreCard />
-        </div>
+        <ProjectViewMoreCard />
       </div>
     </div>
   </Container>

@@ -1,9 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
 
-const imageDomains = [process.env.NUXT_IMAGES_DOMAIN].filter((domain): domain is string =>
-  Boolean(domain?.trim())
-)
-
 export default defineNuxtConfig({
   modules: ['@nuxt/image', '@nuxt/eslint', '@nuxtjs/mdc', '@nuxtjs/i18n', '@nuxt/icon'],
 
@@ -73,9 +69,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: imageDomains,
-    // Explicitly point local file resolution to /public.
-    dir: 'public',
+    domains: [import.meta.env.NUXT_IMAGES_DOMAIN || ''],
     presets: {
       avatar: {
         modifiers: {
