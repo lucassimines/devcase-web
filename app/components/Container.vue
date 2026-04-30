@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), {
 const container = tv({
   base: 'px-main',
   slots: {
-    inner: 'main-grid mx-auto w-full max-w-(--main-max-width)'
+    inner: 'mx-auto grid w-full max-w-(--main-max-width) grid-cols-8 gap-12 lg:grid-cols-12'
   }
 })
 </script>

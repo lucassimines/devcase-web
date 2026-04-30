@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <div class="prose-base sm:prose-lg" v-html="block.text" />
+    <div class="prose-base sm:prose-lg col-span-8" v-html="block.text" />
   </Container>
 </template>
 
