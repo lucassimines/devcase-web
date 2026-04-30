@@ -71,16 +71,12 @@ button {
   @apply mx-auto w-full max-w-(--main-max-width);
 }
 
-@utility grid-cols-main {
-  @apply grid-cols-12;
-}
-
 @utility main-gap {
-  @apply gap-8;
+  @apply gap-12;
 }
 
 @utility main-grid {
-  @apply main-gap grid-cols-main grid;
+  @apply main-gap grid grid-cols-8 lg:grid-cols-12;
 }
 
 @utility h-menu {

@@ -3,12 +3,14 @@
     <div class="col-span-full space-y-10 py-12 sm:space-y-14 sm:py-20">
       <PageTitle :title="$t('projects.featured')" />
 
-      <ProjectCard v-if="firstProject" :project="firstProject" />
+      <div class="flex flex-col gap-12 sm:gap-20">
+        <ProjectCard v-if="firstProject" :project="firstProject" />
 
-      <div class="main-gap grid grid-cols-2">
-        <ProjectCard v-if="secondProject" :project="secondProject" />
+        <div class="main-gap grid lg:grid-cols-2">
+          <ProjectCard v-if="secondProject" :project="secondProject" />
 
-        <ProjectViewMoreCard />
+          <ProjectViewMoreCard />
+        </div>
       </div>
     </div>
   </Container>
