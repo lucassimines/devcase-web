@@ -76,7 +76,7 @@ button {
 }
 
 @utility main-gap {
-  @apply gap-6;
+  @apply gap-8;
 }
 
 @utility main-grid {
