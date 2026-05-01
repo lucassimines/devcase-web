@@ -18,7 +18,7 @@ const pageTitle = tv({
   variants: {
     size: {
       md: 'text-2xl sm:text-4xl',
-      lg: 'text-3xl sm:text-5xl'
+      lg: 'text-4xl sm:text-5xl lg:text-6xl'
     }
   }
 })
