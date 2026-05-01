@@ -3,6 +3,7 @@
 
 @theme {
   --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Yeseva One', serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-brand: #0055ff;
