@@ -10,11 +10,15 @@
       <span class="text-sm text-emerald-300" v-text="$t('app.builtWith')" />
     </Container>
 
-    <Container :ui="{ inner: 'py-4 max-sm:flex max-sm:justify-center' }">
+    <Container :ui="{ inner: 'py-4 flex justify-between items-center gap-6' }">
       <span
         class="text-xs text-gray-500"
         v-text="$t('app.copyright', { year: new Date().getFullYear() })"
       />
+
+      <NuxtLink to="/">
+        <Logo size="xs" mono />
+      </NuxtLink>
     </Container>
   </footer>
 </template>

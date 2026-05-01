@@ -17,8 +17,8 @@
           :text="$t('projects.view')"
           icon="lucide:arrow-up-right"
           target="_blank"
-          color="white"
-          size="sm"
+          color="neutral"
+          size="md"
         />
       </div>
     </div>
