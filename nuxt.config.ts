@@ -1,7 +1,14 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxtjs/mdc', '@nuxtjs/i18n', '@nuxt/icon'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/eslint',
+    '@nuxtjs/mdc',
+    '@nuxtjs/i18n',
+    '@nuxt/icon',
+    'nuxt-gtag'
+  ],
 
   devtools: { enabled: true },
 
@@ -47,6 +54,10 @@ export default defineNuxtConfig({
     }
   },
 
+  gtag: {
+    id: process.env.GTAG_ID
+  },
+
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en-US',
@@ -69,7 +80,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [import.meta.env.NUXT_IMAGES_DOMAIN || ''],
+    domains: [process.env.NUXT_IMAGES_DOMAIN || ''],
     presets: {
       md: {
         modifiers: {

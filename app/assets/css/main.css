@@ -9,7 +9,7 @@
   --color-brand: #0055ff;
   --color-brand-alt: #7c3aed;
 
-  --color-gray-50: #eef1f6;
+  --color-gray-50: #fcfcfd;
   --color-gray-100: #dce3ed;
   --color-gray-200: #bac8db;
   --color-gray-300: #97adca;
@@ -30,8 +30,9 @@
   --color-body: var(--color-gray-950);
 
   /* Font sizes */
-  --text-2.5xl: 1.625rem;
-  --text-3.5xl: 2.125rem;
+  --text-2.5xl: 1.625rem; /* 26px */
+  --text-3.5xl: 2.125rem; /* 34px */
+  --text-4.5xl: 2.625rem; /* 42px */
 
   /* Screen sizes */
   --main-max-width: 1280px;
