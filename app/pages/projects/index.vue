@@ -1,10 +1,5 @@
 <template>
-  <ContainerGrid v-if="status === 'pending'" :ui="{ base: 'py-20', inner: 'space-y-16' }">
-    <div class="col-span-full space-y-4">
-      <Skeleton class="h-10 w-1/2" />
-      <Skeleton class="h-180 w-full" />
-    </div>
-  </ContainerGrid>
+  <Loader v-if="status === 'pending'" />
 
   <div v-else-if="page && projects?.data.length" class="divide-y divide-white/10">
     <ContainerGrid :ui="{ inner: 'relative' }">
