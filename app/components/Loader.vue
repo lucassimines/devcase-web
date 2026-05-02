@@ -19,7 +19,7 @@ const loader = tv({
       'bg-[radial-gradient(circle,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[24px_24px]'
     ],
     content: 'relative z-10 flex items-center gap-2',
-    flicker: 'signal-flicker font-mono font-semibold text-gray-400 lowercase sm:text-xl'
+    flicker: 'signal-flicker font-mono font-semibold text-white sm:text-xl'
   }
 })
 
@@ -31,8 +31,8 @@ const { base, dots, content, flicker } = loader()
   position: relative;
   display: inline-block;
   animation:
-    signal-flicker 2.2s steps(1, end) infinite,
-    signal-jitter 1.1s steps(1, end) infinite;
+    signal-flicker 3s steps(1, end) infinite,
+    signal-jitter 1.6s steps(1, end) infinite;
 }
 
 .signal-flicker::before,
@@ -45,19 +45,19 @@ const { base, dots, content, flicker } = loader()
 }
 
 .signal-flicker::before {
-  color: rgba(255, 90, 90, 0.85);
+  color: rgba(255, 255, 255, 0.72);
   transform: translate(-1px, 0);
   animation:
-    signal-offset-a 2.2s steps(1, end) infinite,
-    signal-slice-a 0.9s steps(1, end) infinite;
+    signal-offset-a 3s steps(1, end) infinite,
+    signal-slice-a 1.2s steps(1, end) infinite;
 }
 
 .signal-flicker::after {
-  color: rgba(110, 215, 255, 0.85);
+  color: rgba(255, 255, 255, 0.38);
   transform: translate(1px, 0);
   animation:
-    signal-offset-b 2.2s steps(1, end) infinite,
-    signal-slice-b 1s steps(1, end) infinite;
+    signal-offset-b 3s steps(1, end) infinite,
+    signal-slice-b 1.3s steps(1, end) infinite;
 }
 
 @keyframes signal-flicker {
@@ -69,13 +69,16 @@ const { base, dots, content, flicker } = loader()
   67%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.35);
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.35),
+      -0.5px 0 rgba(255, 255, 255, 0.18),
+      0.5px 0 rgba(255, 255, 255, 0.12);
   }
 
   13%,
   34%,
   68% {
-    opacity: 0.2;
+    opacity: 0.82;
     text-shadow: none;
   }
 
@@ -84,17 +87,17 @@ const { base, dots, content, flicker } = loader()
   35%,
   36%,
   69% {
-    opacity: 0;
+    opacity: 0.78;
     text-shadow: none;
   }
 
   16%,
   37%,
   70% {
-    opacity: 0.45;
+    opacity: 0.7;
     text-shadow:
-      -1px 0 rgba(255, 90, 90, 0.45),
-      1px 0 rgba(110, 215, 255, 0.45);
+      -1px 0 rgba(255, 255, 255, 0.45),
+      1px 0 rgba(255, 255, 255, 0.28);
   }
 }
 
@@ -106,7 +109,7 @@ const { base, dots, content, flicker } = loader()
   52%,
   67%,
   100% {
-    opacity: 0;
+    opacity: 0.16;
   }
 
   13%,
@@ -127,7 +130,7 @@ const { base, dots, content, flicker } = loader()
   52%,
   67%,
   100% {
-    opacity: 0;
+    opacity: 0.1;
   }
 
   13%,
