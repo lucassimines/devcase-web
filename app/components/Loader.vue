@@ -19,7 +19,7 @@ const loader = tv({
       'bg-[radial-gradient(circle,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[24px_24px]'
     ],
     content: 'relative z-10 flex items-center gap-2',
-    flicker: 'signal-flicker font-mono font-semibold text-white sm:text-xl'
+    flicker: 'signal-flicker font-mono font-semibold text-white/70 sm:text-lg'
   }
 })
 
