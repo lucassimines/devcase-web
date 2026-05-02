@@ -38,7 +38,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-04-02',
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['tailwind-variants']
+    }
   },
 
   typescript: {
