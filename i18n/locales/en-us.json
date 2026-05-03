@@ -20,6 +20,7 @@
     "description": "Full stack developer specializing in Nuxt, Vue, Laravel, and Node.js, building scalable web applications from concept to production."
   },
   "projects": {
+    "label": "Projects",
     "viewAll": "View Projects",
     "view": "View Live Site",
     "featured": "Featured Projects",

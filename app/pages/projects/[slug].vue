@@ -2,6 +2,8 @@
   <Loader v-if="status === 'pending'" />
 
   <div v-else-if="project" class="col-span-full divide-y divide-white/10">
+    <Button :to="{ name: 'projects' }" :text="$t('projects.a')" />
+
     <ProjectHero
       :name="project.name"
       :url="project.url"

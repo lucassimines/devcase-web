@@ -27,6 +27,7 @@ import type { RouteLocationRaw } from 'vue-router'
 interface Props {
   to?: RouteLocationRaw
   text: string
+  variant?: 'button' | 'link'
   size?: 'sm' | 'md' | 'lg'
   icon?: string
   color?: 'white' | 'neutral' | 'brand'
@@ -38,6 +39,7 @@ interface Props {
 const DEFAULT_ICON = 'lucide:arrow-right'
 
 const props = withDefaults(defineProps<Props>(), {
+  variant: 'button',
   size: 'lg',
   color: 'neutral',
   icon: DEFAULT_ICON
@@ -49,39 +51,93 @@ const button = tv({
     text: 'block font-medium'
   },
   variants: {
+    variant: {
+      button: {
+        base: 'rounded-md'
+      },
+      link: {
+        base: 'h-auto rounded-none p-0',
+        text: 'underline-offset-4 group-hover:underline'
+      }
+    },
     size: {
       sm: {
-        base: 'h-8.5 gap-1.5 rounded-md px-3',
+        base: 'gap-1.5',
         text: 'text-sm'
       },
       md: {
-        base: 'h-10 gap-2 rounded-md px-4',
+        base: 'gap-2',
         text: 'text-base'
       },
       lg: {
-        base: 'h-12 gap-4 rounded-md px-6',
+        base: 'gap-4',
         text: 'text-lg'
       }
     },
     color: {
       white: {
-        base: 'bg-white hover:bg-white/90',
         text: 'text-gray-900'
       },
       neutral: {
-        base: 'bg-gray-800 hover:bg-gray-700',
         text: 'text-gray-300'
       },
       brand: {
+        text: 'text-brand'
+      }
+    }
+  },
+  compoundVariants: [
+    {
+      variant: 'button',
+      size: 'sm',
+      class: {
+        base: 'h-8.5 px-3'
+      }
+    },
+    {
+      variant: 'button',
+      size: 'md',
+      class: {
+        base: 'h-10 px-4'
+      }
+    },
+    {
+      variant: 'button',
+      size: 'lg',
+      class: {
+        base: 'h-12 px-6'
+      }
+    },
+    {
+      variant: 'button',
+      color: 'white',
+      class: {
+        base: 'bg-white hover:bg-white/90',
+        text: 'text-gray-900'
+      }
+    },
+    {
+      variant: 'button',
+      color: 'neutral',
+      class: {
+        base: 'bg-gray-800 hover:bg-gray-700',
+        text: 'text-gray-300'
+      }
+    },
+    {
+      variant: 'button',
+      color: 'brand',
+      class: {
         base: 'bg-brand hover:bg-brand-dark',
         text: 'text-white'
       }
     }
-  }
+  ]
 })
 
 const styles = computed(() =>
   button({
+    variant: props.variant,
     size: props.size,
     color: props.color
   })
