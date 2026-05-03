@@ -1,5 +1,7 @@
 <template>
-  <div class="py-section">
+  <Loader v-if="status === 'pending'" />
+
+  <div v-else-if="page" class="py-section">
     <ContainerGrid>
       <figure class="size-28 flex-none overflow-hidden rounded-full sm:size-40">
         <NuxtImg
@@ -16,5 +18,11 @@
 </template>
 
 <script setup lang="ts">
-const { data: page } = usePageFetch('about')
+const { data: page, status, error } = usePageFetch('about')
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.status
+  })
+}
 </script>

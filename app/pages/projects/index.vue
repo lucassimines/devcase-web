@@ -1,5 +1,5 @@
 <template>
-  <Loader v-if="status === 'pending'" />
+  <Loader v-if="pageStatus === 'pending' || status === 'pending'" />
 
   <div v-else-if="page && projects?.data.length" class="divide-y divide-white/10">
     <ContainerGrid :ui="{ inner: 'relative' }">
@@ -27,11 +27,17 @@
 import type { PaginatedResponse } from '~/types/api'
 import type { Project } from '~/types/project'
 
-const { data: page } = usePageFetch('projects')
+const { data: page, status: pageStatus, error: pageError } = usePageFetch('projects')
 
-const { data: projects, status } = await useApi<PaginatedResponse<Project>>('/projects/list')
+const { data: projects, status, error } = await useApi<PaginatedResponse<Project>>('/projects/list')
 
 const featuredProject = computed(() => projects.value?.data?.[0])
 
 const otherProjects = computed(() => projects.value?.data?.slice(1))
+
+if (pageError.value || error.value) {
+  throw createError({
+    statusCode: pageError.value?.status || error.value?.status
+  })
+}
 </script>
