@@ -19,5 +19,11 @@ import type { Project } from '~/types/project'
 
 const { slug } = useRoute().params
 
-const { data: project, status } = await useApi<Project>(`/projects/${slug}`)
+const { data: project, status, error } = await useApi<Project>(`/projects/${slug}`)
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.status
+  })
+}
 </script>
