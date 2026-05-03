@@ -1,8 +1,11 @@
 {
   "app": {
-    "by": "Designed & developed by LBS Studio",
     "copyright": "© {year} All rights reserved.",
     "builtWith": "Built with Vue, Nuxt and Node.js"
+  },
+  "error": {
+    "404": "Page not found",
+    "goHome": "Go to home"
   },
   "stack": "Stack",
   "greeting": "Welcome!",
