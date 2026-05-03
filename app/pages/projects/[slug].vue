@@ -1,9 +1,7 @@
 <template>
   <Loader v-if="status === 'pending'" />
 
-  <div v-else-if="project" class="col-span-full divide-y divide-white/10">
-    <Button :to="{ name: 'projects' }" :text="$t('projects.a')" />
-
+  <div v-else-if="project" class="divide-y divide-white/10">
     <ProjectHero
       :name="project.name"
       :url="project.url"
@@ -13,6 +11,8 @@
     />
 
     <Blocks :blocks="project?.blocks" />
+
+    <ProjectFooter />
   </div>
 </template>
 

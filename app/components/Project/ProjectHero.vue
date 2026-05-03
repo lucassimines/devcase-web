@@ -15,7 +15,7 @@
         <Button
           :to="url"
           :text="$t('projects.view')"
-          icon="lucide:arrow-up-right"
+          icon-right="lucide:arrow-up-right"
           target="_blank"
           color="neutral"
           size="md"

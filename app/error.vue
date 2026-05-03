@@ -15,7 +15,13 @@
         />
       </div>
 
-      <Button to="/" size="md" :ui="{ base: 'sm:min-w-42' }" :text="$t('error.goHome')" />
+      <Button
+        to="/"
+        size="md"
+        :ui="{ base: 'sm:min-w-42' }"
+        :text="$t('error.goHome')"
+        use-default-icon
+      />
     </div>
   </div>
 </template>

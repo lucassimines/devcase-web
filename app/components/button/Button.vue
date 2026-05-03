@@ -5,15 +5,17 @@
     :to="to"
     :class="cn(styles.base(), ui?.base)"
   >
+    <Icon v-if="iconLeft" :name="iconLeft" :class="styles.text()" />
+
     <span :class="styles.text()" v-text="text" />
 
     <Icon
-      v-if="icon"
-      :name="icon"
+      v-if="defaultIconRight"
+      :name="defaultIconRight"
       :class="[
         styles.text(),
         {
-          'transition-transform group-hover:translate-x-1': icon === DEFAULT_ICON
+          'transition-transform group-hover:translate-x-1': defaultIconRight === DEFAULT_ICON
         }
       ]"
     />
@@ -29,25 +31,31 @@ interface Props {
   text: string
   variant?: 'button' | 'link'
   size?: 'sm' | 'md' | 'lg'
-  icon?: string
+  iconLeft?: string
+  iconRight?: string
   color?: 'white' | 'neutral' | 'brand'
   ui?: {
     base?: string
   }
 }
 
-const DEFAULT_ICON = 'lucide:arrow-right'
-
 const props = withDefaults(defineProps<Props>(), {
   variant: 'button',
   size: 'lg',
-  color: 'neutral',
-  icon: DEFAULT_ICON
+  color: 'neutral'
+})
+
+const DEFAULT_ICON = 'lucide:arrow-right'
+
+const defaultIconRight = computed(() => {
+  if (props.variant === 'link') return props.iconRight
+  if (!props.iconRight && !props.iconLeft) return DEFAULT_ICON
+  return props.iconRight || DEFAULT_ICON
 })
 
 const button = tv({
   slots: {
-    base: 'group flex items-center justify-center',
+    base: 'group inline-flex items-center justify-center',
     text: 'block font-medium'
   },
   variants: {
@@ -56,21 +64,18 @@ const button = tv({
         base: 'rounded-md'
       },
       link: {
-        base: 'h-auto rounded-none p-0',
+        base: '',
         text: 'underline-offset-4 group-hover:underline'
       }
     },
     size: {
       sm: {
-        base: 'gap-1.5',
         text: 'text-sm'
       },
       md: {
-        base: 'gap-2',
         text: 'text-base'
       },
       lg: {
-        base: 'gap-4',
         text: 'text-lg'
       }
     },
@@ -91,21 +96,21 @@ const button = tv({
       variant: 'button',
       size: 'sm',
       class: {
-        base: 'h-8.5 px-3'
+        base: 'h-8.5 gap-1.5 px-3'
       }
     },
     {
       variant: 'button',
       size: 'md',
       class: {
-        base: 'h-10 px-4'
+        base: 'h-10 gap-2 px-4'
       }
     },
     {
       variant: 'button',
       size: 'lg',
       class: {
-        base: 'h-12 px-6'
+        base: 'h-12 gap-4 px-6'
       }
     },
     {
@@ -131,15 +136,20 @@ const button = tv({
         base: 'bg-brand hover:bg-brand-dark',
         text: 'text-white'
       }
+    },
+    {
+      variant: 'link',
+      size: ['sm', 'md', 'lg'],
+      class: {
+        base: 'gap-1'
+      }
     }
   ]
 })
 
-const styles = computed(() =>
-  button({
-    variant: props.variant,
-    size: props.size,
-    color: props.color
-  })
-)
+const styles = button({
+  variant: props.variant,
+  size: props.size,
+  color: props.color
+})
 </script>
