@@ -2,12 +2,15 @@
   <div class="relative h-screen">
     <DotBackgroundAnimated />
 
-    <div class="px-main relative z-10 flex h-full flex-col items-center justify-center gap-8">
+    <div class="px-main relative z-10 flex h-full flex-col items-center justify-center gap-4">
       <div class="flex flex-col items-center">
-        <FlickerText text="404" :ui="{ base: 'text-7xl sm:text-8xl' }" />
+        <FlickerText
+          :text="error?.status?.toString() ?? '404'"
+          :ui="{ base: 'text-7xl sm:text-8xl' }"
+        />
 
         <FlickerText
-          :ui="{ base: 'font-mono tracking-wider text-sm sm:text-lg' }"
+          :ui="{ base: 'font-mono tracking-wider text-sm sm:text-lg text-center' }"
           :text="$t('error.404')"
         />
       </div>
@@ -17,4 +20,6 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const error = useError()
+</script>
