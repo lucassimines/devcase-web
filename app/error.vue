@@ -28,4 +28,8 @@
 
 <script setup lang="ts">
 const error = useError()
+
+useSeoMeta({
+  title: 'Page not found'
+})
 </script>

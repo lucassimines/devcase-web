@@ -20,4 +20,8 @@ if (error.value) {
     statusCode: error.value.status
   })
 }
+
+useSeoMeta({
+  description: () => page.value?.content?.intro?.description || undefined
+})
 </script>

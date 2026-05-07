@@ -12,6 +12,26 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      title: 'Lucas Simines',
+      titleTemplate: '%s | Lucas Simines',
+      htmlAttrs: {
+        lang: 'en-US'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          name: 'description',
+          content:
+            'Personal portfolio featuring web development projects, UI-focused experiences, and modern full-stack solutions.'
+        },
+        { name: 'theme-color', content: '#0f172a' }
+      ]
+    }
+  },
+
   css: ['./app/assets/css/main.css', './app/assets/css/font.css'],
 
   mdc: {
@@ -28,6 +48,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    apiUrl: process.env.API_URL,
     public: {
       apiUrl: process.env.API_URL,
       appUrl: process.env.APP_URL,

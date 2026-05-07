@@ -35,6 +35,11 @@ const featuredProject = computed(() => projects.value?.data?.[0])
 
 const otherProjects = computed(() => projects.value?.data?.slice(1))
 
+useSeoMeta({
+  title: () => page.value?.name || undefined,
+  description: () => page.value?.content || undefined
+})
+
 if (pageError.value || error.value) {
   throw createError({
     statusCode: pageError.value?.status || error.value?.status

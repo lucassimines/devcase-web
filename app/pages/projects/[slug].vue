@@ -28,4 +28,10 @@ if (error.value) {
     statusCode: error.value.status
   })
 }
+
+useSeoMeta({
+  title: () => project.value?.name || undefined,
+  description: () => project.value?.description || undefined,
+  ogImage: () => project.value?.image || undefined
+})
 </script>

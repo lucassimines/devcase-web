@@ -20,6 +20,11 @@
 <script setup lang="ts">
 const { data: page, status, error } = usePageFetch('about')
 
+useSeoMeta({
+  title: 'About',
+  description: 'Learn more about Lucas Simines, background, and work approach.'
+})
+
 if (error.value) {
   throw createError({
     statusCode: error.value.status
