@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/**': { isr: process.env.NODE_ENV === 'production' ? 3600 : false }
+    '/**': { isr: process.env.NODE_ENV === 'production' ? 300 : false }
   },
 
   compatibilityDate: '2026-04-02',
