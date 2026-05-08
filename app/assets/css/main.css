@@ -59,6 +59,9 @@ button {
 .prose-xl,
 .prose-2xl {
   @apply max-w-[80ch];
+  a {
+    @apply text-emerald-400 underline underline-offset-2 hover:text-emerald-500;
+  }
 }
 
 .px-main {
