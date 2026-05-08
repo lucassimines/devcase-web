@@ -4,9 +4,11 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt([
+  {
+    ignores: ['.agents/**']
+  },
   ...vueI18n.configs['flat/recommended'],
   {
-    ignores: ['.agents/**'],
     rules: {
       '@intlify/vue-i18n/no-missing-keys': 'error',
       '@intlify/vue-i18n/no-raw-text': 'off'
