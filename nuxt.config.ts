@@ -56,6 +56,10 @@ export default defineNuxtConfig({
     }
   },
 
+  routeRules: {
+    '/**': { isr: 3600 }
+  },
+
   compatibilityDate: '2026-04-02',
 
   vite: {
