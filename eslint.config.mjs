@@ -6,6 +6,7 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt([
   ...vueI18n.configs['flat/recommended'],
   {
+    ignores: ['.agents/**'],
     rules: {
       '@intlify/vue-i18n/no-missing-keys': 'error',
       '@intlify/vue-i18n/no-raw-text': 'off'
