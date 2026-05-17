@@ -29,7 +29,7 @@ import type { Project } from '~/types/project'
 
 const { data: page, status: pageStatus, error: pageError } = usePageFetch('projects')
 
-const { data: projects, status, error } = await useApi<PaginatedResponse<Project>>('/projects/list')
+const { data: projects, status, error } = await useApi<PaginatedResponse<Project>>('/projects')
 
 const featuredProject = computed(() => projects.value?.data?.[0])
 

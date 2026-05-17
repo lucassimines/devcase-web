@@ -14,3 +14,16 @@ export interface Project {
   technologies: Technology[]
   solutions: Solution[]
 }
+
+type AdjacentProject = {
+  id: string
+  slug: string
+  name: string
+}
+
+export interface ProjectResponse {
+  data: Project
+  meta: {
+    next: AdjacentProject | null
+  }
+}
