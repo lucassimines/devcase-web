@@ -48,6 +48,10 @@ body,
   @apply bg-body m-0 min-h-screen p-0 font-sans text-gray-50 antialiased;
 }
 
+#__nuxt {
+  @apply flex flex-col;
+}
+
 a,
 button {
   @apply cursor-pointer transition-colors duration-300;
