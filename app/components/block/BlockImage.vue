@@ -1,7 +1,7 @@
 <template>
   <Container :ui="{ inner: 'flex justify-center' }">
-    <figure class="overflow-hidden rounded-md border border-white/10">
-      <NuxtImg :src="$imageUrl(block.image)" alt="Image" preset="lg" />
+    <figure class="w-full overflow-hidden rounded-md border border-white/10">
+      <NuxtImg :src="$imageUrl(block.image)" alt="Image" preset="xl" class="h-auto w-full" />
     </figure>
   </Container>
 </template>
