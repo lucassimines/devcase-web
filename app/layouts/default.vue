@@ -5,7 +5,7 @@
 
   <AppHeader />
 
-  <div class="flex min-h-screen flex-col">
+  <div class="flex flex-col">
     <slot />
   </div>
 

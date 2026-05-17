@@ -15,7 +15,7 @@ export interface Project {
   solutions: Solution[]
 }
 
-type AdjacentProject = {
+export type AdjacentProject = {
   id: string
   slug: string
   name: string

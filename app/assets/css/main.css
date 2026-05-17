@@ -38,6 +38,7 @@
   --main-max-width: 1280px;
 
   /* Breakpoints */
+  --breakpoint-xs: 30rem;
   --breakpoint-2lg: 1152px;
 }
 
