@@ -64,6 +64,15 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2026-04-02',
 
+  // Required for on-demand ISR: Vercel only honors `x-prerender-revalidate` when this is set at build time.
+  nitro: {
+    vercel: {
+      config: {
+        bypassToken: process.env.PRERENDER_REVALIDATE_TOKEN
+      }
+    }
+  },
+
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
