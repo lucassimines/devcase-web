@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     'nuxt-gtag'
   ],
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   app: {
     head: {
@@ -57,7 +57,9 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/**': { isr: process.env.NODE_ENV === 'production' ? 300 : false }
+    '/**': {
+      isr: process.env.NODE_ENV === 'production' ? 300 : false
+    }
   },
 
   compatibilityDate: '2026-04-02',

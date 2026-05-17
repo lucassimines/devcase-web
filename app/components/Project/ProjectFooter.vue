@@ -4,7 +4,7 @@
       :to="{ name: 'projects' }"
       :text="$t('projects.label')"
       variant="link"
-      icon-left="lucide:move-left"
+      icon-left="lucide:arrow-left"
     />
   </Container>
 </template>
