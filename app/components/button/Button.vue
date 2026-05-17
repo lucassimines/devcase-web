@@ -81,13 +81,13 @@ const button = tv({
     },
     color: {
       white: {
-        text: 'text-gray-900'
+        text: ''
       },
       neutral: {
-        text: 'text-gray-300'
+        text: ''
       },
       brand: {
-        text: 'text-brand'
+        text: ''
       }
     }
   },
@@ -142,6 +142,27 @@ const button = tv({
       size: ['sm', 'md', 'lg'],
       class: {
         base: 'gap-1'
+      }
+    },
+    {
+      variant: 'link',
+      color: 'white',
+      class: {
+        text: 'text-gray-50'
+      }
+    },
+    {
+      variant: 'link',
+      color: 'neutral',
+      class: {
+        text: 'text-gray-500'
+      }
+    },
+    {
+      variant: 'link',
+      color: 'brand',
+      class: {
+        text: 'text-brand'
       }
     }
   ]

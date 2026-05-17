@@ -1,5 +1,9 @@
 <template>
-  <ContainerGrid :ui="{ inner: 'py-16 lg:min-h-[70vh] max-sm:space-y-8 items-center' }">
+  <ContainerGrid
+    :ui="{
+      inner: 'py-16 sm:min-h-[50vh] sm:content-center lg:min-h-[70vh] max-sm:space-y-8 items-center'
+    }"
+  >
     <div class="sm:col-span-full md:col-span-6 lg:col-span-7">
       <h1
         v-if="intro.title"
