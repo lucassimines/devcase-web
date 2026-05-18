@@ -4,7 +4,7 @@
   <div v-else-if="project?.data" class="divide-y divide-white/10">
     <ProjectHero
       :name="project.data.name"
-      :url="project.data.url"
+      :url="project.data.url || ''"
       :description="project.data.description"
       :technologies="project.data.technologies"
       :solutions="project.data.solutions"

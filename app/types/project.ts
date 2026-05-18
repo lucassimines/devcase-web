@@ -5,7 +5,7 @@ import type { Technology } from '~/types/technology'
 export interface Project {
   id: string
   name: string
-  url: string
+  url: string | null
   description: string
   background: string
   image: string
