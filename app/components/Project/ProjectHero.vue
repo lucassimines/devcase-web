@@ -20,7 +20,11 @@
           variant="link"
           size="md"
           color="neutral"
-        />
+        >
+          <template #icon-left>
+            <i class="mr-1 block size-1.25 flex-none rounded-full bg-green-400" />
+          </template>
+        </Button>
       </div>
     </div>
 

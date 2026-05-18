@@ -5,20 +5,24 @@
     :to="to"
     :class="cn(styles.base(), ui?.base)"
   >
-    <Icon v-if="iconLeft" :name="iconLeft" :class="styles.text()" />
+    <slot name="icon-left">
+      <Icon v-if="iconLeft" :name="iconLeft" :class="styles.text()" />
+    </slot>
 
     <span :class="styles.text()" v-text="text" />
 
-    <Icon
-      v-if="defaultIconRight"
-      :name="defaultIconRight"
-      :class="[
-        styles.text(),
-        {
-          'transition-transform group-hover:translate-x-1': defaultIconRight === DEFAULT_ICON
-        }
-      ]"
-    />
+    <slot name="icon-right">
+      <Icon
+        v-if="defaultIconRight"
+        :name="defaultIconRight"
+        :class="[
+          styles.text(),
+          {
+            'transition-transform group-hover:translate-x-1': defaultIconRight === DEFAULT_ICON
+          }
+        ]"
+      />
+    </slot>
   </component>
 </template>
 
@@ -52,6 +56,11 @@ const defaultIconRight = computed(() => {
   if (!props.iconRight && !props.iconLeft) return DEFAULT_ICON
   return props.iconRight || DEFAULT_ICON
 })
+
+defineSlots<{
+  'icon-left'?: () => VNode
+  'icon-right'?: () => VNode
+}>()
 
 const button = tv({
   slots: {
@@ -155,7 +164,7 @@ const button = tv({
       variant: 'link',
       color: 'neutral',
       class: {
-        text: 'text-gray-500'
+        text: 'text-gray-300'
       }
     },
     {
