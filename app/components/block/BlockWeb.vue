@@ -3,13 +3,13 @@
     <WindowUi
       v-if="block.image.desktop"
       :image="$imageUrl(block.image.desktop)"
-      :ui="{ base: 'max-sm:hidden col-span-full' }"
+      :ui="{ base: 'max-md:hidden col-span-full' }"
     />
 
     <WindowUi
       v-if="block.image.mobile"
       :image="$imageUrl(block.image.mobile)"
-      :ui="{ base: 'sm:hidden col-span-full' }"
+      :ui="{ base: 'md:hidden col-span-full' }"
     />
   </ContainerGrid>
 </template>

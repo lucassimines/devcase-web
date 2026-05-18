@@ -132,9 +132,9 @@ export default defineNuxtConfig({
           width: 1200
         }
       },
-      xl: {
+      lg2: {
         modifiers: {
-          width: 1920
+          width: 1600
         }
       },
       avatar: {
