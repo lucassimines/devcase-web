@@ -1,6 +1,6 @@
 <template>
   <Container :ui="{ inner: 'flex justify-center' }">
-    <figure class="overflow-hidden rounded-md border border-white/10">
+    <figure class="overflow-hidden rounded-xl border border-white/10">
       <NuxtImg
         :src="$imageUrl(block.image)"
         alt="Image"

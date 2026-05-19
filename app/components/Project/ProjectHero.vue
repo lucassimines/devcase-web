@@ -1,5 +1,5 @@
 <template>
-  <ContainerGrid :ui="{ inner: 'relative py-section max-sm:space-y-12' }">
+  <ContainerGrid :ui="{ inner: 'relative py-section gap-12' }">
     <div class="space-y-8 sm:col-span-6">
       <div class="space-y-8">
         <h1 class="text-4xl font-medium tracking-wide sm:text-6xl" v-text="name" />

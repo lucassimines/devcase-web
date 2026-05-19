@@ -23,7 +23,7 @@ const container = tv({
   base: 'px-main',
   slots: {
     inner:
-      'mx-auto w-full max-w-(--main-max-width) sm:grid sm:grid-cols-8 sm:gap-12 lg:grid-cols-12'
+      'mx-auto grid w-full max-w-(--main-max-width) grid-cols-1 gap-8 sm:grid-cols-8 sm:gap-12 lg:grid-cols-12'
   }
 })
 </script>

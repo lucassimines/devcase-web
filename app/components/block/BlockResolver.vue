@@ -17,6 +17,8 @@ const component = computed(() => {
       return resolveComponent('BlockWeb')
     case blockType.TEXT:
       return resolveComponent('BlockText')
+    case blockType.TEXT_IMAGE:
+      return resolveComponent('BlockTextImage')
     default:
       return null
   }
