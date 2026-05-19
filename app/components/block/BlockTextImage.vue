@@ -14,7 +14,7 @@
       class="col-span-full overflow-hidden rounded-xl border border-white/10 lg:col-span-7"
       :class="{ 'lg:order-1': block.textPosition === 'right' }"
     >
-      <NuxtImg :src="$imageUrl(block.image)" alt="Image" densities="1" class="block" />
+      <NuxtImg :src="$imageUrl(block.image)" alt="Image" sizes="100vw md:100vw" class="block" />
     </figure>
   </ContainerGrid>
 </template>
