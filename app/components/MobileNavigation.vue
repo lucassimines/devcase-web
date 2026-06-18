@@ -35,6 +35,7 @@
           </li>
 
           <li
+            v-if="github"
             class="flex flex-wrap justify-center gap-4 text-3xl transition-all duration-300"
             :class="{ '-translate-y-2 opacity-0': !navigationState }"
             :style="{
@@ -43,14 +44,7 @@
                 : ''
             }"
           >
-            <NuxtLink
-              v-for="socialMedia in socialMedias"
-              :key="socialMedia.name"
-              :to="socialMedia.url"
-              target="_blank"
-              class="text-3xl"
-              ><Icon :name="socialMedia.icon"
-            /></NuxtLink>
+            <ButtonSocialMedia :social-media="github" :ui="{ base: 'text-3xl' }" />
           </li>
         </ul>
       </div>
@@ -59,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-const { bootstrap, socialMedias, navigationState, closeNavigation } = useBootstrap()
+const { bootstrap, github, navigationState, closeNavigation } = useBootstrap()
 
 const route = useRoute()
 </script>

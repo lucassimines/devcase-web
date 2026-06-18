@@ -1,26 +1,21 @@
-import type { Bootstrap } from '~/types/bootstrap'
+import type { Bootstrap, SocialMedia } from '~/types/bootstrap'
 
 export function useBootstrap() {
   const bootstrap = useState<Bootstrap | null>('bootstrap', () => null)
 
-  interface SocialMedia {
-    name: string
-    url: string
-    icon: string
+  const github: SocialMedia = {
+    name: 'GitHub',
+    url: 'https://github.com/lucassimines',
+    icon: 'uil:github'
   }
 
-  const socialMedias: SocialMedia[] = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/lucassimines',
-      icon: 'uil:github'
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/lucassimines/',
-      icon: 'uil:linkedin'
-    }
-  ]
+  const linkedin: SocialMedia = {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/lucassimines/',
+    icon: 'uil:linkedin'
+  }
+
+  const socialMedias: SocialMedia[] = [github, linkedin]
 
   const navigationState = useState('navigation-state', () => false)
 
@@ -35,6 +30,7 @@ export function useBootstrap() {
   return {
     bootstrap,
     socialMedias,
+    github,
     navigationState,
     openNavigation,
     closeNavigation

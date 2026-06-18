@@ -2,16 +2,37 @@
   <Loader v-if="status === 'pending'" />
 
   <div v-else-if="page" class="py-section">
-    <ContainerGrid>
+    <Container :ui="{ inner: 'flex max-xs:flex-col xs:items-center gap-6' }">
       <figure class="size-28 flex-none overflow-hidden rounded-full sm:size-40">
         <NuxtImg
           src="/images/avatar.jpg"
-          alt="Lucas Simines"
+          :alt="profile.name"
           class="size-full object-cover"
           preset="avatar"
         />
       </figure>
-    </ContainerGrid>
+
+      <div class="space-y-3">
+        <div class="space-y-2">
+          <div>
+            <h1 class="text-3xl" v-text="profile.name" />
+            <h2 class="text-elevated text-lg" v-text="profile.title" />
+          </div>
+          <div>
+            <p class="text-elevated italic" v-text="profile.location" />
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <ButtonSocialMedia
+            v-for="socialMedia in socialMedias"
+            :key="socialMedia.name"
+            :ui="{ base: 'text-elevated text-xl' }"
+            :social-media="socialMedia"
+          />
+        </div>
+      </div>
+    </Container>
 
     <Blocks :blocks="page?.blocks" />
   </div>
@@ -25,9 +46,19 @@ useSeoMeta({
   description: 'Learn more about Lucas Simines, background, and work approach.'
 })
 
+const { socialMedias } = useBootstrap()
+
 if (error.value) {
   throw createError({
     statusCode: error.value.status
   })
+}
+
+const profile = {
+  name: 'Lucas Simines',
+  title: 'Software Engineer',
+  description: 'I am a software engineer with a passion for building web applications.',
+  location: 'Marília, São Paulo, Brazil',
+  image: '/images/avatar.jpg'
 }
 </script>

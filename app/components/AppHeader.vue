@@ -32,22 +32,15 @@
         </ul>
       </nav>
 
-      <div class="flex items-center gap-6">
-        <NuxtLink
-          v-for="socialMedia in socialMedias"
-          :key="socialMedia.name"
-          :to="socialMedia.url"
-          target="_blank"
-          class="hover:text-brand flex items-center justify-center text-2xl"
-          ><Icon :name="socialMedia.icon"
-        /></NuxtLink>
+      <div v-if="github" class="flex items-center gap-6">
+        <ButtonSocialMedia :social-media="github" :ui="{ base: 'text-2xl' }" />
       </div>
     </div>
   </Container>
 </template>
 
 <script setup lang="ts">
-const { bootstrap, socialMedias } = useBootstrap()
+const { bootstrap, github } = useBootstrap()
 
 const route = useRoute()
 </script>
