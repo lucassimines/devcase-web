@@ -27,8 +27,18 @@ export function useBootstrap() {
     navigationState.value = false
   }
 
+  const profile = {
+    name: 'Lucas Simines',
+    title: 'Software Engineer',
+    description: 'I am a software engineer with a passion for building web applications.',
+    location: 'Marília, São Paulo, Brazil',
+    image: '/images/avatar.jpg',
+    resumeUrl: 'https://resume.lucassimines.dev/'
+  }
+
   return {
     bootstrap,
+    profile,
     socialMedias,
     github,
     navigationState,

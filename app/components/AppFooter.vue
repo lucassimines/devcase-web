@@ -12,10 +12,22 @@
           :ui="{ base: 'text-[1.375rem] text-elevated' }"
           :social-media="socialMedia"
         />
+
+        <NuxtLink
+          :to="profile.resumeUrl"
+          class="flex items-center gap-2 text-emerald-400 hover:text-gray-50"
+          target="_blank"
+        >
+          {{ $t('resume') }}
+          <Icon name="uil:external-link-alt" />
+        </NuxtLink>
       </div>
 
       <div>
-        <span class="text-right font-mono text-sm" v-text="$t('app.builtWith')" />
+        <span
+          class="block text-center font-mono text-sm sm:text-right"
+          v-text="$t('app.builtWith')"
+        />
       </div>
     </Container>
 
@@ -34,4 +46,6 @@
 
 <script setup lang="ts">
 const { socialMedias } = useBootstrap()
+
+const { profile } = useBootstrap()
 </script>

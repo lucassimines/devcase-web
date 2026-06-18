@@ -47,19 +47,13 @@ useSeoMeta({
   description: 'Learn more about Lucas Simines, background, and work approach.'
 })
 
+const { profile } = useBootstrap()
+
 const { socialMedias } = useBootstrap()
 
 if (error.value) {
   throw createError({
     statusCode: error.value.status
   })
-}
-
-const profile = {
-  name: 'Lucas Simines',
-  title: 'Software Engineer',
-  description: 'I am a software engineer with a passion for building web applications.',
-  location: 'Marília, São Paulo, Brazil',
-  image: '/images/avatar.jpg'
 }
 </script>
