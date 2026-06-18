@@ -14,6 +14,11 @@ export function useBootstrap() {
       name: 'GitHub',
       url: 'https://github.com/lucassimines',
       icon: 'uil:github'
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/lucassimines/',
+      icon: 'uil:linkedin'
     }
   ]
 

@@ -35,7 +35,7 @@
           </li>
 
           <li
-            class="text-center text-3xl transition-all duration-300"
+            class="flex flex-wrap justify-center gap-4 text-3xl transition-all duration-300"
             :class="{ '-translate-y-2 opacity-0': !navigationState }"
             :style="{
               transitionDelay: navigationState
