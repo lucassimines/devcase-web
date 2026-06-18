@@ -3,7 +3,7 @@
 
   <div v-else-if="page" class="py-section">
     <Container :ui="{ inner: 'flex max-xs:flex-col xs:items-center gap-6' }">
-      <figure class="size-28 flex-none overflow-hidden rounded-full sm:size-40">
+      <figure class="size-28 flex-none overflow-hidden rounded-full bg-white/10 sm:size-40">
         <NuxtImg
           src="/images/avatar.jpg"
           :alt="profile.name"
@@ -18,6 +18,7 @@
             <h1 class="text-3xl" v-text="profile.name" />
             <h2 class="text-elevated text-lg" v-text="profile.title" />
           </div>
+
           <div>
             <p class="text-elevated italic" v-text="profile.location" />
           </div>
