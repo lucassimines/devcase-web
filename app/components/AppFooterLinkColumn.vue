@@ -1,17 +1,17 @@
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-2 sm:gap-4">
     <div class="flex items-center gap-2">
       <Icon class="text-elevated" name="uil:corner-down-right-alt" />
       <span class="text-elevated text-sm font-medium" v-text="title" />
     </div>
 
-    <ul class="flex h-full flex-wrap items-center gap-x-8 gap-y-2">
+    <ul class="flex h-full flex-wrap items-center gap-x-7 gap-y-2 sm:gap-x-8">
       <li v-for="link in links">
         <NuxtLink
           :to="link.url || `/${link.slug}`"
           :target="link.url && link.newTab ? '_blank' : undefined"
           :rel="link.url && link.newTab ? 'noopener noreferrer' : undefined"
-          class="underline-offset-6 hover:underline"
+          class="underline-offset-6 hover:underline max-sm:text-sm"
         >
           {{ link.name }}
         </NuxtLink>
