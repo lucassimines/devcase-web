@@ -1,5 +1,7 @@
 <template>
   <footer class="divide-y divide-white/10 border-t border-white/10">
+    <AppFooterTop />
+
     <Container
       :ui="{
         inner: 'py-6 sm:py-10 max-sm:flex-col max-sm:items-center flex gap-6 sm:justify-between'
@@ -12,15 +14,6 @@
           :ui="{ base: 'text-[1.375rem] text-elevated' }"
           :social-media="socialMedia"
         />
-
-        <NuxtLink
-          :to="profile.resumeUrl"
-          class="flex items-center gap-2 text-emerald-400 hover:text-gray-50"
-          target="_blank"
-        >
-          {{ $t('resume') }}
-          <Icon name="uil:external-link-alt" />
-        </NuxtLink>
       </div>
 
       <div>
@@ -46,6 +39,4 @@
 
 <script setup lang="ts">
 const { socialMedias } = useBootstrap()
-
-const { profile } = useBootstrap()
 </script>

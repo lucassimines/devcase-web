@@ -5,7 +5,7 @@
     <Pattern />
 
     <div class="2lg:p-14 relative z-2 flex flex-col items-start gap-10 p-6 sm:p-12 lg:p-10">
-      <h1
+      <h2
         class="2lg:text-4xl text-2xl leading-tight sm:text-3xl"
         v-text="$t('projects.viewMore.title')"
       />

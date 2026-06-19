@@ -45,7 +45,7 @@ const { bootstrap, github } = useBootstrap()
 const route = useRoute()
 </script>
 
-<style>
+<style scoped>
 .router-link-active {
   border-bottom-color: var(--color-brand);
 }

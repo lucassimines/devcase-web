@@ -14,6 +14,9 @@
 import type { ContentHome } from '~/types/page'
 
 const { data: page, status, error } = usePageFetch<ContentHome>('home')
+const { profile, socialMedias } = useBootstrap()
+const siteUrl = useSiteUrl()
+const profileImageUrl = useSiteUrl(profile.image)
 
 if (error.value) {
   throw createError({
@@ -21,7 +24,34 @@ if (error.value) {
   })
 }
 
-useSeoMeta({
-  description: () => page.value?.content?.intro?.description || undefined
+useSiteSeo({
+  title: () => page.value?.content?.intro?.title || `${profile.name} - ${profile.title}`,
+  description: () => page.value?.content?.intro?.description || profile.description,
+  path: '/',
+  schema: () => [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: profile.name,
+      jobTitle: profile.title,
+      description: profile.description,
+      url: siteUrl,
+      image: profileImageUrl,
+      sameAs: socialMedias.map((socialMedia) => socialMedia.url),
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Marília',
+        addressRegion: 'São Paulo',
+        addressCountry: 'BR'
+      }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: profile.name,
+      url: siteUrl,
+      description: page.value?.content?.intro?.description || profile.description
+    }
+  ]
 })
 </script>

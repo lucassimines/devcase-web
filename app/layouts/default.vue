@@ -15,18 +15,17 @@
 </template>
 
 <script setup lang="ts">
+useSiteSeo()
+
 useHead({
-  title: `${$t('name')} - ${$t('position')}`,
-  meta: [
-    {
-      name: 'description',
-      content: $t('meta.description')
-    }
-  ],
   link: [
     {
+      rel: 'icon',
+      href: '/favicon.ico'
+    },
+    {
       rel: 'apple-touch-icon',
-      href: '/images/og-image.png'
+      href: '/images/avatar.jpg'
     }
   ]
 })

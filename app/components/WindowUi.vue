@@ -10,15 +10,21 @@
       </div>
     </div>
 
-    <NuxtImg :src="image" alt="Image" class="h-auto w-full" sizes="100vw md:100vw" />
+    <NuxtImg :src="image" :alt="alt" class="h-auto w-full" sizes="100vw md:100vw" />
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  image: string
-  ui?: {
-    base: string
+withDefaults(
+  defineProps<{
+    image: string
+    alt?: string
+    ui?: {
+      base: string
+    }
+  }>(),
+  {
+    alt: 'Website preview'
   }
-}>()
+)
 </script>

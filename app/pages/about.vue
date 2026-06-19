@@ -42,14 +42,33 @@
 <script setup lang="ts">
 const { data: page, status, error } = usePageFetch('about')
 
-useSeoMeta({
-  title: 'About',
-  description: 'Learn more about Lucas Simines, background, and work approach.'
-})
-
 const { profile } = useBootstrap()
-
 const { socialMedias } = useBootstrap()
+const aboutDescription = `Learn more about ${profile.name}, a ${profile.title.toLowerCase()} based in ${profile.location}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.`
+const siteUrl = useSiteUrl('/about')
+const profileImageUrl = useSiteUrl(profile.image)
+
+useSiteSeo({
+  title: `About ${profile.name}`,
+  description: aboutDescription,
+  path: '/about',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profile.name,
+    jobTitle: profile.title,
+    description: aboutDescription,
+    url: siteUrl,
+    image: profileImageUrl,
+    sameAs: socialMedias.map((socialMedia) => socialMedia.url),
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Marília',
+      addressRegion: 'São Paulo',
+      addressCountry: 'BR'
+    }
+  }
+})
 
 if (error.value) {
   throw createError({

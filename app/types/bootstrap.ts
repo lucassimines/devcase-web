@@ -8,6 +8,12 @@ export interface Bootstrap {
   }
 }
 
+export interface FooterLink {
+  name: string
+  slug?: string
+  url?: string
+}
+
 export interface SocialMedia {
   name: string
   url: string

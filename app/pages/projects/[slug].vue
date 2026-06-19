@@ -20,6 +20,8 @@
 import type { ProjectResponse } from '~/types/project'
 
 const { slug } = useRoute().params
+const { $imageUrl } = useNuxtApp()
+const siteUrl = useSiteUrl('/').replace(/\/$/, '')
 
 const { data: project, status, error } = await useApi<ProjectResponse>(`/projects/${slug}`)
 
@@ -29,9 +31,28 @@ if (error.value) {
   })
 }
 
-useSeoMeta({
+useSiteSeo({
   title: () => project.value?.data?.name || undefined,
   description: () => project.value?.data?.description || undefined,
-  ogImage: () => project.value?.data?.image || undefined
+  path: () => `/projects/${project.value?.data?.slug || slug}`,
+  image: () => $imageUrl(project.value?.data?.image),
+  schema: () =>
+    project.value?.data
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: project.value.data.name,
+          description: project.value.data.description,
+          image: $imageUrl(project.value.data.image),
+          url: `${siteUrl}/projects/${project.value.data.slug}`,
+          sameAs: project.value.data.url || undefined,
+          creator: {
+            '@type': 'Person',
+            name: 'Lucas Simines',
+            url: siteUrl
+          },
+          keywords: project.value.data.technologies.map((technology) => technology.name).join(', ')
+        }
+      : undefined
 })
 </script>

@@ -3,6 +3,7 @@
     :key="socialMedia.name"
     :to="socialMedia.url"
     target="_blank"
+    :aria-label="socialMedia.name"
     :class="cn(base(), ui?.base)"
     ><Icon :name="socialMedia.icon"
   /></NuxtLink>

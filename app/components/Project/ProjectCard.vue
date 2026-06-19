@@ -9,7 +9,7 @@
       <figure v-if="project.background" class="absolute inset-0">
         <NuxtImg
           :src="$imageUrl(project.background)"
-          alt="Background"
+          :alt="`${project.name} background preview`"
           preset="lg"
           class="size-full object-cover object-top opacity-20 transition-opacity duration-300 group-hover:opacity-50"
         />
@@ -19,7 +19,7 @@
         <div class="rounded-3xl border border-white/20 p-4 backdrop-blur-lg">
           <NuxtImg
             class="w-90 overflow-hidden rounded-xl object-contain shadow-lg"
-            alt="Image"
+            :alt="`${project.name} project preview`"
             preset="md"
             :src="$imageUrl(project.image)"
           />
