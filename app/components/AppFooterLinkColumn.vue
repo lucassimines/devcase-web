@@ -9,8 +9,8 @@
       <li v-for="link in links">
         <NuxtLink
           :to="link.url || `/${link.slug}`"
-          :target="link.url && !link.url.startsWith('mailto:') ? '_blank' : undefined"
-          :rel="link.url && !link.url.startsWith('mailto:') ? 'noopener noreferrer' : undefined"
+          :target="link.url && link.newTab ? '_blank' : undefined"
+          :rel="link.url && link.newTab ? 'noopener noreferrer' : undefined"
           class="underline-offset-6 hover:underline"
         >
           {{ link.name }}

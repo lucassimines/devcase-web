@@ -12,6 +12,7 @@ export interface FooterLink {
   name: string
   slug?: string
   url?: string
+  newTab?: boolean
 }
 
 export interface SocialMedia {

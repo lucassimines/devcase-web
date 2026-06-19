@@ -1,6 +1,10 @@
 <template>
   <footer class="divide-y divide-white/10 border-t border-white/10">
-    <AppFooterTop />
+    <Container :ui="{ inner: 'py-12 flex flex-wrap gap-y-10 gap-x-20 md:gap-x-28' }">
+      <AppFooterLinkColumn :title="$t('usefulLinks')" :links="usefulLinks" />
+
+      <AppFooterLinkColumn :title="$t('contact')" :links="[contactLink]" />
+    </Container>
 
     <Container
       :ui="{
@@ -38,5 +42,25 @@
 </template>
 
 <script setup lang="ts">
-const { socialMedias } = useBootstrap()
+import type { FooterLink } from '~/types/bootstrap'
+
+const { socialMedias, profile, bootstrap } = useBootstrap()
+
+const usefulLinks = computed<FooterLink[]>(() => {
+  return [
+    ...(bootstrap.value?.menu.links ?? []),
+    {
+      name: $t('resume'),
+      url: profile?.resumeUrl,
+      newTab: true
+    }
+  ]
+})
+
+const contactLink = computed<FooterLink>(() => {
+  return {
+    name: profile.email,
+    url: `mailto:${profile.email}`
+  }
+})
 </script>
