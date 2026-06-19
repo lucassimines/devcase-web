@@ -1,6 +1,6 @@
 <template>
   <footer class="divide-y divide-white/10 border-t border-white/10">
-    <Container :ui="{ inner: 'py-12 flex flex-wrap gap-y-10 gap-x-20 md:gap-x-28' }">
+    <Container :ui="{ inner: 'py-12 flex flex-wrap gap-y-8 gap-x-20 md:gap-x-28' }">
       <AppFooterLinkColumn :title="$t('usefulLinks')" :links="usefulLinks" />
 
       <AppFooterLinkColumn :title="$t('contact')" :links="[contactLink]" />
