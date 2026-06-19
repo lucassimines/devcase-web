@@ -1,15 +1,17 @@
 <template>
-  <h2 :class="pageTitle({ size })" v-html="title" />
+  <component :is="tag" :class="pageTitle({ size })">{{ title }}</component>
 </template>
 
 <script setup lang="ts">
 interface Props {
   title: string
   size?: 'md' | 'lg'
+  tag?: keyof HTMLElementTagNameMap
 }
 
 withDefaults(defineProps<Props>(), {
-  size: 'md'
+  size: 'md',
+  tag: 'h2'
 })
 
 const pageTitle = tv({

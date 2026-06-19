@@ -1,6 +1,11 @@
 <template>
   <div class="fixed top-0 right-0 z-101 size-12 sm:hidden">
-    <button class="relative size-12" type="button" @click="toggleMenu">
+    <button
+      class="relative size-12"
+      type="button"
+      :aria-label="navigationState ? 'Close navigation menu' : 'Open navigation menu'"
+      @click="toggleMenu"
+    >
       <span
         :class="[
           line(),

@@ -25,7 +25,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Personal portfolio featuring web development projects, UI-focused experiences, and modern full-stack solutions.'
+            'Full stack developer specializing in Nuxt, Vue, Laravel, and Node.js, building scalable web applications from concept to production.'
         },
         { name: 'theme-color', content: '#0f172a' }
       ]

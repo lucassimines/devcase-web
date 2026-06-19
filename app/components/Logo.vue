@@ -1,5 +1,9 @@
 <template>
-  <NuxtImg :src="`/images/logo${mono ? '-mono' : ''}.svg`" alt="Logo" :class="logo({ size })" />
+  <NuxtImg
+    :src="`/images/logo${mono ? '-mono' : ''}.svg`"
+    alt="Lucas Simines"
+    :class="logo({ size })"
+  />
 </template>
 
 <script setup lang="ts">

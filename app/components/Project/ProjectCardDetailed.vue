@@ -10,7 +10,7 @@
         <div class="rounded-3xl border border-white/20 p-4 backdrop-blur-lg">
           <NuxtImg
             class="w-90 overflow-hidden rounded-xl object-contain shadow-lg"
-            alt="Image"
+            :alt="`${project.name} project preview`"
             preset="md"
             :src="$imageUrl(project.image)"
           />

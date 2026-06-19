@@ -29,7 +29,9 @@
 <script setup lang="ts">
 const error = useError()
 
-useSeoMeta({
-  title: 'Page not found'
+useSiteSeo({
+  title: 'Page not found',
+  description: 'The page you are looking for could not be found.',
+  robots: 'noindex, nofollow'
 })
 </script>

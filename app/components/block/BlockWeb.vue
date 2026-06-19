@@ -3,12 +3,14 @@
     <WindowUi
       v-if="block.image.desktop"
       :image="$imageUrl(block.image.desktop)"
+      alt="Desktop website preview"
       :ui="{ base: 'max-md:hidden col-span-full' }"
     />
 
     <WindowUi
       v-if="block.image.mobile"
       :image="$imageUrl(block.image.mobile)"
+      alt="Mobile website preview"
       :ui="{ base: 'md:hidden col-span-full' }"
     />
   </ContainerGrid>

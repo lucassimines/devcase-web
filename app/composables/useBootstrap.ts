@@ -33,7 +33,8 @@ export function useBootstrap() {
     description: 'I am a software engineer with a passion for building web applications.',
     location: 'Marília, São Paulo, Brazil',
     image: '/images/avatar.jpg',
-    resumeUrl: 'https://resume.lucassimines.dev/'
+    resumeUrl: 'https://resume.lucassimines.dev/',
+    email: 'lucas.simines@gmail.com'
   }
 
   return {
