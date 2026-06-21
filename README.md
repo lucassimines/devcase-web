@@ -1,6 +1,6 @@
 # Devcase Web
 
-Portfolio frontend for developer portfolios — a Nuxt 4 site powered by the public REST API from [Devcase CMS](https://github.com/lucassimines/devcase-cms).
+Headless portfolio frontend for developer portfolios — a Nuxt 4 site powered by the public REST API from [Devcase CMS](https://github.com/lucassimines/devcase-cms).
 
 [![License: PolyForm Shield](https://img.shields.io/badge/License-PolyForm%20Shield-red.svg)](LICENSE)
 
