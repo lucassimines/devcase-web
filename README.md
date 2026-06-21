@@ -10,12 +10,12 @@ Portfolio frontend for developer portfolios — a Nuxt 4 site powered by the pub
 
 Devcase Web handles presentation and delivery for content managed in Devcase CMS:
 
-| Layer | Role |
-| ----- | ---- |
-| **Pages** (`app/pages/`) | Home, About, project listing, and project detail routes |
-| **Components** (`app/components/`) | Layout, blocks, project cards, and shared UI |
+| Layer                                | Role                                                       |
+| ------------------------------------ | ---------------------------------------------------------- |
+| **Pages** (`app/pages/`)             | Home, About, project listing, and project detail routes    |
+| **Components** (`app/components/`)   | Layout, blocks, project cards, and shared UI               |
 | **Composables** (`app/composables/`) | API client, bootstrap data, page fetching, and SEO helpers |
-| **Server routes** (`server/routes/`) | `sitemap.xml` and `robots.txt` proxies for crawlers |
+| **Server routes** (`server/routes/`) | `sitemap.xml` and `robots.txt` proxies for crawlers        |
 
 Content is fetched at runtime from the CMS public API and rendered as block-based pages, project showcases, and site navigation.
 
@@ -23,34 +23,34 @@ Content is fetched at runtime from the CMS public API and rendered as block-base
 
 This frontend is **ready to work with** [Devcase CMS](https://github.com/lucassimines/devcase-cms) — a headless CMS with an admin panel and public API (`/api/v1/*`) for pages, projects, bootstrap data, sitemap, and media.
 
-| Piece | Repository | Role |
-| ----- | ---------- | ---- |
-| **CMS & APIs** | [devcase-cms](https://github.com/lucassimines/devcase-cms) | Admin panel, content storage, public & admin APIs |
-| **Frontend** | [devcase-web](https://github.com/lucassimines/devcase-web) (this repo) | Developer portfolio site — pages, projects, bootstrap data, sitemap |
+| Piece          | Repository                                                             | Role                                                                |
+| -------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **CMS & APIs** | [devcase-cms](https://github.com/lucassimines/devcase-cms)             | Admin panel, content storage, public & admin APIs                   |
+| **Frontend**   | [devcase-web](https://github.com/lucassimines/devcase-web) (this repo) | Developer portfolio site — pages, projects, bootstrap data, sitemap |
 
 Run the CMS locally (or point at production), configure this app with your API base URL, and the two repos work together out of the box.
 
 ## Tech Stack
 
-| Layer | Technology |
-| ----- | ---------- |
-| Framework | Nuxt 4, Vue 3, TypeScript |
-| Styling | Tailwind CSS 4, tailwind-variants |
-| Content | Block-based pages from CMS API, `@nuxtjs/mdc` |
-| Images | `@nuxt/image` (CMS media via configured domain) |
-| i18n | `@nuxtjs/i18n` |
-| Analytics | `nuxt-gtag` (production only) |
-| Dev Tools | ESLint, Prettier, Husky |
+| Layer     | Technology                                      |
+| --------- | ----------------------------------------------- |
+| Framework | Nuxt 4, Vue 3, TypeScript                       |
+| Styling   | Tailwind CSS 4, tailwind-variants               |
+| Content   | Block-based pages from CMS API, `@nuxtjs/mdc`   |
+| Images    | `@nuxt/image` (CMS media via configured domain) |
+| i18n      | `@nuxtjs/i18n`                                  |
+| Analytics | `nuxt-gtag` (production only)                   |
+| Dev Tools | ESLint, Prettier, Husky                         |
 
 ## Site Sections
 
-| Section | Description |
-| ------- | ----------- |
-| **Home** | Intro, featured projects, and CMS-driven page blocks |
-| **About** | Profile page with block-based content from the CMS |
+| Section      | Description                                                        |
+| ------------ | ------------------------------------------------------------------ |
+| **Home**     | Intro, featured projects, and CMS-driven page blocks               |
+| **About**    | Profile page with block-based content from the CMS                 |
 | **Projects** | Portfolio listing and detail pages with technologies and solutions |
-| **Layout** | Header, footer, navigation, and social links from bootstrap data |
-| **SEO** | Canonical URLs, Open Graph, JSON-LD, sitemap, and robots.txt |
+| **Layout**   | Header, footer, navigation, and social links from bootstrap data   |
+| **SEO**      | Canonical URLs, Open Graph, JSON-LD, sitemap, and robots.txt       |
 
 ## Project Structure
 
@@ -74,15 +74,15 @@ Base path: `/api/v1` on the CMS (configured via `API_URL`).
 
 **Consumed from Devcase CMS**
 
-| Method | Path | Used for |
-| ------ | --------------------- | ------------------------ |
-| GET | `/bootstrap` | Site menu, footer links, social media |
-| GET | `/pages/:slug` | Home, About, and CMS-driven pages |
-| GET | `/projects` | Project listing |
-| GET | `/projects/:slug` | Project detail pages |
-| GET | `/projects/featured` | Home page featured projects |
-| GET | `/sitemap` | `/sitemap.xml` (proxied via Nitro) |
-| GET | `/static/images/*` | CMS media via Nuxt Image |
+| Method | Path                 | Used for                              |
+| ------ | -------------------- | ------------------------------------- |
+| GET    | `/bootstrap`         | Site menu, footer links, social media |
+| GET    | `/pages/:slug`       | Home, About, and CMS-driven pages     |
+| GET    | `/projects`          | Project listing                       |
+| GET    | `/projects/:slug`    | Project detail pages                  |
+| GET    | `/projects/featured` | Home page featured projects           |
+| GET    | `/sitemap`           | `/sitemap.xml` (proxied via Nitro)    |
+| GET    | `/static/images/*`   | CMS media via Nuxt Image              |
 
 Pages use **ISR** (5-minute cache in production) with on-demand revalidation triggered from the CMS admin (`/admin/revalidate`).
 
@@ -110,14 +110,14 @@ cp .env.example .env
 
 ### Environment
 
-| Variable | Description |
-| -------- | ----------- |
-| `API_URL` | Devcase CMS public API base URL |
-| `APP_URL` | This site's public URL (SEO, sitemap) |
-| `NUXT_IMAGES_DOMAIN` | CMS host for `@nuxt/image` |
-| `NUXT_PUBLIC_IMAGES_URL` | CMS static images base URL |
+| Variable                     | Description                              |
+| ---------------------------- | ---------------------------------------- |
+| `API_URL`                    | Devcase CMS public API base URL          |
+| `APP_URL`                    | This site's public URL (SEO, sitemap)    |
+| `NUXT_IMAGES_DOMAIN`         | CMS host for `@nuxt/image`               |
+| `NUXT_PUBLIC_IMAGES_URL`     | CMS static images base URL               |
 | `PRERENDER_REVALIDATE_TOKEN` | Shared secret with CMS for on-demand ISR |
-| `GTAG_ID` | Google Analytics ID (production) |
+| `GTAG_ID`                    | Google Analytics ID (production)         |
 
 ### Run
 
@@ -129,23 +129,23 @@ npm run preview    # Preview production build
 
 ## Scripts
 
-| Command | Description |
-| ------- | ----------- |
-| `npm run dev` | Dev server |
-| `npm run build` | Production build |
-| `npm run preview` | Preview production build |
-| `npm run generate` | Static generation |
-| `npm run lint` / `lint:fix` | ESLint |
-| `npm run format` / `format:fix` | Prettier |
-| `npm run typecheck` | Vue / TypeScript check |
+| Command                         | Description              |
+| ------------------------------- | ------------------------ |
+| `npm run dev`                   | Dev server               |
+| `npm run build`                 | Production build         |
+| `npm run preview`               | Preview production build |
+| `npm run generate`              | Static generation        |
+| `npm run lint` / `lint:fix`     | ESLint                   |
+| `npm run format` / `format:fix` | Prettier                 |
+| `npm run typecheck`             | Vue / TypeScript check   |
 
 ## Production Infrastructure
 
-| Service | Provider |
-| ------- | -------- |
-| Database | Prisma.io |
-| API Server | Render |
-| Frontend | [devcase-web](https://github.com/lucassimines/devcase-web) (Vercel) |
+| Service    | Provider                                                            |
+| ---------- | ------------------------------------------------------------------- |
+| Database   | Prisma.io                                                           |
+| API Server | Render                                                              |
+| Frontend   | [devcase-web](https://github.com/lucassimines/devcase-web) (Vercel) |
 
 ---
 
