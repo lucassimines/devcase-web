@@ -57,10 +57,24 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/**': { isr: process.env.NODE_ENV === 'production' ? 300 : false },
-    '/sitemap.xml': { isr: false },
-    '/sitemap/*': { isr: false },
-    '/robots.txt': { isr: false }
+    '/**': {
+      isr: process.env.NODE_ENV === 'production' ? 300 : false
+    },
+    '/sitemap.xml': {
+      isr: false
+    },
+    '/sitemap/*': {
+      isr: false
+    },
+    '/robots.txt': {
+      isr: false
+    },
+    '/projects/project/**': {
+      redirect: {
+        to: '/projects/**',
+        statusCode: 301
+      }
+    }
   },
 
   compatibilityDate: '2026-04-02',
