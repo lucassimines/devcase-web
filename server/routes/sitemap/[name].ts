@@ -1,13 +1,21 @@
 import { $api } from '~/utils/api'
 
-export default defineEventHandler(async (event) => {
-  const params = getRouterParams(event)
+export default defineCachedEventHandler(
+  async (event) => {
+    const params = getRouterParams(event)
 
-  const normalizedName = params.name?.replace('.xml', '')
+    const normalizedName = params.name?.replace('.xml', '')
 
-  const res = await $api<string>(`/sitemap/${normalizedName}`)
+    const res = await $api<string>(`/sitemap/${normalizedName}`)
 
-  setHeader(event, 'Content-Type', 'application/xml')
+    setHeader(event, 'Content-Type', 'application/xml')
 
-  return res
-})
+    return res
+  },
+  {
+    maxAge: 60 * 60,
+    swr: true,
+    name: 'sitemap-part',
+    getKey: (event) => getRouterParams(event).name?.replace('.xml', '') ?? 'unknown'
+  }
+)
