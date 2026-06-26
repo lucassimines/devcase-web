@@ -45,10 +45,14 @@
 import type { FooterLink } from '~/types/bootstrap'
 
 const { socialMedias, profile, bootstrap } = useBootstrap()
+const { $tr } = useNuxtApp()
 
 const usefulLinks = computed<FooterLink[]>(() => {
   return [
-    ...(bootstrap.value?.menu.links ?? []),
+    ...(bootstrap.value?.menu.links ?? []).map((link) => ({
+      name: $tr(link.name),
+      slug: link.slug
+    })),
     {
       name: $t('resume'),
       url: profile?.resumeUrl,

@@ -1,8 +1,10 @@
+import type { LocalizedString } from '~/types/locale'
+
 export interface Bootstrap {
   menu: {
     links: {
       id: string
-      name: string
+      name: LocalizedString
       slug: string
     }[]
   }

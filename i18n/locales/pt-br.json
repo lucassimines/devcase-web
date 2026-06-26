@@ -1,0 +1,35 @@
+{
+  "app": {
+    "copyright": "© {year} Todos os direitos reservados.",
+    "builtWith": "Feito com Vue, Nuxt e Node.js"
+  },
+  "error": {
+    "404": "Página não encontrada",
+    "goHome": "Ir para a home"
+  },
+  "usefulLinks": "Links úteis",
+  "contact": "Contato",
+  "resume": "Currículo",
+  "stack": "Stack",
+  "next": "Próximo",
+  "greeting": "Bem-vindo!",
+  "position": "Desenvolvedor Full Stack",
+  "basedIn": "baseado em",
+  "developedSolutions": "Soluções desenvolvidas",
+  "location": "São Paulo, Brasil",
+  "name": "Lucas Simines",
+  "view": "Ver",
+  "loading": "Carregando dados...",
+  "meta": {
+    "description": "Desenvolvedor full stack especializado em Nuxt, Vue, Laravel e Node.js, construindo aplicações web escaláveis do conceito à produção."
+  },
+  "projects": {
+    "label": "Projetos",
+    "viewAll": "Ver projetos",
+    "view": "Ver site",
+    "featured": "Projetos em destaque",
+    "viewMore": {
+      "title": "Veja mais destes e outros projetos em que trabalhei ao longo da minha carreira."
+    }
+  }
+}

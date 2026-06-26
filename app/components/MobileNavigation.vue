@@ -30,13 +30,13 @@
               }"
               @click="closeNavigation()"
             >
-              {{ link.name }}
+              {{ $tr(link.name) }}
             </NuxtLink>
           </li>
 
           <li
             v-if="github"
-            class="flex flex-wrap justify-center gap-4 text-3xl transition-all duration-300"
+            class="flex flex-wrap items-center justify-center gap-4 text-3xl transition-all duration-300"
             :class="{ '-translate-y-2 opacity-0': !navigationState }"
             :style="{
               transitionDelay: navigationState
@@ -45,6 +45,18 @@
             }"
           >
             <ButtonSocialMedia :social-media="github" :ui="{ base: 'text-3xl' }" />
+          </li>
+
+          <li
+            class="transition-all duration-300"
+            :class="{ '-translate-y-2 opacity-0': !navigationState }"
+            :style="{
+              transitionDelay: navigationState
+                ? `${navigationState ? 300 + 50 * (bootstrap.menu.links.length + 2) : 0}ms`
+                : ''
+            }"
+          >
+            <LocaleSwitcher />
           </li>
         </ul>
       </div>

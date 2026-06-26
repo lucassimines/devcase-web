@@ -21,7 +21,7 @@
             class="text-muted group-hover:text-brand mt-0.5 flex-none text-2xl transition-colors sm:text-3xl lg:text-4xl"
           />
 
-          <h3 class="xs:text-2xl text-xl sm:text-3xl lg:text-4xl" v-text="nextProject.name" />
+          <h3 class="xs:text-2xl text-xl sm:text-3xl lg:text-4xl" v-text="$tr(nextProject.name)" />
         </div>
       </NuxtLink>
     </div>

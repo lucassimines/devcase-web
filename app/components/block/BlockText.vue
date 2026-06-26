@@ -1,6 +1,6 @@
 <template>
   <ContainerGrid>
-    <div class="prose-base sm:prose-lg col-span-8" v-html="block.text" />
+    <div class="prose-base sm:prose-lg col-span-8" v-html="$tr(block.text)" />
   </ContainerGrid>
 </template>
 

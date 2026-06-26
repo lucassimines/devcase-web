@@ -123,6 +123,10 @@ export default defineNuxtConfig({
       {
         code: 'en-US',
         file: 'en-us.json'
+      },
+      {
+        code: 'pt-BR',
+        file: 'pt-br.json'
       }
     ]
   },
