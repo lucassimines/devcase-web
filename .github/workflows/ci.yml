@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   check:
-    name: Check
+    name: Typecheck, format and lint
     runs-on: ubuntu-latest
 
     steps:
