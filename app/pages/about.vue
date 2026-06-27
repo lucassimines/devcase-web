@@ -5,7 +5,7 @@
     <Container :ui="{ inner: 'flex max-xs:flex-col xs:items-center gap-6' }">
       <figure class="size-28 flex-none overflow-hidden rounded-full bg-white/10 sm:size-40">
         <NuxtImg
-          :src="profile.image"
+          :src="$tr(profile.image)"
           :alt="profile.name"
           class="size-full object-cover"
           preset="avatar"
@@ -16,7 +16,7 @@
         <div class="space-y-2">
           <div>
             <h1 class="text-3xl" v-text="profile.name" />
-            <h2 class="text-elevated text-lg" v-text="profile.title" />
+            <h2 class="text-elevated text-lg" v-text="$tr(profile.role)" />
           </div>
 
           <div>
@@ -42,25 +42,27 @@
 <script setup lang="ts">
 const { data: page, status, error } = usePageFetch('about')
 
-const { profile } = useBootstrap()
-const { socialMedias } = useBootstrap()
-const aboutDescription = `Learn more about ${profile.name}, a ${profile.title.toLowerCase()} based in ${profile.location}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.`
+const { $tr } = useNuxtApp()
+
+const { profile, socialMedias } = useBootstrap()
+
+const aboutDescription = `Learn more about ${profile.value.name}, a ${$tr(profile.value.role).toLowerCase()} based in ${$tr(profile.value.location)}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.`
 
 const route = useRoute()
 
 const siteUrl = useSiteUrl(route.path)
 
-const profileImageUrl = useSiteUrl(profile.image)
+const profileImageUrl = useSiteUrl($tr(profile.value.image))
 
 useSiteSeo({
-  title: () => `${$t('about')} ${profile.name}`,
+  title: () => `${$t('about')} ${profile.value.name}`,
   description: aboutDescription,
   path: route.path,
   schema: {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: profile.name,
-    jobTitle: profile.title,
+    name: profile.value.name,
+    jobTitle: $tr(profile.value.role),
     description: aboutDescription,
     url: siteUrl,
     image: profileImageUrl,

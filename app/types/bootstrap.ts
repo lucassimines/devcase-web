@@ -8,6 +8,16 @@ export interface Bootstrap {
       slug: string
     }[]
   }
+  settings: {
+    profile: {
+      name: string
+      email: string
+      role: LocalizedString
+      image: LocalizedString
+      location: LocalizedString
+      resumeUrl: LocalizedString
+    }
+  }
 }
 
 export interface FooterLink {

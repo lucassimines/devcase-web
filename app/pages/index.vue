@@ -13,11 +13,12 @@
 <script setup lang="ts">
 import type { ContentHome } from '~/types/page'
 
+const { $tr } = useNuxtApp()
+
 const { data: page, status, error } = usePageFetch<ContentHome>('home')
 const { profile, socialMedias } = useBootstrap()
 const siteUrl = useSiteUrl()
-const profileImageUrl = useSiteUrl(profile.image)
-const { $tr } = useNuxtApp()
+const profileImageUrl = useSiteUrl($tr(profile.value.image))
 
 if (error.value) {
   throw createError({
@@ -28,19 +29,19 @@ if (error.value) {
 useSiteSeo({
   title: () =>
     (page.value?.content?.intro?.title ? $tr(page.value.content.intro.title) : undefined) ||
-    `${profile.name} - ${profile.title}`,
+    `${profile.value.name} - ${$tr(profile.value.role)}`,
   description: () =>
     (page.value?.content?.intro?.description
       ? $tr(page.value.content.intro.description)
-      : undefined) || profile.description,
+      : undefined) || profile.value.description,
   path: '/',
   schema: () => [
     {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: profile.name,
-      jobTitle: profile.title,
-      description: profile.description,
+      name: profile.value.name,
+      jobTitle: $tr(profile.value.role),
+      description: profile.value.description,
       url: siteUrl,
       image: profileImageUrl,
       sameAs: socialMedias.map((socialMedia) => socialMedia.url),
@@ -54,12 +55,12 @@ useSiteSeo({
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: profile.name,
+      name: profile.value.name,
       url: siteUrl,
       description:
         (page.value?.content?.intro?.description
           ? $tr(page.value.content.intro.description)
-          : undefined) || profile.description
+          : undefined) || profile.value.description
     }
   ]
 })
