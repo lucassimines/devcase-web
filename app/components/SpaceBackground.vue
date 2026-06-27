@@ -30,7 +30,7 @@ const containerRef = ref<HTMLDivElement | null>(null)
 
 const PARTICLE_COUNT = 48
 const MAX_DISTANCE = 148
-const MAX_LINE_OPACITY = 0.14
+const MAX_LINE_OPACITY = 0.09
 const MAX_NODE_OPACITY = 0.45
 
 let particles: Particle[] = []
