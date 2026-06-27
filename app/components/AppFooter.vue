@@ -55,7 +55,7 @@ const usefulLinks = computed<FooterLink[]>(() => {
     })),
     {
       name: $t('resume'),
-      url: profile?.resumeUrl,
+      url: $tr(profile.value.resumeUrl),
       newTab: true
     }
   ]
@@ -63,8 +63,8 @@ const usefulLinks = computed<FooterLink[]>(() => {
 
 const contactLink = computed<FooterLink>(() => {
   return {
-    name: profile.email,
-    url: `mailto:${profile.email}`
+    name: profile.value.email || '',
+    url: `mailto:${profile.value.email}`
   }
 })
 </script>

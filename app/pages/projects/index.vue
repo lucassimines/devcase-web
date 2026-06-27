@@ -51,7 +51,7 @@ useSiteSeo({
   title: () =>
     page.value?.name ? $tr(page.value.name) : 'Web Development Projects & Case Studies',
   description: () =>
-    `Explore web development projects and case studies by ${profile.name}, featuring Nuxt, Vue, Laravel, Node.js, and full-stack product work.`,
+    `Explore web development projects and case studies by ${profile.value.name}, featuring Nuxt, Vue, Laravel, Node.js, and full-stack product work.`,
   path: route.path,
   schema: () => ({
     '@context': 'https://schema.org',

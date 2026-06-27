@@ -58,7 +58,7 @@ useSiteSeo({
           sameAs: project.value.data.url ? $tr(project.value.data.url) : undefined,
           creator: {
             '@type': 'Person',
-            name: profile.name,
+            name: profile.value.name,
             url: appUrl
           },
           keywords: project.value.data.technologies.map((technology) => technology.name).join(', ')
