@@ -19,6 +19,7 @@ export function useLocale() {
 
   return {
     locale,
+    localeCookie,
     setAppLocale
   }
 }

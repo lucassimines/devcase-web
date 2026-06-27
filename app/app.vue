@@ -11,7 +11,7 @@ import { resolveLocaleCode } from '~/utils/locale'
 const { data } = await useApi<Bootstrap>('/bootstrap', { lazy: false })
 
 const { bootstrap } = useBootstrap()
-const { setAppLocale } = useLocale()
+const { setAppLocale, localeCookie } = useLocale()
 
 if (data.value) {
   bootstrap.value = data.value
@@ -20,7 +20,7 @@ if (data.value) {
 onMounted(async () => {
   const { $i18n } = useNuxtApp()
   const detected =
-    resolveLocaleCode($i18n.getLocaleCookie()) || resolveLocaleCode($i18n.getBrowserLocale())
+    resolveLocaleCode(localeCookie.value) || resolveLocaleCode($i18n.getBrowserLocale())
 
   if (detected) {
     await setAppLocale(detected)
