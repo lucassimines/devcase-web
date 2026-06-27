@@ -28,10 +28,19 @@ interface Particle {
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const containerRef = ref<HTMLDivElement | null>(null)
 
-const PARTICLE_COUNT = 48
-const MAX_DISTANCE = 148
-const MAX_LINE_OPACITY = 0.09
+interface NetworkConfig {
+  particleCount: number
+  maxDistance: number
+  maxLineOpacity: number
+}
+
 const MAX_NODE_OPACITY = 0.45
+
+let networkConfig: NetworkConfig = {
+  particleCount: 48,
+  maxDistance: 148,
+  maxLineOpacity: 0.09
+}
 
 let particles: Particle[] = []
 let width = 0
@@ -42,8 +51,32 @@ let resizeFrame = 0
 let isVisible = true
 let prefersReducedMotion = false
 
+function getNetworkConfig(viewportWidth: number): NetworkConfig {
+  if (viewportWidth < 640) {
+    return {
+      particleCount: 22,
+      maxDistance: Math.min(96, viewportWidth * 0.34),
+      maxLineOpacity: 0.06
+    }
+  }
+
+  if (viewportWidth < 1024) {
+    return {
+      particleCount: 34,
+      maxDistance: Math.min(120, viewportWidth * 0.3),
+      maxLineOpacity: 0.075
+    }
+  }
+
+  return {
+    particleCount: 48,
+    maxDistance: 148,
+    maxLineOpacity: 0.09
+  }
+}
+
 function createParticles() {
-  particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+  particles = Array.from({ length: networkConfig.particleCount }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
     vx: (Math.random() - 0.5) * 0.22,
@@ -66,6 +99,10 @@ function resizeCanvas() {
 
   const prevWidth = width
   const prevHeight = height
+  const nextConfig = getNetworkConfig(nextWidth)
+  const configChanged = nextConfig.particleCount !== networkConfig.particleCount
+
+  networkConfig = nextConfig
 
   dpr = Math.min(window.devicePixelRatio || 1, 2)
   width = nextWidth
@@ -76,7 +113,7 @@ function resizeCanvas() {
   canvas.style.width = `${width}px`
   canvas.style.height = `${height}px`
 
-  if (!particles.length) {
+  if (!particles.length || configChanged) {
     createParticles()
     return
   }
@@ -119,7 +156,8 @@ function drawStaticFrame() {
 }
 
 function drawNetwork(context: CanvasRenderingContext2D) {
-  const maxDistanceSq = MAX_DISTANCE * MAX_DISTANCE
+  const maxDistance = networkConfig.maxDistance
+  const maxDistanceSq = maxDistance * maxDistance
 
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
@@ -135,7 +173,7 @@ function drawNetwork(context: CanvasRenderingContext2D) {
       if (distanceSq >= maxDistanceSq) continue
 
       const distance = Math.sqrt(distanceSq)
-      const alpha = (1 - distance / MAX_DISTANCE) * MAX_LINE_OPACITY
+      const alpha = (1 - distance / maxDistance) * networkConfig.maxLineOpacity
 
       context.beginPath()
       context.moveTo(first.x, first.y)
@@ -299,5 +337,40 @@ onUnmounted(() => {
     rgb(9 13 18 / 0.5) 78%,
     rgb(9 13 18) 100%
   );
+}
+
+@media (max-width: 639px) {
+  .space-bg__glow {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    opacity: 0.65;
+  }
+
+  .space-bg__nebula--blue {
+    width: 140%;
+    height: 70%;
+    background: radial-gradient(
+      ellipse 60% 45% at 50% 30%,
+      rgba(0, 85, 255, 0.04),
+      transparent 78%
+    );
+  }
+
+  .space-bg__nebula--purple {
+    width: 70%;
+    height: 40%;
+    opacity: 0.7;
+  }
+
+  .space-bg__fade {
+    background: linear-gradient(
+      to bottom,
+      transparent 28%,
+      rgb(9 13 18 / 0.45) 68%,
+      rgb(9 13 18) 100%
+    );
+  }
 }
 </style>
