@@ -16,11 +16,13 @@ const siteName = 'LBS Web - Lucas Simines'
 const defaultDescription =
   'Full stack developer specializing in Nuxt, Vue, Laravel, and Node.js, building scalable web applications from concept to production.'
 const defaultOgImage = '/images/og-image.png'
+const themeColor = '#0f172a'
 
 export function useSiteSeo(options: SiteSeoOptions = {}) {
   const route = useRoute()
   const config = useRuntimeConfig()
   const requestUrl = useRequestURL()
+  const { locale } = useI18n()
 
   const baseUrl = (config.public.appUrl || requestUrl.origin).replace(/\/$/, '')
 
@@ -61,6 +63,14 @@ export function useSiteSeo(options: SiteSeoOptions = {}) {
   })
 
   useHead({
+    htmlAttrs: {
+      lang: locale
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'theme-color', content: themeColor }
+    ],
     link: [
       {
         key: 'canonical',

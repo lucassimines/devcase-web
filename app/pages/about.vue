@@ -5,7 +5,7 @@
     <Container :ui="{ inner: 'flex max-xs:flex-col xs:items-center gap-6' }">
       <figure class="size-28 flex-none overflow-hidden rounded-full bg-white/10 sm:size-40">
         <NuxtImg
-          src="/images/avatar.jpg"
+          :src="profile.image"
           :alt="profile.name"
           class="size-full object-cover"
           preset="avatar"

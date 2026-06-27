@@ -13,20 +13,3 @@
 
   <AppFooter />
 </template>
-
-<script setup lang="ts">
-useSiteSeo()
-
-useHead({
-  link: [
-    {
-      rel: 'icon',
-      href: '/favicon.ico'
-    },
-    {
-      rel: 'apple-touch-icon',
-      href: '/images/avatar.jpg'
-    }
-  ]
-})
-</script>
