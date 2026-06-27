@@ -1,26 +1,24 @@
-import { DEFAULT_LOCALE, localeCodes, type LocaleCode } from '~/types/locale'
-
-function resolveInitialLocale(): LocaleCode {
-  const { $i18n } = useNuxtApp()
-  const detected = $i18n.getLocaleCookie() || $i18n.getBrowserLocale()
-
-  console.log({ detected1: detected })
-
-  console.log(
-    detected && localeCodes.includes(detected as LocaleCode)
-      ? (detected as LocaleCode)
-      : DEFAULT_LOCALE
-  )
-
-  return detected && localeCodes.includes(detected as LocaleCode)
-    ? (detected as LocaleCode)
-    : DEFAULT_LOCALE
-}
+import { DEFAULT_LOCALE, type LocaleCode } from '~/types/locale'
 
 export function useLocale() {
-  const locale = useState<LocaleCode>('locale', resolveInitialLocale)
+  const { locale: i18nLocale, setLocale } = useNuxtApp().$i18n
+  const locale = useState<LocaleCode>('locale', () => DEFAULT_LOCALE)
+  const localeCookie = useCookie<LocaleCode>('locale')
+
+  async function setAppLocale(code: LocaleCode) {
+    await setLocale(code)
+    locale.value = code
+    localeCookie.value = code
+  }
+
+  watch(i18nLocale, (code) => {
+    if (code === 'en-US' || code === 'pt-BR') {
+      locale.value = code
+    }
+  })
 
   return {
-    locale
+    locale,
+    setAppLocale
   }
 }

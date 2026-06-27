@@ -22,12 +22,9 @@
 import type { LocaleCode } from '~/types/locale'
 
 const { locales } = useAppConfig()
-const { locale } = useLocale()
+const { locale, setAppLocale } = useLocale()
 
-const { setLocale } = useI18n()
-
-function handleLocaleChange(code: LocaleCode) {
-  locale.value = code
-  setLocale(code)
+async function handleLocaleChange(code: LocaleCode) {
+  await setAppLocale(code)
 }
 </script>
