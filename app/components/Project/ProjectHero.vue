@@ -2,18 +2,18 @@
   <ContainerGrid :ui="{ inner: 'relative py-section gap-12' }">
     <div class="space-y-8 sm:col-span-6">
       <div class="space-y-8">
-        <h1 class="text-4xl font-medium tracking-wide sm:text-6xl" v-text="name" />
+        <h1 class="text-4xl font-medium tracking-wide sm:text-6xl" v-text="$tr(name)" />
 
-        <div v-if="description" class="max-2lg:max-w-2xl">
+        <div v-if="$tr(description)" class="max-2lg:max-w-2xl">
           <div class="prose-base sm:prose-lg text-elevated">
-            <p v-text="description" />
+            <p v-text="$tr(description)" />
           </div>
         </div>
       </div>
 
-      <div v-if="url" class="flex justify-start">
+      <div v-if="$tr(url)" class="flex justify-start">
         <Button
-          :to="url"
+          :to="$tr(url)"
           :text="$t('projects.view')"
           icon-right="lucide:arrow-up-right"
           target="_blank"
@@ -39,7 +39,7 @@
         :items="solutions"
       >
         <template #default="{ item }">
-          <Pill :label="item.name" />
+          <Pill :label="$tr(item.name)" />
         </template>
       </ProjectFeatures>
 
@@ -58,13 +58,14 @@
 </template>
 
 <script setup lang="ts">
+import type { LocalizedString } from '~/types/locale'
 import type { Solution } from '~/types/solution'
 import type { Technology } from '~/types/technology'
 
 defineProps<{
-  name: string
-  url: string
-  description?: string
+  name: LocalizedString
+  url: LocalizedString | null
+  description?: LocalizedString
   technologies: Technology[]
   solutions: Solution[]
 }>()

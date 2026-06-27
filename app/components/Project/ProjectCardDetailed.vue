@@ -10,7 +10,7 @@
         <div class="rounded-3xl border border-white/20 p-4 backdrop-blur-lg">
           <NuxtImg
             class="w-90 overflow-hidden rounded-xl object-contain shadow-lg"
-            :alt="`${project.name} project preview`"
+            :alt="`${$tr(project.name)} project preview`"
             preset="md"
             :src="$imageUrl(project.image)"
           />
@@ -19,7 +19,7 @@
     </NuxtLink>
 
     <div class="py-16">
-      <h3 class="text-2.5xl font-medium @2xl:text-4xl" v-text="project.name" />
+      <h3 class="text-2.5xl font-medium @2xl:text-4xl" v-text="$tr(project.name)" />
 
       <div
         v-if="project.solutions.length || project.technologies.length"
@@ -32,7 +32,7 @@
           :items="project.solutions"
         >
           <template #default="{ item }">
-            <Pill :label="item.name" />
+            <Pill :label="$tr(item.name)" />
           </template>
         </ProjectFeatures>
 

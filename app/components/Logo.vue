@@ -1,7 +1,7 @@
 <template>
   <NuxtImg
     :src="`/images/logo${mono ? '-mono' : ''}.svg`"
-    alt="Lucas Simines"
+    :alt="profile.name"
     :class="logo({ size })"
   />
 </template>
@@ -11,6 +11,8 @@ interface Props {
   size?: 'xs' | 'sm'
   mono?: boolean
 }
+
+const { profile } = useBootstrap()
 
 withDefaults(defineProps<Props>(), {
   size: 'sm'

@@ -4,7 +4,7 @@
   <div v-else-if="project?.data" class="divide-y divide-white/10">
     <ProjectHero
       :name="project.data.name"
-      :url="project.data.url || ''"
+      :url="project.data.url"
       :description="project.data.description"
       :technologies="project.data.technologies"
       :solutions="project.data.solutions"
@@ -20,8 +20,15 @@
 import type { ProjectResponse } from '~/types/project'
 
 const { slug } = useRoute().params
-const { $imageUrl } = useNuxtApp()
-const siteUrl = useSiteUrl('/').replace(/\/$/, '')
+const { $imageUrl, $tr } = useNuxtApp()
+
+const { profile } = useBootstrap()
+
+const router = useRouter()
+
+const {
+  public: { appUrl }
+} = useRuntimeConfig()
 
 const { data: project, status, error } = await useApi<ProjectResponse>(`/projects/${slug}`)
 
@@ -32,24 +39,27 @@ if (error.value) {
 }
 
 useSiteSeo({
-  title: () => project.value?.data?.name || undefined,
-  description: () => project.value?.data?.description || undefined,
-  path: () => `/projects/${project.value?.data?.slug || slug}`,
+  title: () => (project.value?.data?.name ? $tr(project.value.data.name) : undefined),
+  description: () =>
+    project.value?.data?.description ? $tr(project.value.data.description) : undefined,
+  path: () =>
+    router.resolve({ name: 'projects-slug', params: { slug: project.value?.data?.slug || slug } })
+      .path,
   image: () => $imageUrl(project.value?.data?.image),
   schema: () =>
     project.value?.data
       ? {
           '@context': 'https://schema.org',
           '@type': 'CreativeWork',
-          name: project.value.data.name,
-          description: project.value.data.description,
+          name: $tr(project.value.data.name),
+          description: $tr(project.value.data.description),
           image: $imageUrl(project.value.data.image),
-          url: `${siteUrl}/projects/${project.value.data.slug}`,
-          sameAs: project.value.data.url || undefined,
+          url: `${appUrl}${router.resolve({ name: 'projects-slug', params: { slug: project.value.data.slug } }).path}`,
+          sameAs: project.value.data.url ? $tr(project.value.data.url) : undefined,
           creator: {
             '@type': 'Person',
-            name: 'Lucas Simines',
-            url: siteUrl
+            name: profile.name,
+            url: appUrl
           },
           keywords: project.value.data.technologies.map((technology) => technology.name).join(', ')
         }

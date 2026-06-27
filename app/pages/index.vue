@@ -17,6 +17,7 @@ const { data: page, status, error } = usePageFetch<ContentHome>('home')
 const { profile, socialMedias } = useBootstrap()
 const siteUrl = useSiteUrl()
 const profileImageUrl = useSiteUrl(profile.image)
+const { $tr } = useNuxtApp()
 
 if (error.value) {
   throw createError({
@@ -25,8 +26,13 @@ if (error.value) {
 }
 
 useSiteSeo({
-  title: () => page.value?.content?.intro?.title || `${profile.name} - ${profile.title}`,
-  description: () => page.value?.content?.intro?.description || profile.description,
+  title: () =>
+    (page.value?.content?.intro?.title ? $tr(page.value.content.intro.title) : undefined) ||
+    `${profile.name} - ${profile.title}`,
+  description: () =>
+    (page.value?.content?.intro?.description
+      ? $tr(page.value.content.intro.description)
+      : undefined) || profile.description,
   path: '/',
   schema: () => [
     {
@@ -50,7 +56,10 @@ useSiteSeo({
       '@type': 'WebSite',
       name: profile.name,
       url: siteUrl,
-      description: page.value?.content?.intro?.description || profile.description
+      description:
+        (page.value?.content?.intro?.description
+          ? $tr(page.value.content.intro.description)
+          : undefined) || profile.description
     }
   ]
 })

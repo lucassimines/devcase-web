@@ -5,7 +5,7 @@
     <Container :ui="{ inner: 'flex max-xs:flex-col xs:items-center gap-6' }">
       <figure class="size-28 flex-none overflow-hidden rounded-full bg-white/10 sm:size-40">
         <NuxtImg
-          src="/images/avatar.jpg"
+          :src="profile.image"
           :alt="profile.name"
           class="size-full object-cover"
           preset="avatar"
@@ -45,13 +45,17 @@ const { data: page, status, error } = usePageFetch('about')
 const { profile } = useBootstrap()
 const { socialMedias } = useBootstrap()
 const aboutDescription = `Learn more about ${profile.name}, a ${profile.title.toLowerCase()} based in ${profile.location}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.`
-const siteUrl = useSiteUrl('/about')
+
+const route = useRoute()
+
+const siteUrl = useSiteUrl(route.path)
+
 const profileImageUrl = useSiteUrl(profile.image)
 
 useSiteSeo({
-  title: `About ${profile.name}`,
+  title: () => `${$t('about')} ${profile.name}`,
   description: aboutDescription,
-  path: '/about',
+  path: route.path,
   schema: {
     '@context': 'https://schema.org',
     '@type': 'Person',

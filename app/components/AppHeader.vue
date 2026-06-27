@@ -26,13 +26,14 @@
               }"
               class="flex h-full items-center border-b border-transparent transition-colors hover:border-white/20"
             >
-              {{ link.name }}
+              {{ $tr(link.name) }}
             </NuxtLink>
           </li>
         </ul>
       </nav>
 
       <div v-if="github" class="flex items-center gap-6">
+        <LocaleSwitcher />
         <ButtonSocialMedia :social-media="github" :ui="{ base: 'text-2xl' }" />
       </div>
     </div>

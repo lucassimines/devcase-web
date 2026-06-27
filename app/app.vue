@@ -14,4 +14,6 @@ const { bootstrap } = useBootstrap()
 if (data.value) {
   bootstrap.value = data.value
 }
+
+useSiteSeo()
 </script>

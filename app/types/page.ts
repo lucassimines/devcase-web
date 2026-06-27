@@ -1,8 +1,9 @@
 import type { Block } from '~/types/block'
+import type { LocalizedString } from '~/types/locale'
 
 export interface Page<T = null> {
   id: string
-  name: string
+  name: LocalizedString
   code: string
   slug: string
   content: T
@@ -11,7 +12,7 @@ export interface Page<T = null> {
 
 export type ContentHome = {
   intro: {
-    title: string
-    description: string
+    title: LocalizedString
+    description: LocalizedString
   }
 }

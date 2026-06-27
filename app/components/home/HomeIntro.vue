@@ -6,17 +6,17 @@
   >
     <div class="sm:col-span-7 md:col-span-6 lg:col-span-7">
       <h1
-        v-if="intro.title"
+        v-if="$tr(intro.title)"
         class="text-4xl leading-tight font-medium text-pretty sm:text-5xl lg:text-6xl xl:text-7xl/21"
-        v-text="intro.title"
+        v-text="$tr(intro.title)"
       />
     </div>
 
     <div
-      v-if="intro.description"
+      v-if="$tr(intro.description)"
       class="prose-base prose-lg sm:prose-xl sm:col-span-7 md:col-span-6 lg:col-span-5"
     >
-      <p v-text="intro.description" />
+      <p v-text="$tr(intro.description)" />
     </div>
   </ContainerGrid>
 </template>

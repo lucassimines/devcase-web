@@ -4,9 +4,9 @@
       class="col-span-full space-y-6"
       :class="{ 'lg:order-2': block.textPosition === 'right', 'lg:col-span-5': !!block.image }"
     >
-      <PageTitle :title="block.title" />
+      <PageTitle :title="$tr(block.title)" />
 
-      <div class="prose-base sm:prose-lg" v-html="block.text" />
+      <div class="prose-base sm:prose-lg" v-html="$tr(block.text)" />
     </div>
 
     <figure
@@ -16,7 +16,7 @@
     >
       <NuxtImg
         :src="$imageUrl(block.image)"
-        :alt="block.title"
+        :alt="$tr(block.title)"
         sizes="100vw md:100vw"
         class="block"
       />
