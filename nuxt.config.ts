@@ -14,19 +14,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Lucas Simines',
-      titleTemplate: '%s | Lucas Simines',
-      htmlAttrs: {
-        lang: 'en-US'
-      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          name: 'description',
-          content:
-            'Full stack developer specializing in Nuxt, Vue, Laravel, and Node.js, building scalable web applications from concept to production.'
-        },
         { name: 'theme-color', content: '#0f172a' }
       ]
     }
