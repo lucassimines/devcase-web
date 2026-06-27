@@ -12,7 +12,7 @@ interface SiteSeoOptions {
   schema?: MaybeRefOrGetter<SchemaValue | null | undefined>
 }
 
-const siteName = 'Lucas Simines'
+const siteName = 'LBS Web - Lucas Simines'
 const defaultDescription =
   'Full stack developer specializing in Nuxt, Vue, Laravel, and Node.js, building scalable web applications from concept to production.'
 const defaultOgImage = '/images/og-image.png'

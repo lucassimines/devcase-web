@@ -21,7 +21,14 @@ import type { ProjectResponse } from '~/types/project'
 
 const { slug } = useRoute().params
 const { $imageUrl, $tr } = useNuxtApp()
-const siteUrl = useSiteUrl('/').replace(/\/$/, '')
+
+const { profile } = useBootstrap()
+
+const router = useRouter()
+
+const {
+  public: { appUrl }
+} = useRuntimeConfig()
 
 const { data: project, status, error } = await useApi<ProjectResponse>(`/projects/${slug}`)
 
@@ -35,7 +42,9 @@ useSiteSeo({
   title: () => (project.value?.data?.name ? $tr(project.value.data.name) : undefined),
   description: () =>
     project.value?.data?.description ? $tr(project.value.data.description) : undefined,
-  path: () => `/projects/${project.value?.data?.slug || slug}`,
+  path: () =>
+    router.resolve({ name: 'projects-slug', params: { slug: project.value?.data?.slug || slug } })
+      .path,
   image: () => $imageUrl(project.value?.data?.image),
   schema: () =>
     project.value?.data
@@ -45,12 +54,12 @@ useSiteSeo({
           name: $tr(project.value.data.name),
           description: $tr(project.value.data.description),
           image: $imageUrl(project.value.data.image),
-          url: `${siteUrl}/projects/${project.value.data.slug}`,
+          url: `${appUrl}${router.resolve({ name: 'projects-slug', params: { slug: project.value.data.slug } }).path}`,
           sameAs: project.value.data.url ? $tr(project.value.data.url) : undefined,
           creator: {
             '@type': 'Person',
-            name: 'Lucas Simines',
-            url: siteUrl
+            name: profile.name,
+            url: appUrl
           },
           keywords: project.value.data.technologies.map((technology) => technology.name).join(', ')
         }

@@ -46,11 +46,11 @@ const { profile } = useBootstrap()
 const { socialMedias } = useBootstrap()
 const aboutDescription = `Learn more about ${profile.name}, a ${profile.title.toLowerCase()} based in ${profile.location}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.`
 
-const siteUrl = useSiteUrl('/about')
+const route = useRoute()
+
+const siteUrl = useSiteUrl(route.path)
 
 const profileImageUrl = useSiteUrl(profile.image)
-
-const route = useRoute()
 
 useSiteSeo({
   title: () => `${$t('about')} ${profile.name}`,

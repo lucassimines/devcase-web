@@ -34,16 +34,24 @@ const { data: projects, status, error } = await useApi<PaginatedResponse<Project
 const featuredProject = computed(() => projects.value?.data?.[0])
 
 const otherProjects = computed(() => projects.value?.data?.slice(1))
-const siteUrl = useSiteUrl('/').replace(/\/$/, '')
+
+const { profile } = useBootstrap()
+
 const { $tr } = useNuxtApp()
 
 const route = useRoute()
+
+const router = useRouter()
+
+const {
+  public: { appUrl }
+} = useRuntimeConfig()
 
 useSiteSeo({
   title: () =>
     page.value?.name ? $tr(page.value.name) : 'Web Development Projects & Case Studies',
   description: () =>
-    'Explore web development projects and case studies by Lucas Simines, featuring Nuxt, Vue, Laravel, Node.js, and full-stack product work.',
+    `Explore web development projects and case studies by ${profile.name}, featuring Nuxt, Vue, Laravel, Node.js, and full-stack product work.`,
   path: route.path,
   schema: () => ({
     '@context': 'https://schema.org',
@@ -54,7 +62,7 @@ useSiteSeo({
       projects.value?.data.map((project, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        url: `${siteUrl}/projects/${project.slug}`,
+        url: `${appUrl}${router.resolve({ name: 'projects-slug', params: { slug: project.slug } }).path}`,
         name: $tr(project.name),
         description: $tr(project.description)
       })) || []
