@@ -105,12 +105,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en-US',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'locale',
-      alwaysRedirect: false,
-      fallbackLocale: 'en-US'
-    },
+    detectBrowserLanguage: false,
     experimental: {
       typedOptionsAndMessages: 'all'
     },
