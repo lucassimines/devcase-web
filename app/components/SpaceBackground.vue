@@ -1,16 +1,18 @@
 <template>
-  <div
-    ref="containerRef"
-    class="pointer-events-none absolute inset-0 overflow-hidden"
-    aria-hidden="true"
-  >
-    <canvas ref="canvasRef" class="absolute inset-0 size-full" />
+  <ClientOnly>
+    <div
+      ref="containerRef"
+      class="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true"
+    >
+      <canvas ref="canvasRef" class="absolute inset-0 size-full" />
 
-    <div class="space-bg__glow" />
-    <div class="space-bg__nebula space-bg__nebula--blue" />
-    <div class="space-bg__nebula space-bg__nebula--purple" />
-    <div class="space-bg__fade" />
-  </div>
+      <div class="space-bg__glow" />
+      <div class="space-bg__nebula space-bg__nebula--blue" />
+      <div class="space-bg__nebula space-bg__nebula--purple" />
+      <div class="space-bg__fade" />
+    </div>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
