@@ -1,6 +1,7 @@
 <template>
   <ContainerGrid
     :ui="{
+      base: 'relative z-1',
       inner: 'py-16 sm:min-h-[50vh] content-center lg:min-h-[70vh] items-center'
     }"
   >

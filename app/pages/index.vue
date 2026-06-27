@@ -1,16 +1,16 @@
 <template>
   <Loader v-if="status === 'pending'" />
 
-  <div v-else-if="page">
-    <SpaceBackground />
+  <div v-else-if="page" class="relative z-1 divide-y divide-white/10">
+    <div class="relative overflow-hidden">
+      <SpaceBackground />
 
-    <div class="relative z-1 divide-y divide-white/10">
       <HomeIntro :intro="page.content.intro" />
-
-      <HomeProjects />
-
-      <Blocks :blocks="page?.blocks" />
     </div>
+
+    <HomeProjects />
+
+    <Blocks :blocks="page?.blocks" />
   </div>
 </template>
 

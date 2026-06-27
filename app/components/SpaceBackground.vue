@@ -1,5 +1,9 @@
 <template>
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  <div
+    ref="containerRef"
+    class="pointer-events-none absolute inset-0 overflow-hidden"
+    aria-hidden="true"
+  >
     <canvas ref="canvasRef" class="absolute inset-0 size-full" />
 
     <div class="space-bg__glow" />
@@ -20,6 +24,7 @@ interface Particle {
 }
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+const containerRef = ref<HTMLDivElement | null>(null)
 
 const PARTICLE_COUNT = 48
 const MAX_DISTANCE = 148
@@ -31,6 +36,7 @@ let width = 0
 let height = 0
 let dpr = 1
 let animationFrame = 0
+let resizeFrame = 0
 let isVisible = true
 let prefersReducedMotion = false
 
@@ -47,16 +53,21 @@ function createParticles() {
 
 function resizeCanvas() {
   const canvas = canvasRef.value
+  const container = containerRef.value
 
-  if (!canvas) return
+  if (!canvas || !container) return
 
-  const parent = canvas.parentElement
+  const nextWidth = container.clientWidth
+  const nextHeight = container.clientHeight
 
-  if (!parent) return
+  if (!nextWidth || !nextHeight) return
+
+  const prevWidth = width
+  const prevHeight = height
 
   dpr = Math.min(window.devicePixelRatio || 1, 2)
-  width = parent.clientWidth
-  height = parent.clientHeight
+  width = nextWidth
+  height = nextHeight
 
   canvas.width = Math.floor(width * dpr)
   canvas.height = Math.floor(height * dpr)
@@ -65,7 +76,33 @@ function resizeCanvas() {
 
   if (!particles.length) {
     createParticles()
+    return
   }
+
+  if (prevWidth > 0 && prevHeight > 0) {
+    const scaleX = width / prevWidth
+    const scaleY = height / prevHeight
+
+    for (const particle of particles) {
+      particle.x = Math.min(particle.x * scaleX, width)
+      particle.y = Math.min(particle.y * scaleY, height)
+    }
+
+    return
+  }
+
+  createParticles()
+}
+
+function scheduleResize() {
+  window.cancelAnimationFrame(resizeFrame)
+  resizeFrame = window.requestAnimationFrame(() => {
+    resizeCanvas()
+
+    if (prefersReducedMotion || !isVisible) {
+      drawStaticFrame()
+    }
+  })
 }
 
 function drawStaticFrame() {
@@ -177,16 +214,13 @@ onMounted(() => {
   motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
   motionMediaQuery.addEventListener('change', onMotionPreferenceChange)
 
-  resizeCanvas()
+  scheduleResize()
   startAnimation()
 
-  resizeObserver = new ResizeObserver(() => {
-    resizeCanvas()
-    if (prefersReducedMotion) drawStaticFrame()
-  })
+  resizeObserver = new ResizeObserver(scheduleResize)
 
-  if (canvasRef.value?.parentElement) {
-    resizeObserver.observe(canvasRef.value.parentElement)
+  if (containerRef.value) {
+    resizeObserver.observe(containerRef.value)
   }
 
   intersectionObserver = new IntersectionObserver(
@@ -194,6 +228,7 @@ onMounted(() => {
       isVisible = entry?.isIntersecting ?? true
 
       if (isVisible) {
+        scheduleResize()
         startAnimation()
       } else {
         stopAnimation()
@@ -202,13 +237,14 @@ onMounted(() => {
     { threshold: 0 }
   )
 
-  if (canvasRef.value?.parentElement) {
-    intersectionObserver.observe(canvasRef.value.parentElement)
+  if (containerRef.value) {
+    intersectionObserver.observe(containerRef.value)
   }
 })
 
 onUnmounted(() => {
   stopAnimation()
+  window.cancelAnimationFrame(resizeFrame)
   resizeObserver?.disconnect()
   intersectionObserver?.disconnect()
   motionMediaQuery?.removeEventListener('change', onMotionPreferenceChange)
