@@ -39,7 +39,7 @@ const MAX_NODE_OPACITY = 0.45
 let networkConfig: NetworkConfig = {
   particleCount: 48,
   maxDistance: 148,
-  maxLineOpacity: 0.09
+  maxLineOpacity: 0.12
 }
 
 let particles: Particle[] = []
