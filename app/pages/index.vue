@@ -13,12 +13,12 @@
 <script setup lang="ts">
 import type { ContentHome } from '~/types/page'
 
-const { $tr } = useNuxtApp()
+const { $imageUrl, $tr } = useNuxtApp()
 
 const { data: page, status, error } = usePageFetch<ContentHome>('home')
 const { profile, socialMedias } = useBootstrap()
 const siteUrl = useSiteUrl()
-const profileImageUrl = useSiteUrl($tr(profile.value.image))
+const profileImageUrl = $imageUrl(profile.value.image)
 
 if (error.value) {
   throw createError({

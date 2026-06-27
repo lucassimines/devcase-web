@@ -5,7 +5,7 @@
     <Container :ui="{ inner: 'flex max-xs:flex-col xs:items-center gap-6' }">
       <figure class="size-28 flex-none overflow-hidden rounded-full bg-white/10 sm:size-40">
         <NuxtImg
-          :src="$tr(profile.image)"
+          :src="$imageUrl(profile.image)"
           :alt="profile.name"
           class="size-full object-cover"
           preset="avatar"
@@ -20,7 +20,7 @@
           </div>
 
           <div>
-            <p class="text-elevated italic" v-text="profile.location" />
+            <p class="text-elevated italic" v-text="$tr(profile.location)" />
           </div>
         </div>
 
@@ -42,7 +42,7 @@
 <script setup lang="ts">
 const { data: page, status, error } = usePageFetch('about')
 
-const { $tr } = useNuxtApp()
+const { $imageUrl, $tr } = useNuxtApp()
 
 const { profile, socialMedias } = useBootstrap()
 
@@ -52,7 +52,7 @@ const route = useRoute()
 
 const siteUrl = useSiteUrl(route.path)
 
-const profileImageUrl = useSiteUrl($tr(profile.value.image))
+const profileImageUrl = $imageUrl(profile.value.image)
 
 useSiteSeo({
   title: () => `${$t('about')} ${profile.value.name}`,
