@@ -13,6 +13,7 @@
   "about": "About",
   "stack": "Stack",
   "next": "Next",
+  "previous": "Previous",
   "greeting": "Welcome!",
   "position": "Full Stack Developer",
   "basedIn": "based in",
@@ -31,5 +32,10 @@
     "viewMore": {
       "title": "View more of these and other projects I’ve worked on throughout my career."
     }
+  },
+  "articles": {
+    "label": "Articles",
+    "featured": "Featured Article",
+    "readMore": "Read more"
   }
 }

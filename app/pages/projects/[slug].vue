@@ -12,7 +12,7 @@
 
     <Blocks :blocks="project.data.blocks" />
 
-    <ProjectFooter v-if="project.meta.next" :next-project="project.meta.next" />
+    <ContentFooter v-if="project.meta.next" section="projects" :next="project.meta.next" />
   </div>
 </template>
 
