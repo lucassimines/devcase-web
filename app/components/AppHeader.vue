@@ -9,13 +9,13 @@
       inner: 'flex items-center h-full gap-6'
     }"
   >
-    <div class="grow">
+    <div class="flex grow justify-start">
       <NuxtLink to="/">
         <Logo />
       </NuxtLink>
     </div>
 
-    <div class="flex h-full justify-end gap-8 max-sm:hidden">
+    <div class="flex h-full justify-end gap-4 max-sm:hidden md:gap-8">
       <nav v-if="bootstrap?.menu?.links?.length">
         <ul class="flex h-full items-center gap-8">
           <li v-for="link in bootstrap.menu.links" :key="link.id" class="-mb-px h-full">
