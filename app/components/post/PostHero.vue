@@ -1,10 +1,10 @@
 <template>
-  <ContainerGrid :ui="{ inner: 'py-section gap-8 sm:gap-10 lg:gap-12' }">
+  <ContainerGrid :ui="{ inner: 'pt-12 gap-8 sm:gap-10 lg:gap-12' }">
     <figure
       v-if="$tr(post.image)"
-      class="col-span-full overflow-hidden rounded-2xl border border-white/10"
+      class="col-span-full overflow-hidden rounded-2xl border border-white/10 lg:col-span-10 lg:col-start-2"
     >
-      <div class="aspect-4/3 sm:aspect-16/10 lg:aspect-16/7">
+      <div class="aspect-5/3">
         <NuxtImg
           :src="$imageUrl(post.image)"
           :alt="`${$tr(post.name)} cover image`"
@@ -20,18 +20,12 @@
       </p>
 
       <h1
-        class="text-4xl font-medium tracking-wide sm:text-5xl lg:text-6xl"
+        class="text-3xl font-medium text-pretty sm:text-4xl lg:text-5xl"
         v-text="$tr(post.name)"
       />
 
       <div v-if="post.categories.length" class="flex flex-wrap gap-2">
         <Pill v-for="category in post.categories" :key="category.id" :label="$tr(category.name)" />
-      </div>
-
-      <div v-if="$tr(post.excerpt)">
-        <div class="prose-base sm:prose-lg text-elevated max-w-none">
-          <p v-text="$tr(post.excerpt)" />
-        </div>
       </div>
     </div>
   </ContainerGrid>

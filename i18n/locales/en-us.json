@@ -36,6 +36,14 @@
   "articles": {
     "label": "Articles",
     "featured": "Featured Article",
-    "readMore": "Read more"
+    "readMore": "Read more",
+    "hackerNews": {
+      "title": "From Hacker News",
+      "badge": "Curated links",
+      "description": "Top stories from the Hacker News front page — external reading picks, not original articles on this site.",
+      "points": "{count} points",
+      "comments": "{count} comments",
+      "attribution": "Stories sourced from"
+    }
   }
 }

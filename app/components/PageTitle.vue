@@ -5,7 +5,7 @@
 <script setup lang="ts">
 interface Props {
   title: string
-  size?: 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg'
   tag?: keyof HTMLElementTagNameMap
 }
 
@@ -17,7 +17,8 @@ withDefaults(defineProps<Props>(), {
 const pageTitle = tv({
   variants: {
     size: {
-      md: 'text-2xl font-medium sm:text-4xl',
+      sm: 'text-2xl font-medium sm:text-4xl',
+      md: 'text-3xl font-medium sm:text-4xl',
       lg: 'text-4xl font-medium sm:text-5xl lg:text-6xl'
     }
   }

@@ -6,8 +6,7 @@
     <div
       :class="
         cn(
-          'relative overflow-hidden rounded-2xl border border-white/10 bg-black transition-colors group-hover:border-white/20',
-          featured ? 'aspect-4/3 @2xl:aspect-16/7' : 'aspect-4/3 @2xl:aspect-10/7 @4xl:aspect-video'
+          'relative aspect-5/3 overflow-hidden rounded-2xl border border-white/10 bg-black transition-colors group-hover:border-white/20'
         )
       "
     >
