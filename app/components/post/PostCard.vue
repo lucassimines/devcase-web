@@ -20,15 +20,21 @@
       />
     </div>
 
-    <div class="space-y-3">
-      <div v-if="post.categories.length" class="flex flex-wrap gap-2">
-        <Pill v-for="category in post.categories" :key="category.id" :label="$tr(category.name)" />
-      </div>
+    <div class="space-y-6">
+      <div class="space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <p v-if="post.createdAt" class="text-default text-sm">
+            <NuxtTime :datetime="post.createdAt" year="numeric" month="long" day="numeric" />
+          </p>
 
-      <div class="space-y-2">
-        <p v-if="post.createdAt" class="text-muted text-sm">
-          <NuxtTime :datetime="post.createdAt" year="numeric" month="long" day="numeric" />
-        </p>
+          <div v-if="post.categories.length" class="flex flex-wrap gap-2">
+            <Pill
+              v-for="category in post.categories"
+              :key="category.id"
+              :label="$tr(category.name)"
+            />
+          </div>
+        </div>
 
         <h3
           :class="
@@ -36,13 +42,13 @@
           "
           v-text="$tr(post.name)"
         />
-
-        <p
-          v-if="$tr(post.excerpt)"
-          :class="cn('text-elevated', featured ? 'text-lg sm:text-xl' : 'text-base')"
-          v-text="$tr(post.excerpt)"
-        />
       </div>
+
+      <p
+        v-if="$tr(post.excerpt)"
+        :class="cn('text-elevated', featured ? 'text-lg sm:text-xl' : 'text-base')"
+        v-text="$tr(post.excerpt)"
+      />
     </div>
   </NuxtLink>
 </template>

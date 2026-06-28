@@ -5,12 +5,7 @@
         <PageTitle :title="$tr(page.name)" tag="h1" />
 
         <div class="flex flex-col gap-12 sm:gap-20">
-          <div v-if="featuredPost" class="space-y-4">
-            <p
-              class="text-muted text-sm font-semibold tracking-wide uppercase"
-              v-text="$t('articles.featured')"
-            />
-
+          <div v-if="featuredPost">
             <PostCard :post="featuredPost" featured />
           </div>
 

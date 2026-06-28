@@ -4,11 +4,12 @@
   <article v-else-if="post?.data" class="divide-y divide-white/10">
     <PostHero :post="post.data" />
 
-    <Container v-if="$tr(post.data.content)">
-      <div class="py-section">
-        <div class="prose-base sm:prose-lg max-w-none" v-html="$tr(post.data.content)" />
-      </div>
-    </Container>
+    <ContainerGrid v-if="$tr(post.data.content)">
+      <div
+        class="prose-base sm:prose-lg article-content py-section max-w-none"
+        v-html="$tr(post.data.content)"
+      />
+    </ContainerGrid>
 
     <ContentFooter v-if="post.meta.next" section="articles" :next="post.meta.next" />
   </article>

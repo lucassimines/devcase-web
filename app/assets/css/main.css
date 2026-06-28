@@ -101,6 +101,10 @@ button {
   @apply py-14 lg:py-26;
 }
 
+@utility article-content {
+  @apply col-span-full md:col-span-6 md:col-start-2 lg:col-span-8 lg:col-start-3;
+}
+
 @keyframes move-dots {
   from {
     background-position: 0 0;
