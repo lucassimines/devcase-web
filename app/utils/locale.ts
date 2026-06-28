@@ -21,5 +21,5 @@ export function resolveLocalizedText(
 
   if (typeof text === 'string') return text
 
-  return text[locale] || text['en-US']
+  return text[locale] || text['en-US'] || ''
 }
