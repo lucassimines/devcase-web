@@ -24,6 +24,8 @@
       </div>
     </ContainerGrid>
 
+    <FeedList v-if="pageNumber === 1" />
+
     <Blocks :blocks="page.blocks" />
   </div>
 </template>

@@ -97,6 +97,10 @@ button {
   @apply pt-14 lg:pt-26;
 }
 
+@utility pb-section {
+  @apply pb-14 lg:pb-26;
+}
+
 @utility py-section {
   @apply py-14 lg:py-26;
 }

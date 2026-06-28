@@ -36,6 +36,14 @@
   "articles": {
     "label": "Artigos",
     "featured": "Artigo em destaque",
-    "readMore": "Ler mais"
+    "readMore": "Ler mais",
+    "hackerNews": {
+      "title": "Do Hacker News",
+      "badge": "Links curados",
+      "description": "Principais histórias da front page do Hacker News — leituras externas, não artigos originais deste site.",
+      "points": "{count} pontos",
+      "comments": "{count} comentários",
+      "attribution": "Histórias de"
+    }
   }
 }

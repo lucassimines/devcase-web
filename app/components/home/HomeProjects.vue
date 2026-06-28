@@ -1,6 +1,6 @@
 <template>
   <Container :ui="{ inner: 'relative space-y-10 py-12 sm:space-y-14 sm:py-20' }">
-    <PageTitle :title="$t('projects.featured')" />
+    <PageTitle :title="$t('projects.featured')" size="sm" />
 
     <div class="flex flex-col gap-12 sm:gap-20">
       <ProjectCard v-if="featuredProject" :project="featuredProject" />
