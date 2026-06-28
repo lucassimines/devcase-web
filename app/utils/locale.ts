@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE, type LocaleCode, type LocalizedString } from '~/types/locale'
+import type { LocaleCode, LocalizedString } from '~/types/locale'
 
 const LOCALE_ALIASES: Record<string, LocaleCode> = {
   en: 'en-US',
@@ -21,5 +21,5 @@ export function resolveLocalizedText(
 
   if (typeof text === 'string') return text
 
-  return text[locale] || text[DEFAULT_LOCALE]
+  return text[locale] || text['en-US'] || ''
 }
