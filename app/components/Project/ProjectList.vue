@@ -14,15 +14,15 @@
             <ProjectCard v-for="project in otherProjects" :key="project.id" :project="project" />
           </div>
         </div>
-      </div>
 
-      <Pagination
-        v-if="projects.meta.last_page > 1"
-        :page="pageNumber"
-        :pages="projects.meta.last_page"
-        canonical-route-name="projects"
-        paginated-route-name="projects-page-page"
-      />
+        <Pagination
+          v-if="projects.meta.last_page > 1"
+          :page="pageNumber"
+          :pages="projects.meta.last_page"
+          canonical-route-name="projects"
+          paginated-route-name="projects-page-page"
+        />
+      </div>
     </ContainerGrid>
 
     <Blocks :blocks="page.blocks" />

@@ -127,7 +127,7 @@ function pageTo(page: number): RouteLocationRaw {
 
 <style scoped>
 .router-link-active {
-  background-color: var(--color-gray-950);
-  color: var(--color-white);
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-50);
 }
 </style>
