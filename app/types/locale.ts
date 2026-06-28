@@ -1,4 +1,4 @@
-export const localeCodes = ['en-US', 'pt-BR'] as const
+export const localeCodes = ['pt-BR', 'en-US'] as const
 
 export type LocaleCode = (typeof localeCodes)[number]
 
