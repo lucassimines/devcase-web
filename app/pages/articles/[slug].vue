@@ -10,7 +10,7 @@
       </div>
     </Container>
 
-    <PostFooter v-if="post.meta.next" :next-post="post.meta.next" />
+    <ContentFooter v-if="post.meta.next" section="articles" :next="post.meta.next" />
   </article>
 </template>
 
