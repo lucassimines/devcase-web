@@ -22,7 +22,17 @@ const {
   public: { appUrl }
 } = useRuntimeConfig()
 
-const { data: projects, status, error } = await useApi<PaginatedResponse<Project>>('/projects')
+const pageNumber = computed(() => route.params.page)
+
+const {
+  data: projects,
+  status,
+  error
+} = await useApi<PaginatedResponse<Project>>('/projects', {
+  query: {
+    page: pageNumber
+  }
+})
 
 useSiteSeo({
   title: () =>
