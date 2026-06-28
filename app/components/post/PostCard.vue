@@ -6,7 +6,7 @@
     <div
       :class="
         cn(
-          'relative overflow-hidden rounded-2xl border border-white/10 bg-black',
+          'relative overflow-hidden rounded-2xl border border-white/10 bg-black transition-colors group-hover:border-white/20',
           featured ? 'aspect-4/3 @2xl:aspect-16/7' : 'aspect-4/3 @2xl:aspect-10/7 @4xl:aspect-video'
         )
       "
@@ -16,7 +16,7 @@
         :src="$imageUrl(post.image)"
         :alt="`${$tr(post.name)} cover image`"
         preset="lg"
-        class="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+        class="size-full object-cover transition-transform duration-300"
       />
     </div>
 
