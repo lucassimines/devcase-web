@@ -8,13 +8,14 @@
 import type { PaginatedResponse } from '~/types/api'
 import type { Post } from '~/types/post'
 
-const { data: page, status: pageStatus, error: pageError } = usePageFetch('articles')
+const { data: page, status: pageStatus, error: pageError } = await usePageFetch('articles')
 
 const route = useRoute()
 
 const { profile } = useBootstrap()
 
 const { $tr } = useNuxtApp()
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -22,7 +23,7 @@ const {
   public: { appUrl }
 } = useRuntimeConfig()
 
-const pageNumber = computed(() => route.params.page)
+const pageNumber = computed(() => Number(route.params.page))
 
 const {
   data: posts,
@@ -34,20 +35,31 @@ const {
   }
 })
 
+const articlesTitle = computed(() =>
+  page.value?.name ? $tr(page.value.name) : t('seo.articlesFallbackTitle')
+)
+
+const articlesDescription = computed(
+  () =>
+    (page.value?.content && typeof page.value.content === 'string' ? page.value.content : null) ||
+    t('seo.articlesDescription', { name: profile.value.name })
+)
+
+const articlesPath = computed(() => router.resolve({ name: 'articles' }).path)
+
 useSiteSeo({
-  title: () => {
-    const baseTitle = page.value?.name ? $tr(page.value.name) : 'Articles'
-    return `${baseTitle} - Page ${pageNumber.value}`
-  },
-  description: () =>
-    page.value?.content && typeof page.value.content === 'string'
-      ? page.value.content
-      : `Articles on web development, Nuxt, Vue, and full-stack engineering by ${profile.value.name}.`,
-  path: route.path,
+  title: () =>
+    t('seo.paginatedTitle', {
+      title: articlesTitle.value,
+      page: pageNumber.value
+    }),
+  description: () => articlesDescription.value,
+  path: () => articlesPath.value,
+  noindex: () => pageNumber.value > 1,
   schema: () => ({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: page.value?.name ? $tr(page.value.name) : 'Articles',
+    name: articlesTitle.value,
     itemListElement:
       posts.value?.data.map((post, index) => ({
         '@type': 'ListItem',

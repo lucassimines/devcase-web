@@ -21,6 +21,7 @@ import type { ProjectResponse } from '~/types/project'
 
 const { slug } = useRoute().params
 const { $imageUrl, $tr } = useNuxtApp()
+const { t } = useI18n()
 
 const { profile } = useBootstrap()
 
@@ -38,25 +39,50 @@ if (error.value) {
   })
 }
 
+const projectPath = computed(
+  () =>
+    router.resolve({
+      name: 'projects-slug',
+      params: { slug: project.value?.data?.slug || slug }
+    }).path
+)
+
+const projectsIndexPath = computed(() => router.resolve({ name: 'projects' }).path)
+
+const projectTitle = computed(() =>
+  project.value?.data?.name ? $tr(project.value.data.name) : ''
+)
+
+const projectDescription = computed(() =>
+  project.value?.data?.description ? $tr(project.value.data.description) : undefined
+)
+
 useSiteSeo({
-  title: () => (project.value?.data?.name ? $tr(project.value.data.name) : undefined),
-  description: () =>
-    project.value?.data?.description ? $tr(project.value.data.description) : undefined,
-  path: () =>
-    router.resolve({ name: 'projects-slug', params: { slug: project.value?.data?.slug || slug } })
-      .path,
+  title: () => projectTitle.value,
+  description: () => projectDescription.value,
+  path: () => projectPath.value,
   image: () => $imageUrl(project.value?.data?.image),
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbHome'), path: '/' },
+    { name: t('projects.label'), path: projectsIndexPath.value },
+    { name: projectTitle.value, path: projectPath.value }
+  ],
   schema: () =>
     project.value?.data
       ? {
           '@context': 'https://schema.org',
-          '@type': 'CreativeWork',
-          name: $tr(project.value.data.name),
-          description: $tr(project.value.data.description),
+          '@type': 'Article',
+          headline: $tr(project.value.data.name),
+          description: projectDescription.value,
           image: $imageUrl(project.value.data.image),
-          url: `${appUrl}${router.resolve({ name: 'projects-slug', params: { slug: project.value.data.slug } }).path}`,
-          sameAs: project.value.data.url ? $tr(project.value.data.url) : undefined,
-          creator: {
+          url: `${appUrl}${projectPath.value}`,
+          mainEntityOfPage: `${appUrl}${projectPath.value}`,
+          author: {
+            '@type': 'Person',
+            name: profile.value.name,
+            url: appUrl
+          },
+          publisher: {
             '@type': 'Person',
             name: profile.value.name,
             url: appUrl

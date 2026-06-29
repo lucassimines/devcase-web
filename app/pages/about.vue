@@ -46,13 +46,12 @@
 </template>
 
 <script setup lang="ts">
-const { data: page, status, error } = usePageFetch('about')
+const { data: page, status, error } = await usePageFetch('about')
 
 const { $imageUrl, $tr } = useNuxtApp()
+const { t } = useI18n()
 
 const { profile, socialMedias } = useBootstrap()
-
-const aboutDescription = `Learn more about ${profile.value.name}, a ${$tr(profile.value.role).toLowerCase()} based in ${$tr(profile.value.location)}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.`
 
 const route = useRoute()
 
@@ -60,26 +59,45 @@ const siteUrl = useSiteUrl(route.path)
 
 const profileImageUrl = $imageUrl(profile.value.image)
 
-useSiteSeo({
-  title: () => `${$t('about')} ${profile.value.name}`,
-  description: aboutDescription,
-  path: route.path,
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
+const aboutDescription = computed(() =>
+  t('seo.aboutDescription', {
     name: profile.value.name,
-    jobTitle: $tr(profile.value.role),
-    description: aboutDescription,
+    role: $tr(profile.value.role).toLowerCase(),
+    location: $tr(profile.value.location)
+  })
+)
+
+useSiteSeo({
+  title: () => `${t('about')} ${profile.value.name}`,
+  description: () => aboutDescription.value,
+  path: route.path,
+  image: profileImageUrl,
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbHome'), path: '/' },
+    { name: t('about'), path: route.path }
+  ],
+  schema: () => ({
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    name: `${t('about')} ${profile.value.name}`,
+    description: aboutDescription.value,
     url: siteUrl,
-    image: profileImageUrl,
-    sameAs: socialMedias.map((socialMedia) => socialMedia.url),
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Marília',
-      addressRegion: 'São Paulo',
-      addressCountry: 'BR'
+    mainEntity: {
+      '@type': 'Person',
+      name: profile.value.name,
+      jobTitle: $tr(profile.value.role),
+      description: aboutDescription.value,
+      url: siteUrl,
+      image: profileImageUrl,
+      sameAs: socialMedias.map((socialMedia) => socialMedia.url),
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Marília',
+        addressRegion: 'São Paulo',
+        addressCountry: 'BR'
+      }
     }
-  }
+  })
 })
 
 if (error.value) {

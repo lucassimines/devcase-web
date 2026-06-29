@@ -8,13 +8,14 @@
 import type { PaginatedResponse } from '~/types/api'
 import type { Project } from '~/types/project'
 
-const { data: page, status: pageStatus, error: pageError } = usePageFetch('projects')
+const { data: page, status: pageStatus, error: pageError } = await usePageFetch('projects')
 
 const route = useRoute()
 
 const { profile } = useBootstrap()
 
 const { $tr } = useNuxtApp()
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -22,7 +23,7 @@ const {
   public: { appUrl }
 } = useRuntimeConfig()
 
-const pageNumber = computed(() => route.params.page)
+const pageNumber = computed(() => Number(route.params.page))
 
 const {
   data: projects,
@@ -34,17 +35,31 @@ const {
   }
 })
 
+const projectsTitle = computed(() =>
+  page.value?.name ? $tr(page.value.name) : t('seo.projectsFallbackTitle')
+)
+
+const projectsDescription = computed(
+  () =>
+    (typeof page.value?.content === 'string' ? page.value.content : null) ||
+    t('seo.projectsDescription', { name: profile.value.name })
+)
+
+const projectsPath = computed(() => router.resolve({ name: 'projects' }).path)
+
 useSiteSeo({
   title: () =>
-    page.value?.name ? $tr(page.value.name) : 'Web Development Projects & Case Studies',
-  description: () =>
-    `Explore web development projects and case studies by ${profile.value.name}, featuring Nuxt, Vue, Laravel, Node.js, and full-stack product work.`,
-  path: route.path,
+    t('seo.paginatedTitle', {
+      title: projectsTitle.value,
+      page: pageNumber.value
+    }),
+  description: () => projectsDescription.value,
+  path: () => projectsPath.value,
+  noindex: () => pageNumber.value > 1,
   schema: () => ({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: page.value?.name ? $tr(page.value.name) : 'Projects',
-    description: typeof page.value?.content === 'string' ? page.value.content : undefined,
+    name: projectsTitle.value,
     itemListElement:
       projects.value?.data.map((project, index) => ({
         '@type': 'ListItem',

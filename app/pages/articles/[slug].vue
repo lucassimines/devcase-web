@@ -22,6 +22,7 @@ import type { PostResponse } from '~/types/post'
 
 const { slug } = useRoute().params
 const { $imageUrl, $tr } = useNuxtApp()
+const { t } = useI18n()
 
 const { profile } = useBootstrap()
 
@@ -39,14 +40,31 @@ if (error.value) {
   })
 }
 
+const articlePath = computed(
+  () =>
+    router.resolve({
+      name: 'articles-slug',
+      params: { slug: post.value?.data?.slug || slug }
+    }).path
+)
+
+const articlesIndexPath = computed(() => router.resolve({ name: 'articles' }).path)
+
+const articleTitle = computed(() => (post.value?.data?.name ? $tr(post.value.data.name) : ''))
+
 useSiteSeo({
-  title: () => (post.value?.data?.name ? $tr(post.value.data.name) : undefined),
+  title: () => articleTitle.value,
   description: () => (post.value?.data?.excerpt ? $tr(post.value.data.excerpt) : undefined),
-  path: () =>
-    router.resolve({ name: 'articles-slug', params: { slug: post.value?.data?.slug || slug } })
-      .path,
+  path: () => articlePath.value,
   image: () => $imageUrl(post.value?.data?.image),
   type: 'article',
+  publishedTime: () => post.value?.data?.createdAt,
+  modifiedTime: () => post.value?.data?.updatedAt,
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbHome'), path: '/' },
+    { name: t('articles.label'), path: articlesIndexPath.value },
+    { name: articleTitle.value, path: articlePath.value }
+  ],
   schema: () =>
     post.value?.data
       ? {
@@ -55,10 +73,17 @@ useSiteSeo({
           headline: $tr(post.value.data.name),
           description: post.value.data.excerpt ? $tr(post.value.data.excerpt) : undefined,
           image: $imageUrl(post.value.data.image),
-          url: `${appUrl}${router.resolve({ name: 'articles-slug', params: { slug: post.value.data.slug } }).path}`,
+          url: `${appUrl}${articlePath.value}`,
+          mainEntityOfPage: `${appUrl}${articlePath.value}`,
           datePublished: post.value.data.createdAt,
           dateModified: post.value.data.updatedAt,
+          inLanguage: ['pt-BR', 'en-US'],
           author: {
+            '@type': 'Person',
+            name: profile.value.name,
+            url: appUrl
+          },
+          publisher: {
             '@type': 'Person',
             name: profile.value.name,
             url: appUrl
