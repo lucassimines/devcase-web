@@ -17,7 +17,7 @@ interface SiteSeoOptions {
   schema?: MaybeRefOrGetter<SchemaValue | null | undefined>
 }
 
-const siteName = 'LBS Web - Lucas Simines'
+const siteName = 'LBS Web | Lucas Simines'
 const defaultOgImage = '/images/og-image.png'
 const themeColor = '#0f172a'
 const defaultRobots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -102,6 +102,7 @@ export function useSiteSeo(options: SiteSeoOptions = {}) {
   })
 
   useHead({
+    titleTemplate: `%s - ${siteName}`,
     htmlAttrs: {
       lang: locale
     },
