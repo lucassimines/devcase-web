@@ -6,9 +6,9 @@
       <PostHero :post="post.data" />
 
       <ContainerGrid v-if="$tr(post.data.content)" :ui="{ base: 'pt-12 lg:pt-18 pb-section' }">
-        <div
-          class="prose-base sm:prose-lg article-content max-w-none"
-          v-html="$tr(post.data.content)"
+        <ProseContent
+          :content="$tr(post.data.content)"
+          :ui="{ base: 'article-content max-w-none' }"
         />
       </ContainerGrid>
     </div>

@@ -6,7 +6,7 @@
     >
       <PageTitle :title="$tr(block.title)" />
 
-      <div class="prose-base sm:prose-lg" v-html="$tr(block.text)" />
+      <ProseContent :content="$tr(block.text)" />
     </div>
 
     <figure
