@@ -24,6 +24,18 @@
   "meta": {
     "description": "Full stack developer specializing in Nuxt, Vue, Laravel, and Node.js, building scalable web applications from concept to production."
   },
+  "seo": {
+    "defaultTitle": "{name} - Full Stack Developer",
+    "aboutDescription": "Learn more about {name}, a {role} based in {location}, building modern web applications with Nuxt, Vue, Laravel, and Node.js.",
+    "articlesDescription": "Articles on web development, Nuxt, Vue, and full-stack engineering by {name}.",
+    "projectsDescription": "Explore web development projects and case studies by {name}, featuring Nuxt, Vue, Laravel, Node.js, and full-stack product work.",
+    "articlesFallbackTitle": "Articles",
+    "projectsFallbackTitle": "Web Development Projects & Case Studies",
+    "paginatedTitle": "{title} - Page {page}",
+    "breadcrumbHome": "Home",
+    "errorTitle": "Page not found",
+    "errorDescription": "The page you are looking for could not be found."
+  },
   "projects": {
     "label": "Projects",
     "viewAll": "View Projects",

@@ -14,6 +14,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      meta: [{ name: 'author', content: 'Lucas Simines' }],
       link: [
         { rel: 'icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', href: '/images/avatar.jpg' }
@@ -104,7 +105,7 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'no_prefix',
-    defaultLocale: 'en-US',
+    defaultLocale: 'pt-BR',
     detectBrowserLanguage: false,
     experimental: {
       typedOptionsAndMessages: 'all'

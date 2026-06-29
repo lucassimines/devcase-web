@@ -8,13 +8,14 @@
 import type { PaginatedResponse } from '~/types/api'
 import type { Post } from '~/types/post'
 
-const { data: page, status: pageStatus, error: pageError } = usePageFetch('articles')
+const { data: page, status: pageStatus, error: pageError } = await usePageFetch('articles')
 
 const route = useRoute()
 
 const { profile } = useBootstrap()
 
 const { $tr } = useNuxtApp()
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -24,22 +25,32 @@ const {
 
 const { data: posts, status, error } = await useApi<PaginatedResponse<Post>>('/posts')
 
+const articlesTitle = computed(() =>
+  page.value?.name ? $tr(page.value.name) : t('seo.articlesFallbackTitle')
+)
+
+const articlesDescription = computed(
+  () =>
+    (page.value?.content && typeof page.value.content === 'string' ? page.value.content : null) ||
+    t('seo.articlesDescription', { name: profile.value.name })
+)
+
+const articlesPath = computed(() => router.resolve({ name: 'articles' }).path)
+
 useSiteSeo({
-  title: () => (page.value?.name ? $tr(page.value.name) : 'Articles'),
-  description: () =>
-    page.value?.content && typeof page.value.content === 'string'
-      ? page.value.content
-      : `Articles on web development, Nuxt, Vue, and full-stack engineering by ${profile.value.name}.`,
-  path: route.path,
+  title: () => articlesTitle.value,
+  description: () => articlesDescription.value,
+  path: () => articlesPath.value,
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbHome'), path: '/' },
+    { name: articlesTitle.value, path: articlesPath.value }
+  ],
   schema: () => ({
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: page.value?.name ? $tr(page.value.name) : 'Articles',
-    description:
-      page.value?.content && typeof page.value.content === 'string'
-        ? page.value.content
-        : undefined,
-    url: `${appUrl}${router.resolve({ name: 'articles' }).path}`,
+    name: articlesTitle.value,
+    description: articlesDescription.value,
+    url: `${appUrl}${articlesPath.value}`,
     blogPost:
       posts.value?.data.map((post) => ({
         '@type': 'BlogPosting',

@@ -28,10 +28,11 @@
 
 <script setup lang="ts">
 const error = useError()
+const { t } = useI18n()
 
 useSiteSeo({
-  title: 'Page not found',
-  description: 'The page you are looking for could not be found.',
+  title: () => t('seo.errorTitle'),
+  description: () => t('seo.errorDescription'),
   robots: 'noindex, nofollow'
 })
 </script>
