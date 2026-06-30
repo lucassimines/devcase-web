@@ -47,6 +47,8 @@
   },
   "articles": {
     "label": "Artigos",
+    "latest": "Artigos recentes",
+    "viewAll": "Ver artigos",
     "featured": "Artigo em destaque",
     "readMore": "Ler mais",
     "hackerNews": {

@@ -10,6 +10,8 @@
 
     <HomeProjects />
 
+    <HomeArticles />
+
     <Blocks :blocks="page?.blocks" />
   </div>
 </template>
