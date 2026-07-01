@@ -10,8 +10,6 @@ import type { Post } from '~/types/post'
 
 const { data: page, status: pageStatus, error: pageError } = await usePageFetch('articles')
 
-const route = useRoute()
-
 const { profile } = useBootstrap()
 
 const { $tr } = useNuxtApp()

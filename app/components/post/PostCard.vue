@@ -1,9 +1,10 @@
 <template>
   <NuxtLink
     :to="{ name: 'articles-slug', params: { slug: post.slug } }"
-    :class="cn('group @container block', featured ? 'space-y-6 sm:space-y-8' : 'space-y-4')"
+    :class="cn('group @container', { 'block space-y-4': !horizontal })"
   >
     <div
+      v-if="!horizontal"
       :class="
         cn(
           'relative aspect-5/3 overflow-hidden rounded-2xl border border-white/10 bg-black transition-colors group-hover:border-white/20'
@@ -35,19 +36,10 @@
           </div>
         </div>
 
-        <h3
-          :class="
-            cn('font-medium', featured ? 'text-3xl @2xl:text-5xl' : 'text-2.5xl @2xl:text-4xl')
-          "
-          v-text="$tr(post.name)"
-        />
+        <h3 class="text-2xl font-medium @md:text-3xl @2xl:text-4xl" v-text="$tr(post.name)" />
       </div>
 
-      <p
-        v-if="$tr(post.excerpt)"
-        :class="cn('text-elevated', featured ? 'text-lg sm:text-xl' : 'text-base')"
-        v-text="$tr(post.excerpt)"
-      />
+      <p v-if="$tr(post.excerpt)" class="text-elevated @md:text-lg" v-text="$tr(post.excerpt)" />
     </div>
   </NuxtLink>
 </template>
@@ -57,6 +49,6 @@ import type { Post } from '~/types/post'
 
 defineProps<{
   post: Post
-  featured?: boolean
+  horizontal?: boolean
 }>()
 </script>
