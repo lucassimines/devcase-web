@@ -14,26 +14,27 @@
       />
     </div>
 
-    <div class="grid gap-x-12 gap-y-16 md:grid-cols-2">
-      <PostCard :post="firstPost" />
+    <div>
+      <div class="grid gap-x-12 gap-y-16 md:grid-cols-2">
+        <PostCard :post="firstPost" />
 
-      <div class="flex flex-col gap-y-16">
-        <PostCard
-          v-for="(post, key) in otherPosts"
-          :key="post.id"
-          :class="{ 'md:col-span-2 lg:col-span-1': key === 0 }"
-          :post="post"
-          horizontal
-        />
+        <div class="flex flex-col gap-y-16">
+          <PostCard
+            v-for="(post, key) in otherPosts"
+            :key="post.id"
+            :class="{ 'md:col-span-2 lg:col-span-1': key === 0 }"
+            :post="post"
+            horizontal
+          />
+        </div>
       </div>
 
-      <div class="flex">
+      <div class="flex max-md:mt-10 md:hidden">
         <Button
           :to="{ name: 'articles' }"
-          :ui="{ base: 'md:hidden' }"
           :text="$t('articles.viewAll')"
           color="white"
-          size="md"
+          :ui="{ base: 'w-full' }"
         />
       </div>
     </div>
