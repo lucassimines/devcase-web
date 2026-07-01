@@ -6,7 +6,12 @@
     <div class="flex flex-wrap items-end justify-between gap-6">
       <PageTitle :title="$t('articles.latest')" size="sm" />
 
-      <Button :to="{ name: 'articles' }" :text="$t('articles.viewAll')" size="md" />
+      <Button
+        :to="{ name: 'articles' }"
+        :ui="{ base: 'max-md:hidden' }"
+        :text="$t('articles.viewAll')"
+        size="md"
+      />
     </div>
 
     <div class="grid gap-x-12 gap-y-16 md:grid-cols-2">
@@ -19,6 +24,16 @@
           :class="{ 'md:col-span-2 lg:col-span-1': key === 0 }"
           :post="post"
           horizontal
+        />
+      </div>
+
+      <div class="flex">
+        <Button
+          :to="{ name: 'articles' }"
+          :ui="{ base: 'md:hidden' }"
+          :text="$t('articles.viewAll')"
+          color="white"
+          size="md"
         />
       </div>
     </div>

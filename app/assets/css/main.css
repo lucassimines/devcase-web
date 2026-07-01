@@ -63,7 +63,13 @@ button {
 .prose-lg,
 .prose-xl,
 .prose-2xl {
-  @apply max-w-[80ch];
+  @apply max-w-[80ch] min-w-0;
+  pre {
+    @apply max-w-full;
+  }
+  :where(code):not(:where(pre *)) {
+    @apply wrap-break-word;
+  }
   a {
     @apply text-emerald-400 underline underline-offset-2 hover:text-emerald-500;
   }
@@ -103,10 +109,6 @@ button {
 
 @utility py-section {
   @apply py-14 lg:py-26;
-}
-
-@utility article-content {
-  @apply col-span-full md:col-span-6 md:col-start-2 lg:col-span-8 lg:col-start-3;
 }
 
 @keyframes move-dots {

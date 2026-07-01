@@ -2,16 +2,13 @@
   <Loader v-if="status === 'pending'" />
 
   <article v-else-if="post?.data" class="divide-y divide-white/10">
-    <div>
+    <Container :ui="{ base: 'pb-section pt-12', inner: 'flex flex-col gap-12' }">
       <PostHero :post="post.data" />
 
-      <ContainerGrid v-if="$tr(post.data.content)" :ui="{ base: 'pt-12 lg:pt-18 pb-section' }">
-        <ProseContent
-          :content="$tr(post.data.content)"
-          :ui="{ base: 'article-content max-w-none' }"
-        />
-      </ContainerGrid>
-    </div>
+      <div class="mx-auto w-full max-w-170 min-w-0">
+        <ProseContent :content="$tr(post.data.content)" />
+      </div>
+    </Container>
 
     <ContentFooter v-if="post.meta.next" section="articles" :next="post.meta.next" />
   </article>

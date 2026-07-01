@@ -1,8 +1,8 @@
 <template>
-  <ContainerGrid :ui="{ inner: 'pt-12 gap-8 sm:gap-10 lg:gap-12' }">
+  <div class="mx-auto flex w-full max-w-210 min-w-0 flex-col gap-8">
     <figure
       v-if="$tr(post.image)"
-      class="col-span-full overflow-hidden rounded-2xl border border-white/10 lg:col-span-10 lg:col-start-2"
+      class="w-full overflow-hidden rounded-2xl border border-white/10"
     >
       <div class="aspect-5/3">
         <NuxtImg
@@ -14,7 +14,7 @@
       </div>
     </figure>
 
-    <div class="article-content space-y-6">
+    <div class="w-full max-w-170 space-y-6">
       <p v-if="post.createdAt" class="text-default text-sm">
         <NuxtTime :datetime="post.createdAt" year="numeric" month="long" day="numeric" />
       </p>
@@ -28,7 +28,7 @@
         <Pill v-for="category in post.categories" :key="category.id" :label="$tr(category.name)" />
       </div>
     </div>
-  </ContainerGrid>
+  </div>
 </template>
 
 <script setup lang="ts">
