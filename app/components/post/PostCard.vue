@@ -36,7 +36,10 @@
           </div>
         </div>
 
-        <h3 class="text-2xl font-medium @md:text-3xl @2xl:text-4xl" v-text="$tr(post.name)" />
+        <h3
+          class="text-2xl font-medium transition-colors group-hover:text-emerald-400 @md:text-3xl @2xl:text-4xl"
+          v-text="$tr(post.name)"
+        />
       </div>
 
       <p v-if="$tr(post.excerpt)" class="text-elevated @md:text-lg" v-text="$tr(post.excerpt)" />
