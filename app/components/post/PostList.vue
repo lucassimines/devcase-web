@@ -67,7 +67,10 @@ const masonryColumns = computed(() => {
 
   props.posts.data.forEach((post, i) => {
     const item = { post, horizontal: i > 0, index: i }
-    ;(i % 2 === 0 ? left : right).push(item)
+
+    const column = i === 0 ? 'left' : i <= 2 ? 'right' : (i - 3) % 2 === 0 ? 'left' : 'right'
+
+    ;(column === 'left' ? left : right).push(item)
   })
 
   return { left, right }
