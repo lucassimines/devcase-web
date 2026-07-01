@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto flex w-full max-w-210 min-w-0 flex-col gap-8">
+  <div class="mx-auto flex w-full max-w-210 min-w-0 flex-col items-center gap-8">
     <figure
       v-if="$tr(post.image)"
       class="w-full overflow-hidden rounded-2xl border border-white/10"
