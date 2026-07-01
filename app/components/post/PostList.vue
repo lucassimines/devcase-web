@@ -8,7 +8,7 @@
           v-if="posts.data.length"
           class="flex flex-col gap-y-18 md:grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16"
         >
-          <div class="contents md:flex md:flex-col md:gap-18 xl:gap-y-26">
+          <div class="contents md:flex md:flex-col md:gap-18">
             <PostCard
               v-for="{ post, horizontal, index } in masonryColumns.left"
               :key="post.id"
@@ -18,7 +18,7 @@
             />
           </div>
 
-          <div class="contents md:flex md:flex-col md:gap-18 xl:gap-y-26">
+          <div class="contents md:flex md:flex-col md:gap-18">
             <PostCard
               v-for="{ post, horizontal, index } in masonryColumns.right"
               :key="post.id"
