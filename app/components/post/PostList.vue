@@ -6,27 +6,14 @@
 
         <div
           v-if="posts.data.length"
-          class="flex flex-col gap-y-18 md:grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16"
+          class="flex flex-col gap-y-18 md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24 lg:gap-x-16"
         >
-          <div class="contents md:flex md:flex-col md:gap-18">
-            <PostCard
-              v-for="{ post, horizontal, index } in masonryColumns.left"
-              :key="post.id"
-              :post="post"
-              :horizontal="horizontal"
-              :style="{ order: index }"
-            />
-          </div>
-
-          <div class="contents md:flex md:flex-col md:gap-18">
-            <PostCard
-              v-for="{ post, horizontal, index } in masonryColumns.right"
-              :key="post.id"
-              :post="post"
-              :horizontal="horizontal"
-              :style="{ order: index }"
-            />
-          </div>
+          <PostCard
+            v-for="(post, index) in posts.data"
+            :key="post.id"
+            :post="post"
+            :style="{ order: index }"
+          />
         </div>
 
         <Pagination
@@ -50,31 +37,10 @@ import type { PaginatedResponse } from '~/types/api'
 import type { Page } from '~/types/page'
 import type { Post } from '~/types/post'
 
-const props = defineProps<{
+defineProps<{
   page: Page
   posts: PaginatedResponse<Post>
 }>()
-
-interface MasonryColumn {
-  post: Post
-  horizontal: boolean
-  index: number
-}
-
-const masonryColumns = computed(() => {
-  const left: MasonryColumn[] = []
-  const right: MasonryColumn[] = []
-
-  props.posts.data.forEach((post, i) => {
-    const item = { post, horizontal: i > 0, index: i }
-
-    const column = i === 0 ? 'left' : i <= 2 ? 'right' : (i - 3) % 2 === 0 ? 'left' : 'right'
-
-    ;(column === 'left' ? left : right).push(item)
-  })
-
-  return { left, right }
-})
 
 const route = useRoute()
 
