@@ -21,10 +21,9 @@
 <script setup lang="ts">
 import type { LocaleCode } from '~/types/locale'
 
-const { locales } = useAppConfig()
-const { locale, setAppLocale } = useLocale()
+const { locale, setLocale, locales } = useI18n()
 
 async function handleLocaleChange(code: LocaleCode) {
-  await setAppLocale(code)
+  await setLocale(code)
 }
 </script>
