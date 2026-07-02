@@ -48,23 +48,23 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/**': {
-      isr: process.env.NODE_ENV === 'production' ? 300 : false
-    },
-    '/sitemap.xml': {
       isr: false
     },
-    '/sitemap/*': {
-      isr: false
-    },
-    '/robots.txt': {
-      isr: false
-    },
-    '/articles': {
-      isr: false
-    },
-    '/articles/*': {
-      isr: false
-    },
+    // '/sitemap.xml': {
+    //   isr: false
+    // },
+    // '/sitemap/*': {
+    //   isr: false
+    // },
+    // '/robots.txt': {
+    //   isr: false
+    // },
+    // '/articles': {
+    //   isr: false
+    // },
+    // '/articles/*': {
+    //   isr: false
+    // },
     '/projects/project/**': {
       redirect: {
         to: '/projects/**',
