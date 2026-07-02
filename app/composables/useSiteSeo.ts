@@ -26,7 +26,7 @@ export function useSiteSeo(options: SiteSeoOptions = {}) {
   const route = useRoute()
   const config = useRuntimeConfig()
   const requestUrl = useRequestURL()
-  const { locale, locales, t } = useI18n()
+  const { locale, locales, t } = getAppI18n()
   const { profile } = useBootstrap()
 
   const baseUrl = (config.public.appUrl || requestUrl.origin).replace(/\/$/, '')
