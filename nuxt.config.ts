@@ -59,6 +59,9 @@ export default defineNuxtConfig({
     '/robots.txt': {
       isr: false
     },
+    '/articles': {
+      isr: false
+    },
     '/articles/*': {
       isr: false
     },
