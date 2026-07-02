@@ -12,19 +12,14 @@
       "
       :aria-label="item.name"
       :aria-current="locale === item.code ? 'true' : undefined"
-      @click="handleLocaleChange(item.code)"
+      @click="setLocale(item.code)"
       v-text="item.abbr"
     />
   </nav>
 </template>
 
 <script setup lang="ts">
-import type { LocaleCode } from '~/types/locale'
+const { locale, setLocale } = useI18n()
 
 const { locales } = useAppConfig()
-const { locale, setAppLocale } = useLocale()
-
-async function handleLocaleChange(code: LocaleCode) {
-  await setAppLocale(code)
-}
 </script>
