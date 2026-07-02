@@ -8,12 +8,7 @@
           v-if="posts.data.length"
           class="flex flex-col gap-y-18 md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24 lg:gap-x-16"
         >
-          <PostCard
-            v-for="(post, index) in posts.data"
-            :key="post.id"
-            :post="post"
-            :style="{ order: index }"
-          />
+          <PostCard v-for="post in posts.data" :key="post.id" :post="post" />
         </div>
 
         <Pagination
